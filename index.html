@@ -12,7 +12,7 @@
 <body>
   <div class="page">
     <header class="topbar">
-      <div class="brand">Ritesh Kumar Singh</div>
+      <div class="brand">Ritesh Kumar <span>Singh</span></div>
       <nav class="nav">
         <a href="index.html" class="active">Home</a>
         <a href="publications.html">Publications</a>
@@ -22,26 +22,28 @@
 
     <section class="hero">
       <div class="hero-copy">
-        <h1>Dr. Ritesh Kumar Singh</h1>
+        <h1>About Me</h1>
         <div class="subtitle">Postdoctoral Researcher at IDLab, <span class="linkish">imec University of Antwerp</span></div>
         <p>
           I work on sustainable wireless systems, TinyML, biotic communication, and next-generation IoT infrastructure.
-          This space will gradually host my research story, latest updates, blog posts, and useful links.
+          My work brings together communication, sensing, intelligence, and sustainability for future adaptive systems.
         </p>
+
         <div class="button-row">
-          <a class="btn-primary" href="blogs/index.html">Read More
+          <button class="btn-primary" type="button" onclick="toggleExperience()">
+            Read More
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </a>
+          </button>
         </div>
       </div>
 
       <div class="hero-side">
         <img class="profile-photo" src="images/profile.png" alt="Profile photo">
         <div class="social-row">
-          <a class="social-icon" href="https://www.linkedin.com/in/singhriteshk/" aria-label="LinkedIn">
+          <a class="social-icon" href="https://www.linkedin.com/in/singhriteshk/" aria-label="LinkedIn" target="_blank">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.96 1.96 0 0 0 5.2 3a1.97 1.97 0 0 0 0 3.94c1.08 0 1.96-.88 1.96-2Zm12.28 8c0-3.03-1.62-4.44-3.78-4.44-1.74 0-2.52.96-2.96 1.63V8.5H9.33c.04 1.08 0 11.5 0 11.5h3.37v-6.42c0-.34.03-.69.13-.93.27-.69.87-1.4 1.88-1.4 1.33 0 1.86 1.01 1.86 2.5V20H20v-7.06Z"/>
             </svg>
@@ -52,7 +54,7 @@
               <path d="M4 8L12 13L20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a class="social-icon" href="https://scholar.google.com/citations?user=uZy6xQoAAAAJ&hl=en" aria-label="Google Scholar">
+          <a class="social-icon" href="https://scholar.google.com/citations?user=uZy6xQoAAAAJ&hl=en" aria-label="Google Scholar" target="_blank">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
               <path d="M3 5H21V19H3V5Z" stroke="currentColor" stroke-width="2"/>
               <path d="M7 9H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -69,6 +71,52 @@
             </svg>
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- hidden expandable experience section -->
+    <section id="experienceSection" class="experience-section hidden">
+      <div class="experience-header">
+        <h2>Industry Experience</h2>
+        <p>A short career journey across academia and industry.</p>
+      </div>
+
+      <div class="experience-grid">
+        <article class="experience-card">
+          <img src="images/uantwerp.png" alt="University of Antwerp logo" class="company-logo">
+          <div>
+            <h3>University of Antwerp / IDLab</h3>
+            <p class="exp-role">Postdoctoral Researcher</p>
+            <p>Leading research in sustainable IoT, TinyML, wireless systems, and biotic communication.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <img src="images/imec.png" alt="imec logo" class="company-logo">
+          <div>
+            <h3>imec</h3>
+            <p class="exp-role">Research and Innovation</p>
+            <p>Working on next-generation communication systems, energy-aware computing, and intelligent sensing platforms.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <img src="images/lg.png" alt="LG logo" class="company-logo">
+          <div>
+            <h3>LG</h3>
+            <p class="exp-role">Earlier Role</p>
+            <p>Add your LG role, responsibilities, and key achievements here.</p>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <img src="images/tcs.png" alt="TCS logo" class="company-logo">
+          <div>
+            <h3>TCS</h3>
+            <p class="exp-role">Earlier Role</p>
+            <p>Add your TCS role, responsibilities, and major contributions here.</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -190,6 +238,20 @@
         </article>
       </section>
     </main>
+
+    <footer class="site-footer">
+      © 2026, Ritesh Kumar <strong>Singh</strong>
+    </footer>
   </div>
+
+  <script>
+    function toggleExperience() {
+      const section = document.getElementById('experienceSection');
+      section.classList.toggle('hidden');
+      if (!section.classList.contains('hidden')) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  </script>
 </body>
 </html>
