@@ -1,14 +1,510 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Ritesh Singh</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Ritesh Kumar Singh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef1f5;
+      --surface: rgba(255,255,255,0.78);
+      --surface-strong: #ffffff;
+      --border: #d8dee7;
+      --text: #111827;
+      --muted: #495566;
+      --primary: #1f5ea9;
+      --primary-dark: #184b86;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(255,255,255,0) 30%),
+        linear-gradient(180deg, #f4f6f9 0%, #edf1f6 100%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1280px;
+      margin: 36px auto;
+      background: rgba(255,255,255,0.74);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(216, 222, 231, 0.8);
+      border-radius: 0;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 62px;
+      border-bottom: 1px solid rgba(216, 222, 231, 0.9);
+      background: rgba(255,255,255,0.72);
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 42px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .nav a:hover,
+    .nav a.active { color: var(--primary); }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.6fr 0.9fr;
+      gap: 40px;
+      padding: 54px 62px 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.75), rgba(255,255,255,0) 25%),
+        linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0.18));
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -4%;
+      right: -4%;
+      border-radius: 50%;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      bottom: -16px;
+      height: 220px;
+      border: 2px solid rgba(255,255,255,0.72);
+      transform: rotate(-4deg);
+    }
+
+    .hero::after {
+      bottom: 26px;
+      height: 160px;
+      border: 2px solid rgba(255,255,255,0.58);
+      transform: rotate(2deg);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      padding-top: 10px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(46px, 5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .hero .subtitle {
+      font-size: 18px;
+      color: #273243;
+      margin-bottom: 28px;
+    }
+
+    .hero .subtitle .linkish { color: var(--primary); }
+
+    .hero p {
+      max-width: 860px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #1f2937;
+      margin: 0 0 30px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 52px;
+      border-radius: 12px;
+      padding: 0 22px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(180deg, #2369b9, #1d5aa0);
+      box-shadow: 0 8px 18px rgba(31, 94, 169, 0.25);
+    }
+
+    .btn-primary:hover { background: linear-gradient(180deg, #225fa7, #184b86); }
+
+    .hero-side {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 6px;
+    }
+
+    .profile-photo {
+      width: min(100%, 314px);
+      aspect-ratio: 1.22 / 1;
+      border-radius: 18px;
+      border: 1px solid rgba(216, 222, 231, 0.85);
+      box-shadow: 0 16px 32px rgba(15,23,42,0.10);
+      object-fit: cover;
+      background: linear-gradient(135deg, #cbd6e3, #eef2f7);
+    }
+
+    .social-row {
+      display: flex;
+      gap: 14px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid rgba(216, 222, 231, 0.95);
+      background: linear-gradient(180deg, #ffffff, #f4f7fb);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.06);
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 18px 62px 26px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(216, 222, 231, 0.95);
+      border-radius: 16px;
+      padding: 18px 20px;
+      min-height: 116px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 22px rgba(15,23,42,0.04);
+    }
+
+    .feature-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      color: var(--primary);
+      flex: 0 0 auto;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 10px 62px 56px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      letter-spacing: -0.03em;
+      margin: 0 0 22px;
+    }
+
+    .activities {
+      padding-right: 18px;
+      border-right: 1px solid rgba(216, 222, 231, 0.9);
+    }
+
+    .activity-item,
+    .blog-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      margin-bottom: 22px;
+      align-items: start;
+    }
+
+    .activity-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      border: 1px solid rgba(216, 222, 231, 0.9);
+      background: linear-gradient(180deg, #ffffff, #f4f7fb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+
+    .activity-text {
+      font-size: 17px;
+      line-height: 1.55;
+      color: #1f2937;
+    }
+
+    .activity-text strong { font-size: 18px; }
+
+    .updates-btn {
+      margin-top: 18px;
+    }
+
+    .blog-item {
+      grid-template-columns: 188px 1fr;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .blog-thumb {
+      width: 100%;
+      height: 122px;
+      border-radius: 14px;
+      border: 1px solid rgba(216, 222, 231, 0.9);
+      object-fit: cover;
+      background: linear-gradient(135deg, #76a0d1, #d8e5f5);
+    }
+
+    .blog-meta {
+      color: #5b6575;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .blog-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .blog-desc {
+      margin: 0 0 10px;
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .read-link {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .read-link:hover { color: var(--primary-dark); }
+
+    @media (max-width: 1150px) {
+      .hero,
+      .cards-row,
+      .main-grid,
+      .topbar { padding-left: 28px; padding-right: 28px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-side { align-items: flex-start; }
+      .social-row { justify-content: flex-start; }
+      .cards-row { grid-template-columns: repeat(2, 1fr); }
+      .main-grid { grid-template-columns: 1fr; }
+      .activities { border-right: 0; padding-right: 0; }
+    }
+
+    @media (max-width: 760px) {
+      .page { margin: 0; border-radius: 0; }
+      .topbar { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .nav { gap: 20px; flex-wrap: wrap; }
+      .hero h1 { font-size: 40px; }
+      .cards-row { grid-template-columns: 1fr; }
+      .blog-item { grid-template-columns: 1fr; }
+      .button-row { flex-wrap: wrap; }
+    }
+  </style>
 </head>
-
 <body>
-<h1>Dr. Ritesh Kumar Singh</h1>
-<p>Postdoctoral Researcher – IDLab, University of Antwerp</p>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">Dr. Ritesh Kumar Singh</div>
+      <nav class="nav">
+        <a href="#" class="active">Home</a>
+        <a href="#">Publications</a>
+        <a href="#">Projects</a>
+      </nav>
+    </header>
 
-<p>Welcome to my personal academic website.</p>
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Dr. Ritesh Kumar Singh</h1>
+        <div class="subtitle">Postdoctoral Researcher at IDLab, <span class="linkish">imec University of Antwerp</span></div>
+        <p>
+          I work on sustainable wireless systems, TinyML, biotic communication, and next-generation IoT infrastructure.
+          This space will gradually host my research story, latest updates, blog posts, and useful links.
+        </p>
+        <div class="button-row">
+          <a class="btn-primary" href="#about">Read More
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
 
+      <div class="hero-side">
+        <img class="profile-photo" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Profile photo placeholder">
+        <div class="social-row">
+          <a class="social-icon" href="#" aria-label="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.96 1.96 0 0 0 5.2 3a1.97 1.97 0 0 0 0 3.94c1.08 0 1.96-.88 1.96-2Zm12.28 8c0-3.03-1.62-4.44-3.78-4.44-1.74 0-2.52.96-2.96 1.63V8.5H9.33c.04 1.08 0 11.5 0 11.5h3.37v-6.42c0-.34.03-.69.13-.93.27-.69.87-1.4 1.88-1.4 1.33 0 1.86 1.01 1.86 2.5V20H20v-7.06Z"/></svg>
+          </a>
+          <a class="social-icon" href="#" aria-label="Email">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6H20V18H4V6Z" stroke="currentColor" stroke-width="2"/><path d="M4 8L12 13L20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="social-icon" href="#" aria-label="Google Scholar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 5H21V19H3V5Z" stroke="currentColor" stroke-width="2"/><path d="M7 9H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 13H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 17H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+          <a class="social-icon" href="#" aria-label="Google">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 12.23c0-.72-.06-1.25-.2-1.8H12v3.38h5.64c-.11.84-.7 2.1-2 2.95l-.02.11 2.91 2.25.2.02c1.84-1.7 2.87-4.19 2.87-6.91Z" fill="#4285F4"/><path d="M12 22c2.76 0 5.07-.91 6.76-2.47l-3.22-2.49c-.86.6-2.02 1.02-3.54 1.02-2.7 0-4.99-1.78-5.81-4.25l-.1.01-3.03 2.34-.03.09A10 10 0 0 0 12 22Z" fill="#34A853"/><path d="M6.19 13.81A5.98 5.98 0 0 1 5.86 12c0-.63.11-1.24.3-1.81l-.01-.12-3.07-2.38-.1.05A10 10 0 0 0 2 12c0 1.61.38 3.13 1.05 4.47l3.14-2.66Z" fill="#FBBC05"/><path d="M12 5.94c1.92 0 3.21.83 3.95 1.52l2.88-2.81C17.06 3.02 14.76 2 12 2 8.09 2 4.72 4.24 3.07 7.53l3.18 2.46c.84-2.47 3.12-4.05 5.75-4.05Z" fill="#EA4335"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards-row">
+      <article class="feature-card">
+        <div class="feature-title">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M2 9L12 4L22 9L12 14L2 9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 11.5V16L12 19L18 16V11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Teaching
+        </div>
+        <p>Courses and materials for students</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-title">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M7 3H17V21H7V3Z" stroke="currentColor" stroke-width="2"/><path d="M10 7H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 11H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 15H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          CV
+        </div>
+        <p>View and download my CV</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-title">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M6 20C6 16.6863 8.68629 14 12 14C15.3137 14 18 16.6863 18 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Awards
+        </div>
+        <p>Honors and recognitions received</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-title">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M13.5 3L11 8L6 10.5L11 13L13.5 18L16 13L21 10.5L16 8L13.5 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="6" cy="18" r="2" stroke="currentColor" stroke-width="2"/></svg>
+          Services
+        </div>
+        <p>Consulting, committees, and speaking engagements</p>
+      </article>
+    </section>
+
+    <main class="main-grid">
+      <section class="activities">
+        <h2 class="section-title">Latest Activities</h2>
+
+        <div class="activity-item">
+          <div class="activity-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6H20V18H4V6Z" stroke="currentColor" stroke-width="2"/><path d="M7 10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="activity-text"><strong>April 2024</strong> – New research paper on 5G edge networks accepted in IEEE Infocom</div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M2 9L12 4L22 9L12 14L2 9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 11.5V16L12 19L18 16V11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="activity-text"><strong>March 2024</strong> – Presented at ACM MobiCom 2024</div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7H20V18H4V7Z" stroke="currentColor" stroke-width="2"/><path d="M8 4V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16 4V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="activity-text"><strong>February 2024</strong> – Appointed as Associate Professor at University of Antwerp</div>
+        </div>
+
+        <div class="updates-btn">
+          <a class="btn-primary" href="#">View All Updates
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Latest Blog Posts</h2>
+
+        <article class="blog-item">
+          <img class="blog-thumb" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Blog thumbnail placeholder">
+          <div>
+            <div class="blog-title">Modern Advances in Wireless Networking</div>
+            <div class="blog-meta">April 15, 2024</div>
+            <p class="blog-desc">A look at the latest trends and innovations in wireless networking technologies that are shaping the future.</p>
+            <a class="read-link" href="#">Read More</a>
+          </div>
+        </article>
+
+        <article class="blog-item">
+          <img class="blog-thumb" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Blog thumbnail placeholder">
+          <div>
+            <div class="blog-title">A Deep Dive into Edge Computing</div>
+            <div class="blog-meta">March 21, 2024</div>
+            <p class="blog-desc">Understanding the role and benefits of edge computing in modern IoT ecosystems.</p>
+            <a class="read-link" href="#">Read More</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
