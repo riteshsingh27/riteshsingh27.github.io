@@ -582,8 +582,8 @@ a {
   margin-top: 26px;
 }
 
-.pub-year-header h2 {
-  margin: 0 0 12px;
+.pub-year {
+  margin: 0 0 14px;
   font-size: 44px;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -592,7 +592,7 @@ a {
 .back-to-top {
   display: inline-block;
   margin-bottom: 22px;
-  color: #111;
+  color: #111827;
   font-size: 18px;
   text-decoration: underline;
 }
@@ -604,14 +604,14 @@ a {
 
 .pub-card {
   background: #ffffff;
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
-  padding: 26px 24px 22px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+  padding: 24px 24px 20px;
 }
 
 .pub-card-title {
   margin: 0 0 10px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   line-height: 1.35;
   color: #111;
@@ -620,23 +620,20 @@ a {
 .pub-authors {
   margin: 0 0 8px;
   font-size: 18px;
-  color: #111;
   line-height: 1.5;
+  color: #111;
 }
 
 .pub-venue {
   margin: 0;
   font-size: 18px;
-  color: #222;
-  font-style: italic;
   line-height: 1.5;
+  font-style: italic;
+  color: #5f6368;
 }
 
 .pub-links {
   margin-top: 14px;
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
 }
 
 .pub-links a {
@@ -661,12 +658,12 @@ a {
     font-size: 40px;
   }
 
-  .pub-year-header h2 {
+  .pub-year {
     font-size: 34px;
   }
 
   .pub-card-title {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .pub-authors,
