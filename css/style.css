@@ -678,3 +678,11 @@ a {
     font-size: 16px;
   }
 }
+.section-main-title {
+  margin: 0 0 18px;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #1aa3a3;
+}
