@@ -3,44 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Dr. Ritesh Kumar Singh</title>
+  <title>Projects | Ritesh Kumar Singh</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-  <div class="page">
-    <header class="topbar">
-      <div class="brand">Dr. Ritesh Kumar Singh</div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="publications.html">Publications</a>
-        <a href="projects.html" class="active">Projects</a>
-      </nav>
-    </header>
+<div class="page">
 
-    <main class="content-page">
-      <h1 class="page-title">Projects</h1>
-      <p class="lead">This page can contain EU projects, ongoing proposals, biologger work, TinyML research directions, and other major initiatives.</p>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">Dr Ritesh Kumar <span>Singh</span></div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html" class="active">Projects</a>
+    </nav>
+  </header>
 
-      <div class="card-list">
-        <div class="simple-card">
-          <h3>Current Projects</h3>
-          <p>Add active projects here.</p>
-        </div>
+  <!-- PAGE -->
+  <main class="projects-page">
 
-        <div class="simple-card">
-          <h3>Past Projects</h3>
-          <p>Add completed projects here.</p>
-        </div>
+    <h1 class="page-title">Projects</h1>
 
-        <div class="simple-card">
-          <h3>Research Themes</h3>
-          <p>Add themes such as biotic communication, TinyML, sustainable IoT, 6G, or ZED security.</p>
-        </div>
+    <div class="projects-layout">
+
+      <!-- LEFT SIDE IMAGES -->
+      <div class="projects-visual">
+
+        <img src="images/project1.png" class="project-side-img">
+        <img src="images/project2.png" class="project-side-img">
+        <img src="images/project3.png" class="project-side-img">
+
       </div>
-    </main>
-  </div>
+
+      <!-- RIGHT SIDE CARDS -->
+      <div class="project-list">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-name">CORRELATE</span>
+            <span class="project-year">2025–2027</span>
+          </div>
+
+          <h3 class="project-title">
+            A Closed-Loop Platform For Energy-Aware Industrial Internet of Things
+          </h3>
+
+          <p class="project-desc">
+            Through collaboration and innovation in the industry, CORRELATE aims to
+            revolutionize industrial IoT systems to be more efficient and sustainable.
+            It focuses on context-aware monitoring, adaptive control, and intelligent automation.
+          </p>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-name">ANT</span>
+            <span class="project-year">2025–2029</span>
+          </div>
+
+          <h3 class="project-title">
+            Embedded AI Systems and Applications
+          </h3>
+
+          <p class="project-desc">
+            The MSCA Doctoral Network ANT aims to train researchers by addressing
+            key challenges in embedded AI systems and accelerating innovation
+            through interdisciplinary collaboration and training.
+          </p>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-name">AMBIENT-6G</span>
+            <span class="project-year">2025–2027</span>
+          </div>
+
+          <h3 class="project-title">
+            Towards standardized 6G connectivity for ambient energy IoT devices
+          </h3>
+
+          <p class="project-desc">
+            This project explores energy-neutral IoT devices using ambient energy
+            harvesting and wireless power transfer, enabling long-lifetime,
+            sustainable and battery-free deployments.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
 </body>
 </html>
