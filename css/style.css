@@ -680,3 +680,93 @@ a {
   padding-bottom: 10px;
   border-bottom: 2px solid #1aa3a3;
 }
+
+/* ===== PROJECT PAGE ===== */
+
+.projects-page {
+  padding: 44px 62px 56px;
+}
+
+.projects-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* LEFT SIDE IMAGES */
+.projects-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-side-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+}
+
+/* RIGHT SIDE CARDS */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 20px 22px;
+}
+
+/* TOP ROW */
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.project-name {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 16px;
+}
+
+.project-year {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* TITLE */
+.project-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+/* DESCRIPTION */
+.project-desc {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .projects-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-visual {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .project-side-img {
+    min-width: 220px;
+  }
+}
