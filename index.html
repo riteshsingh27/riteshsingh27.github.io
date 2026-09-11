@@ -1,251 +1,862 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Dr. Ritesh Kumar Singh</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
+
 <body>
+
   <div class="page">
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
     <header class="topbar">
-      <div class="brand">Dr. Ritesh Kumar <span>Singh</span></div>
+
+      <div class="brand">
+        Dr. Ritesh Kumar <span>Singh</span>
+      </div>
+
+
       <nav class="nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="publications.html">Publications</a>
-        <a href="projects.html">Projects</a>
-        <a href="activities.html">Academic Activities</a>
+
+        <a href="index.html" class="active">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Me
+        </a>
+
+        <a href="publications.html">
+          Publications
+        </a>
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="activities.html">
+          Academic Activities
+        </a>
+
+
+        <!-- Search icon -->
+
         <button
           type="button"
           aria-label="Search"
           title="Search"
           onclick="toggleSiteSearch()"
-          style="border:0;background:transparent;color:inherit;padding:0;display:inline-flex;align-items:center;cursor:pointer;"
+          style="
+            border: 0;
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+          "
         >
-          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-            <path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+          <svg
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <path
+              d="M16.5 16.5L21 21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
           </svg>
+
         </button>
+
       </nav>
+
     </header>
 
-    <div id="siteSearch" style="display:none;padding:14px 62px;border-bottom:1px solid rgba(216,222,231,0.9);background:rgba(255,255,255,0.72);">
-      <form onsubmit="runSiteSearch(event)" style="display:flex;gap:10px;align-items:center;">
+
+
+    <!-- =========================================================
+         SEARCH
+    ========================================================== -->
+
+    <div
+      id="siteSearch"
+      style="
+        display: none;
+        padding: 14px 62px;
+        border-bottom: 1px solid rgba(216,222,231,0.9);
+        background: rgba(255,255,255,0.72);
+      "
+    >
+
+      <form
+        onsubmit="runSiteSearch(event)"
+        style="
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        "
+      >
+
         <input
           id="siteSearchInput"
           type="search"
           placeholder="Search this website..."
           aria-label="Search this website"
-          style="flex:1;max-width:520px;padding:10px 12px;border:1px solid #d8dee7;border-radius:10px;font:inherit;color:inherit;background:#fff;"
+          style="
+            flex: 1;
+            max-width: 520px;
+            padding: 10px 12px;
+            border: 1px solid #d8dee7;
+            border-radius: 10px;
+            font: inherit;
+            color: inherit;
+            background: #fff;
+          "
         >
+
+
         <button
           type="submit"
-          style="padding:10px 16px;border:0;border-radius:10px;background:#1f5ea9;color:#fff;font:inherit;font-weight:600;cursor:pointer;"
+          style="
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 10px;
+            background: #1f5ea9;
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+          "
         >
           Search
         </button>
+
       </form>
+
     </div>
 
+
+
+    <!-- =========================================================
+         ABOUT / HERO
+    ========================================================== -->
+
     <section class="hero">
+
+
+      <!-- LEFT SIDE -->
+
       <div class="hero-copy">
-        <h1 class="page-title">About Me</h1>
-        <div class="subtitle">Postdoctoral Researcher at IDLab, <span class="linkish">imec University of Antwerp</span></div>
+
+        <h1 class="page-title">
+          About Me
+        </h1>
+
+
+        <div class="subtitle">
+
+          Postdoctoral Researcher at IDLab,
+
+          <span class="linkish">
+            imec University of Antwerp
+          </span>
+
+        </div>
+
+
         <p>
-          I work on sustainable wireless systems, TinyML, biotic communication, and next-generation IoT infrastructure.
-          My work brings together communication, sensing, intelligence, and sustainability for future adaptive systems.
-           I work on sustainable wireless systems, TinyML, biotic communication, and next-generation IoT infrastructure.
-          My work brings together communication, sensing, intelligence, and sustainability for future adaptive systems
-           I work on sustainable wireless systems, TinyML, biotic communication, and next-generation IoT infrastructure.
-          My work brings together communication, sensing, intelligence, and sustainability for future adaptive systems
-           I work on sustainable wireless systems, TinyML, biotic communication, and next-generation IoT infrastructure.
-          My work brings together communication, sensing, intelligence, and sustainability for future adaptive systems
-           I work on sustainable wireless systems, TinyML, biotic communication, and next-generation IoT infrastructure.
-          My work brings together communication, sensing, intelligence, and sustainability for future adaptive systems
-           I work on sustainable wireless systems, TinyML, biotic communication, and next-generation IoT infrastructure.
-          My work brings together communication, sensing, intelligence, and sustainability for future adaptive systems
+          I work on sustainable wireless systems, TinyML, biotic communication,
+          and next-generation IoT infrastructure. My research brings together
+          communication, sensing, intelligence, and sustainability to develop
+          adaptive and energy-efficient systems for future IoT and wireless
+          networks.
         </p>
 
+
         <div class="button-row">
-          <a class="btn-primary" href="about.html">
+
+          <a
+            class="btn-primary"
+            href="about.html"
+          >
+
             More About Me
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+
+              <path
+                d="M5 12H19"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M13 6L19 12L13 18"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
             </svg>
+
           </a>
+
         </div>
+
       </div>
+
+
+
+      <!-- RIGHT SIDE -->
 
       <div class="hero-side">
-        <img class="profile-photo" src="images/profile.png" alt="Profile photo">
+
+
+        <!-- PROFILE PHOTO -->
+
+        <img
+          class="profile-photo"
+          src="images/profile.png"
+          alt="Profile photo"
+        >
+
+
+
+        <!-- SOCIAL LINKS -->
+
         <div class="social-row">
-          <a class="social-icon"
-             href="https://www.linkedin.com/in/singhriteshk/"
-             aria-label="LinkedIn"
-             title="LinkedIn"
-             target="_blank"
-             rel="noopener noreferrer">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.96 1.96 0 0 0 5.2 3a1.97 1.97 0 0 0 0 3.94c1.08 0 1.96-.88 1.96-2Zm12.28 8c0-3.03-1.62-4.44-3.78-4.44-1.74 0-2.52.96-2.96 1.63V8.5H9.33c.04 1.08 0 11.5 0 11.5h3.37v-6.42c0-.34.03-.69.13-.93.27-.69.87-1.4 1.88-1.4 1.33 0 1.86 1.01 1.86 2.5V20H20v-7.06Z"/>
+
+
+          <!-- LinkedIn -->
+
+          <a
+            class="social-icon"
+            href="https://www.linkedin.com/in/singhriteshk/"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+
+              <path
+                d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56A1.96 1.96 0 0 0 5.2 3a1.97 1.97 0 0 0 0 3.94c1.08 0 1.96-.88 1.96-2Zm12.28 8c0-3.03-1.62-4.44-3.78-4.44-1.74 0-2.52.96-2.96 1.63V8.5H9.33c.04 1.08 0 11.5 0 11.5h3.37v-6.42c0-.34.03-.69.13-.93.27-.69.87-1.4 1.88-1.4 1.33 0 1.86 1.01 1.86 2.5V20H20v-7.06Z"
+              />
+
             </svg>
+
           </a>
 
-          <a class="social-icon"
-             href="mailto:ritesh.ksingh27@gmail.com"
-             aria-label="Email"
-             title="Email">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M4 6H20V18H4V6Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M4 8L12 13L20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+
+          <!-- Email -->
+
+          <a
+            class="social-icon"
+            href="mailto:ritesh.ksingh27@gmail.com"
+            aria-label="Email"
+            title="Email"
+          >
+
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M4 6H20V18H4V6Z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+
+              <path
+                d="M4 8L12 13L20 8"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
             </svg>
+
           </a>
 
-          <a class="social-icon"
-             href="https://scholar.google.com/citations?user=uZy6xQoAAAAJ&hl=en"
-             aria-label="Google Scholar"
-             title="Google Scholar"
-             target="_blank"
-             rel="noopener noreferrer">
-            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
-              <path d="M3 9L12 4L21 9L12 14L3 9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              <path d="M7 12V16C9.8 18 14.2 18 17 16V12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+
+
+          <!-- Google Scholar -->
+
+          <a
+            class="social-icon"
+            href="https://scholar.google.com/citations?user=uZy6xQoAAAAJ&hl=en"
+            aria-label="Google Scholar"
+            title="Google Scholar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <svg
+              width="23"
+              height="23"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M3 9L12 4L21 9L12 14L3 9Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M7 12V16C9.8 18 14.2 18 17 16V12"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+
             </svg>
+
           </a>
 
-          <a class="social-icon"
-             href="https://www.researchgate.net/profile/Ritesh-Singh-13"
-             aria-label="ResearchGate"
-             title="ResearchGate"
-             target="_blank"
-             rel="noopener noreferrer">
-            <span style="font-size:14px;font-weight:800;letter-spacing:-0.5px;line-height:1;">RG</span>
+
+
+          <!-- ResearchGate -->
+
+          <a
+            class="social-icon"
+            href="https://www.researchgate.net/profile/Ritesh-Singh-13"
+            aria-label="ResearchGate"
+            title="ResearchGate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <span
+              style="
+                font-size: 14px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                line-height: 1;
+              "
+            >
+              RG
+            </span>
+
           </a>
 
-          <a class="social-icon"
-             href="cv.pdf"
-             aria-label="Curriculum Vitae"
-             title="CV"
-             target="_blank"
-             rel="noopener noreferrer">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M6 3H15L19 7V21H6V3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M15 3V7H19" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M9 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M9 16H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+
+          <!-- CV -->
+
+          <a
+            class="social-icon cv-icon"
+            href="cv.pdf"
+            aria-label="Curriculum Vitae"
+            title="View CV"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M6 3H15L19 7V21H6V3Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M15 3V7H19"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+
             </svg>
+
+
+            <span>
+              CV
+            </span>
+
           </a>
+
+
         </div>
+
       </div>
+
+
+
+      <!--
+        Full-width continuation.
+
+        This sits below the photograph and the social/CV row.
+        Keep this paragraph short — approximately 1–2 lines.
+      -->
+
+      <div
+        style="
+          grid-column: 1 / -1;
+          position: relative;
+          z-index: 1;
+          margin-top: -2px;
+        "
+      >
+
+        <p
+          style="
+            max-width: none;
+            margin-bottom: 12px;
+          "
+        >
+          My broader research interests include energy-neutral and batteryless
+          devices, embedded intelligence, low-power communication, and
+          sustainable next-generation wireless systems.
+        </p>
+
+      </div>
+
+
     </section>
 
 
 
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
     <main class="main-grid">
+
+
+      <!-- LATEST ACTIVITIES -->
+
       <section class="activities">
-        <h2 class="section-title">Latest Activities</h2>
+
+        <h2 class="section-title">
+          Latest Activities
+        </h2>
+
+
 
         <div class="activity-item">
+
           <div class="activity-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M4 6H20V18H4V6Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M7 10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 14H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M4 6H20V18H4V6Z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+
+              <path
+                d="M7 10H17"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M7 14H13"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
             </svg>
+
           </div>
-          <div class="activity-text"><strong>April 2024</strong> – Add your latest paper, project, talk, or workshop update here.</div>
+
+
+          <div class="activity-text">
+
+            <strong>
+              April 2024
+            </strong>
+
+            – Add your latest paper, project, talk, or workshop update here.
+
+          </div>
+
         </div>
 
-        <div class="activity-item">
-          <div class="activity-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M2 9L12 4L22 9L12 14L2 9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M6 11.5V16L12 19L18 16V11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="activity-text"><strong>March 2024</strong> – Add conference presentations, chairing roles, or teaching updates here.</div>
-        </div>
+
 
         <div class="activity-item">
+
           <div class="activity-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M4 7H20V18H4V7Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M8 4V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M16 4V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M2 9L12 4L22 9L12 14L2 9Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M6 11.5V16L12 19L18 16V11.5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
             </svg>
+
           </div>
-          <div class="activity-text"><strong>February 2024</strong> – Add another short milestone or project achievement here.</div>
+
+
+          <div class="activity-text">
+
+            <strong>
+              March 2024
+            </strong>
+
+            – Add conference presentations, chairing roles, or teaching updates here.
+
+          </div>
+
         </div>
+
+
+
+        <div class="activity-item">
+
+          <div class="activity-icon">
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M4 7H20V18H4V7Z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+
+              <path
+                d="M8 4V9"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M16 4V9"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div class="activity-text">
+
+            <strong>
+              February 2024
+            </strong>
+
+            – Add another short milestone or project achievement here.
+
+          </div>
+
+        </div>
+
+
 
         <div class="button-row">
-          <a class="btn-primary" href="projects.html">View All Updates
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <a
+            class="btn-primary"
+            href="projects.html"
+          >
+
+            View All Updates
+
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M5 12H19"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M13 6L19 12L13 18"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
             </svg>
+
           </a>
+
         </div>
+
       </section>
+
+
+
+      <!-- =====================================================
+           BLOG
+      ====================================================== -->
 
       <section>
-        <h2 class="section-title">Latest Blog Posts</h2>
+
+        <h2 class="section-title">
+          Latest Blog Posts
+        </h2>
+
+
 
         <article class="blog-item">
-          <img class="blog-thumb" src="images/profile.png" alt="Blog thumbnail">
+
+          <img
+            class="blog-thumb"
+            src="images/profile.png"
+            alt="Blog thumbnail"
+          >
+
+
           <div>
-            <div class="blog-title">Blog Title 1</div>
-            <div class="blog-meta">Add date here</div>
-            <p class="blog-desc">Short 2-line description of your first blog post.</p>
-            <a class="read-link" href="blogs/blog1.html">Read More</a>
+
+            <div class="blog-title">
+              Blog Title 1
+            </div>
+
+            <div class="blog-meta">
+              Add date here
+            </div>
+
+            <p class="blog-desc">
+              Short 2-line description of your first blog post.
+            </p>
+
+            <a
+              class="read-link"
+              href="blogs/blog1.html"
+            >
+              Read More
+            </a>
+
           </div>
+
         </article>
 
+
+
         <article class="blog-item">
-          <img class="blog-thumb" src="images/profile.png" alt="Blog thumbnail">
+
+          <img
+            class="blog-thumb"
+            src="images/profile.png"
+            alt="Blog thumbnail"
+          >
+
+
           <div>
-            <div class="blog-title">Blog Title 2</div>
-            <div class="blog-meta">Add date here</div>
-            <p class="blog-desc">Short 2-line description of your second blog post.</p>
-            <a class="read-link" href="blogs/blog2.html">Read More</a>
+
+            <div class="blog-title">
+              Blog Title 2
+            </div>
+
+            <div class="blog-meta">
+              Add date here
+            </div>
+
+            <p class="blog-desc">
+              Short 2-line description of your second blog post.
+            </p>
+
+            <a
+              class="read-link"
+              href="blogs/blog2.html"
+            >
+              Read More
+            </a>
+
           </div>
+
         </article>
+
       </section>
+
+
     </main>
 
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
     <footer class="site-footer">
+
       © 2026, Ritesh Kumar <strong>Singh</strong>
+
     </footer>
+
+
   </div>
 
-  <script>
-    function toggleSiteSearch() {
-      const search = document.getElementById('siteSearch');
-      const input = document.getElementById('siteSearchInput');
 
-      if (search.style.display === 'none' || search.style.display === '') {
+
+  <!-- =========================================================
+       SEARCH SCRIPT
+  ========================================================== -->
+
+  <script>
+
+    function toggleSiteSearch() {
+
+      const search =
+        document.getElementById('siteSearch');
+
+      const input =
+        document.getElementById('siteSearchInput');
+
+
+      if (
+        search.style.display === 'none' ||
+        search.style.display === ''
+      ) {
+
         search.style.display = 'block';
+
         input.focus();
-      } else {
-        search.style.display = 'none';
+
       }
+
+      else {
+
+        search.style.display = 'none';
+
+      }
+
     }
+
+
 
     function runSiteSearch(event) {
+
       event.preventDefault();
-      const query = document.getElementById('siteSearchInput').value.trim();
+
+
+      const query =
+        document
+          .getElementById('siteSearchInput')
+          .value
+          .trim();
+
+
       if (!query) return;
+
+
       window.open(
+
         'https://www.google.com/search?q=' +
-        encodeURIComponent('site:riteshsingh.org ' + query),
+
+        encodeURIComponent(
+          'site:riteshsingh.org ' + query
+        ),
+
         '_blank',
+
         'noopener'
+
       );
+
     }
+
   </script>
+
+
 </body>
+
 </html>
