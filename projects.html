@@ -1,101 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Projects | Ritesh Kumar Singh</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
+
 <body>
+
 <div class="page">
 
-  <!-- HEADER -->
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
   <header class="topbar">
-    <div class="brand">Dr Ritesh Kumar <span>Singh</span></div>
+
+    <div class="brand">
+      Dr. Ritesh Kumar <span>Singh</span>
+    </div>
+
+
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="publications.html">Publications</a>
-      <a href="projects.html" class="active">Projects</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="about.html">
+        About Me
+      </a>
+
+      <a href="publications.html">
+        Publications
+      </a>
+
+      <a href="projects.html" class="active">
+        Projects
+      </a>
+
+      <a href="activities.html">
+        Academic Activities
+      </a>
+
+
+      <button
+        type="button"
+        aria-label="Search"
+        title="Search"
+        onclick="toggleSiteSearch()"
+        style="
+          border: 0;
+          background: transparent;
+          color: inherit;
+          padding: 0;
+          display: inline-flex;
+          align-items: center;
+          cursor: pointer;
+        "
+      >
+
+        <svg
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+
+          <path
+            d="M16.5 16.5L21 21"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+      </button>
+
     </nav>
+
   </header>
 
-  <!-- PAGE -->
+
+
+  <!-- =====================================================
+       SEARCH
+  ====================================================== -->
+
+  <div
+    id="siteSearch"
+    style="
+      display: none;
+      padding: 14px 62px;
+      border-bottom: 1px solid rgba(216,222,231,0.9);
+      background: rgba(255,255,255,0.72);
+    "
+  >
+
+    <form
+      onsubmit="runSiteSearch(event)"
+      style="
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      "
+    >
+
+      <input
+        id="siteSearchInput"
+        type="search"
+        placeholder="Search this website..."
+        aria-label="Search this website"
+        style="
+          flex: 1;
+          max-width: 520px;
+          padding: 10px 12px;
+          border: 1px solid #d8dee7;
+          border-radius: 10px;
+          font: inherit;
+          color: inherit;
+          background: #fff;
+        "
+      >
+
+
+      <button
+        type="submit"
+        style="
+          padding: 10px 16px;
+          border: 0;
+          border-radius: 10px;
+          background: #1f5ea9;
+          color: #fff;
+          font: inherit;
+          font-weight: 600;
+          cursor: pointer;
+        "
+      >
+        Search
+      </button>
+
+    </form>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       PROJECTS PAGE
+  ====================================================== -->
+
   <main class="projects-page">
 
-    <h1 class="page-title">Projects</h1>
+    <h1 class="page-title">
+      Projects
+    </h1>
+
 
     <div class="projects-layout">
 
-      <!-- LEFT SIDE IMAGES -->
+
+      <!-- =================================================
+           LEFT SIDE IMAGES
+      ================================================== -->
+
       <div class="projects-visual">
 
-        <img src="images/project1.png" class="project-side-img">
-        <img src="images/project2.png" class="project-side-img">
-        <img src="images/project3.png" class="project-side-img">
+        <img
+          src="images/project1.png"
+          class="project-side-img"
+          alt="Project visual"
+        >
+
+        <img
+          src="images/project2.png"
+          class="project-side-img"
+          alt="Project visual"
+        >
+
+        <img
+          src="images/project3.png"
+          class="project-side-img"
+          alt="Project visual"
+        >
 
       </div>
 
-      <!-- RIGHT SIDE CARDS -->
+
+
+      <!-- =================================================
+           RIGHT SIDE PROJECT CARDS
+      ================================================== -->
+
       <div class="project-list">
 
+
         <!-- PROJECT 1 -->
+
         <div class="project-card">
+
           <div class="project-top">
-            <span class="project-name">CORRELATE</span>
-            <span class="project-year">2025–2027</span>
+
+            <span class="project-name">
+              CORRELATE
+            </span>
+
+            <span class="project-year">
+              2025–2027
+            </span>
+
           </div>
+
 
           <h3 class="project-title">
             A Closed-Loop Platform For Energy-Aware Industrial Internet of Things
           </h3>
 
+
           <p class="project-desc">
-            Through collaboration and innovation in the industry, CORRELATE aims to
-            revolutionize industrial IoT systems to be more efficient and sustainable.
-            It focuses on context-aware monitoring, adaptive control, and intelligent automation.
+            Through collaboration and innovation in the industry,
+            CORRELATE aims to revolutionize industrial IoT systems
+            to be more efficient and sustainable. It focuses on
+            context-aware monitoring, adaptive control, and
+            intelligent automation.
           </p>
+
         </div>
 
+
+
         <!-- PROJECT 2 -->
+
         <div class="project-card">
+
           <div class="project-top">
-            <span class="project-name">test</span>
-            <span class="project-year">2025–2029</span>
+
+            <span class="project-name">
+              test
+            </span>
+
+            <span class="project-year">
+              2025–2029
+            </span>
+
           </div>
+
 
           <h3 class="project-title">
             todo
           </h3>
 
+
           <p class="project-desc">
             Tproject aims to train researchers by addressing
-            key challenges in embedded AI systems and accelerating innovation
-            through interdisciplinary collaboration and training.
+            key challenges in embedded AI systems and accelerating
+            innovation through interdisciplinary collaboration
+            and training.
           </p>
+
         </div>
 
+
+
         <!-- PROJECT 3 -->
+
         <div class="project-card">
+
           <div class="project-top">
-            <span class="project-name">AMBIENT-6G</span>
-            <span class="project-year">2025–2027</span>
+
+            <span class="project-name">
+              AMBIENT-6G
+            </span>
+
+            <span class="project-year">
+              2025–2027
+            </span>
+
           </div>
+
 
           <h3 class="project-title">
             Towards standardized 6G connectivity for ambient energy IoT devices
           </h3>
 
+
           <p class="project-desc">
-            This project explores energy-neutral IoT devices using ambient energy
-            harvesting and wireless power transfer, enabling long-lifetime,
-            sustainable and battery-free deployments.
+            This project explores energy-neutral IoT devices using
+            ambient energy harvesting and wireless power transfer,
+            enabling long-lifetime, sustainable and battery-free
+            deployments.
           </p>
+
         </div>
+
 
       </div>
 
@@ -103,6 +324,85 @@
 
   </main>
 
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="site-footer">
+    © 2026, Ritesh Kumar <strong>Singh</strong>
+  </footer>
+
+
 </div>
+
+
+
+<!-- =====================================================
+     SEARCH SCRIPT
+====================================================== -->
+
+<script>
+
+  function toggleSiteSearch() {
+
+    const search =
+      document.getElementById('siteSearch');
+
+    const input =
+      document.getElementById('siteSearchInput');
+
+
+    if (
+      search.style.display === 'none' ||
+      search.style.display === ''
+    ) {
+
+      search.style.display = 'block';
+      input.focus();
+
+    } else {
+
+      search.style.display = 'none';
+
+    }
+
+  }
+
+
+
+  function runSiteSearch(event) {
+
+    event.preventDefault();
+
+    const query =
+      document
+        .getElementById('siteSearchInput')
+        .value
+        .trim();
+
+
+    if (!query) return;
+
+
+    window.open(
+
+      'https://www.google.com/search?q=' +
+      encodeURIComponent(
+        'site:riteshsingh.org ' + query
+      ),
+
+      '_blank',
+
+      'noopener'
+
+    );
+
+  }
+
+</script>
+
+
 </body>
 </html>
