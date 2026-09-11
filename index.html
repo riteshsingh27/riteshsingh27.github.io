@@ -7,6 +7,17 @@
 
   <title>Ritesh Singh</title>
 
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -14,20 +25,6 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
-
-  <script>
-    (function () {
-      const savedTheme = localStorage.getItem('theme');
-
-      if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-      } else if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark-mode');
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark-mode');
-      }
-    })();
-  </script>
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -117,50 +114,44 @@
 
         </button>
 
+      
 
-        <!-- Light / Dark mode toggle -->
-
+        <!-- Light / dark mode -->
         <button
           class="theme-toggle"
           type="button"
           onclick="toggleTheme()"
-          aria-label="Switch light or dark mode"
+          aria-label="Toggle light and dark mode"
           title="Light / Dark mode"
         >
-
           <svg
-            class="theme-sun"
-            width="21"
-            height="21"
+            class="theme-icon"
+            width="25"
+            height="25"
             viewBox="0 0 24 24"
             fill="none"
             aria-hidden="true"
           >
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
             <path
-              d="M12 2V4M12 20V22M4.93 4.93L6.34 6.34M17.66 17.66L19.07 19.07M2 12H4M20 12H22M4.93 19.07L6.34 17.66M17.66 6.34L19.07 4.93"
+              d="M12 3V5M12 19V21M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M3 12H5M19 12H21M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
               stroke="currentColor"
-              stroke-width="2"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <path
+              d="M5 20L19 4"
+              stroke="currentColor"
+              stroke-width="1.8"
               stroke-linecap="round"
             />
           </svg>
-
-          <svg
-            class="theme-moon"
-            width="21"
-            height="21"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M20 15.2A8 8 0 0 1 8.8 4A8.5 8.5 0 1 0 20 15.2Z"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linejoin="round"
-            />
-          </svg>
-
         </button>
 
       </nav>
@@ -957,21 +948,18 @@
 
     }
 
-
-    function toggleTheme() {
-
-      const root = document.documentElement;
-      const isDark = root.classList.toggle('dark-mode');
-
-      localStorage.setItem(
-        'theme',
-        isDark ? 'dark' : 'light'
-      );
-
-    }
-
   </script>
 
+
+
+
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+  </script>
 
 </body>
 
