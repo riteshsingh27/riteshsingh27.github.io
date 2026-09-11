@@ -1149,3 +1149,220 @@ a {
 .blog-all-button {
   margin-top: 6px;
 }
+
+/* =========================================================
+   LIGHT / DARK THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--primary);
+}
+
+.theme-moon {
+  display: none;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark-mode {
+  color-scheme: dark;
+
+  --bg: #0d1117;
+  --surface: rgba(17, 24, 32, 0.88);
+  --surface-strong: #171f29;
+  --border: #2b3542;
+  --text: #edf2f7;
+  --muted: #a8b3c2;
+  --primary: #75aef2;
+  --primary-dark: #9bc5f6;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+html.dark-mode body {
+  background:
+    radial-gradient(circle at top left, rgba(37, 52, 70, 0.38), rgba(13, 17, 23, 0) 30%),
+    linear-gradient(180deg, #111820 0%, #0d1117 100%);
+  color: var(--text);
+}
+
+html.dark-mode .page {
+  background: rgba(15, 22, 30, 0.90);
+}
+
+html.dark-mode .topbar {
+  background: rgba(17, 24, 32, 0.94);
+  border-bottom-color: var(--border);
+}
+
+html.dark-mode .brand,
+html.dark-mode .nav a,
+html.dark-mode .theme-toggle {
+  color: var(--text);
+}
+
+html.dark-mode .nav a:hover,
+html.dark-mode .nav a.active,
+html.dark-mode .theme-toggle:hover {
+  color: var(--primary);
+}
+
+html.dark-mode .hero {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(58, 78, 103, 0.22), rgba(17,24,32,0) 26%),
+    linear-gradient(180deg, rgba(20,28,38,0.96), rgba(15,22,30,0.92));
+}
+
+html.dark-mode .hero::before,
+html.dark-mode .hero::after {
+  border-color: rgba(117, 174, 242, 0.11);
+}
+
+html.dark-mode .subtitle,
+html.dark-mode .hero p,
+html.dark-mode .activity-text,
+html.dark-mode .blog-desc,
+html.dark-mode .about-role,
+html.dark-mode .about-intro p,
+html.dark-mode .timeline-content p,
+html.dark-mode .detail-value,
+html.dark-mode .project-desc,
+html.dark-mode .pub-authors {
+  color: #c4ceda;
+}
+
+html.dark-mode .blog-meta,
+html.dark-mode .pub-venue,
+html.dark-mode .footer-note,
+html.dark-mode .experience-header p {
+  color: var(--muted);
+}
+
+html.dark-mode .feature-card,
+html.dark-mode .activity-icon,
+html.dark-mode .simple-card,
+html.dark-mode .blog-list-card,
+html.dark-mode .experience-card,
+html.dark-mode .pub-card,
+html.dark-mode .project-card,
+html.dark-mode .detail-box,
+html.dark-mode .social-icon {
+  background: #171f29;
+  border-color: var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+}
+
+html.dark-mode .social-icon {
+  background: linear-gradient(180deg, #1a2430, #141c26);
+}
+
+html.dark-mode .profile-photo,
+html.dark-mode .project-side-img,
+html.dark-mode .blog-thumb,
+html.dark-mode .company-logo {
+  border-color: var(--border);
+}
+
+html.dark-mode .company-logo {
+  background: #ffffff;
+}
+
+html.dark-mode .section-title,
+html.dark-mode .page-title,
+html.dark-mode .publications-title,
+html.dark-mode .pub-year,
+html.dark-mode .pub-card-title,
+html.dark-mode .project-title,
+html.dark-mode .project-name,
+html.dark-mode .project-year,
+html.dark-mode .feature-title,
+html.dark-mode .blog-title,
+html.dark-mode .experience-card h3,
+html.dark-mode .profile-section-heading h2,
+html.dark-mode .timeline-content h3,
+html.dark-mode .detail-label {
+  color: var(--text);
+}
+
+html.dark-mode .activities {
+  border-right-color: var(--border);
+}
+
+html.dark-mode .back-to-top {
+  color: #d4dde8;
+}
+
+html.dark-mode .heading-line {
+  background: linear-gradient(
+    90deg,
+    rgba(117, 174, 242, 0.55),
+    rgba(117, 174, 242, 0.08)
+  );
+}
+
+html.dark-mode .section-icon {
+  background: rgba(117, 174, 242, 0.11);
+  color: var(--primary);
+}
+
+html.dark-mode .timeline-marker::before {
+  background: var(--primary);
+  box-shadow:
+    0 0 0 4px #111820,
+    0 0 0 5px rgba(117, 174, 242, 0.25);
+}
+
+html.dark-mode .timeline-marker::after {
+  background: #38536e;
+}
+
+html.dark-mode .detail-box {
+  background: linear-gradient(
+    110deg,
+    rgba(24, 34, 45, 0.96),
+    rgba(20, 29, 39, 0.88)
+  );
+}
+
+html.dark-mode #siteSearch {
+  background: rgba(17,24,32,0.96) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+html.dark-mode #siteSearchInput {
+  background: #171f29 !important;
+  border-color: #354151 !important;
+  color: var(--text) !important;
+}
+
+html.dark-mode #siteSearchInput::placeholder {
+  color: #7f8b99;
+}
+
+html.dark-mode .theme-sun {
+  display: none;
+}
+
+html.dark-mode .theme-moon {
+  display: block;
+}
+
+html.dark-mode .site-footer {
+  background: #080b0f;
+  color: #ffffff;
+}
+
