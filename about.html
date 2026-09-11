@@ -15,6 +15,13 @@
     rel="stylesheet"
   >
 
+  <!-- Apply saved theme before page renders -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -97,6 +104,48 @@
             />
           </svg>
 
+        </button>
+
+
+        <!-- Light / Dark Mode -->
+
+        <button
+          class="theme-toggle"
+          type="button"
+          onclick="toggleTheme()"
+          aria-label="Toggle light and dark mode"
+          title="Light / Dark mode"
+        >
+          <svg
+            class="theme-icon"
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 3V5M12 19V21M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M3 12H5M19 12H21M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M5 20L19 4"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
         </button>
 
       </nav>
@@ -1069,6 +1118,21 @@
 
         'noopener'
 
+      );
+
+    }
+
+
+    function toggleTheme() {
+
+      document.documentElement.classList.toggle('dark-mode');
+
+      const dark =
+        document.documentElement.classList.contains('dark-mode');
+
+      localStorage.setItem(
+        'theme',
+        dark ? 'dark' : 'light'
       );
 
     }
