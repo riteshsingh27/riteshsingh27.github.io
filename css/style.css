@@ -777,3 +777,371 @@ a {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.about-page {
+  padding: 48px 62px 58px;
+}
+
+
+/* =========================================================
+   ABOUT INTRO
+========================================================= */
+
+.about-intro {
+  max-width: 1000px;
+  margin-bottom: 54px;
+}
+
+.about-intro .page-title {
+  margin-bottom: 10px;
+}
+
+.about-role {
+  margin-bottom: 18px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #172033;
+}
+
+.about-role span {
+  color: var(--primary);
+}
+
+.about-intro p {
+  max-width: 940px;
+  margin: 0 0 12px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #283548;
+  text-align: justify;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.profile-section {
+  margin-top: 58px;
+}
+
+.profile-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.profile-section-heading h2 {
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #172033;
+  white-space: nowrap;
+}
+
+.section-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  border-radius: 50%;
+  background: #edf5fc;
+  color: #1168b7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading-line {
+  height: 1px;
+  flex: 1;
+  margin-left: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(54, 97, 141, 0.75),
+    rgba(54, 97, 141, 0.15)
+  );
+}
+
+.heading-note {
+  margin-left: 8px;
+  font-size: 12px;
+  font-style: italic;
+  white-space: nowrap;
+  color: #58708c;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 165px 30px minmax(0, 1fr);
+  align-items: start;
+  min-height: 115px;
+  padding-bottom: 30px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-date {
+  padding-top: 2px;
+  padding-right: 16px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: #0968bd;
+}
+
+.timeline-marker {
+  position: relative;
+  width: 30px;
+  min-height: 100%;
+}
+
+.timeline-marker::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 11px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1373c4;
+  box-shadow:
+    0 0 0 4px #fff,
+    0 0 0 5px rgba(19, 115, 196, 0.15);
+  z-index: 2;
+}
+
+.timeline-marker::after {
+  content: "";
+  position: absolute;
+  top: 19px;
+  bottom: -37px;
+  left: 15px;
+  width: 1px;
+  background: #b8d2e9;
+}
+
+.timeline-item:last-child .timeline-marker::after {
+  display: none;
+}
+
+
+/* =========================================================
+   TIMELINE CONTENT
+========================================================= */
+
+.timeline-content {
+  padding-left: 2px;
+}
+
+.timeline-content h3 {
+  margin: 0 0 3px;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #172033;
+}
+
+.timeline-organisation {
+  margin-bottom: 8px;
+  color: #0868bd;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.timeline-content p {
+  max-width: 1000px;
+  margin: 4px 0 8px;
+  color: #3a4759;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   EDUCATION DETAIL BOX
+========================================================= */
+
+.detail-box {
+  margin-top: 12px;
+  padding: 13px 16px;
+  border: 1px solid rgba(213, 222, 232, 0.45);
+  border-radius: 11px;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(241, 246, 251, 0.93),
+      rgba(248, 250, 252, 0.84)
+    );
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  column-gap: 16px;
+  margin-bottom: 5px;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 700;
+  color: #182132;
+}
+
+.detail-value {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #364255;
+}
+
+
+/* =========================================================
+   EDUCATION SPACING
+========================================================= */
+
+.education-timeline .timeline-item {
+  padding-bottom: 38px;
+}
+
+
+/* =========================================================
+   PROFESSIONAL TIMELINE
+========================================================= */
+
+.professional-timeline .timeline-item {
+  min-height: 108px;
+  padding-bottom: 25px;
+}
+
+
+/* =========================================================
+   INTERNSHIPS
+========================================================= */
+
+.internships-section {
+  margin-bottom: 20px;
+}
+
+.compact-timeline .timeline-item {
+  min-height: 85px;
+  padding-bottom: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .about-page {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .heading-note {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .about-page {
+    padding: 36px 20px 45px;
+  }
+
+  .profile-section {
+    margin-top: 44px;
+  }
+
+  .profile-section-heading {
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  .profile-section-heading h2 {
+    font-size: 23px;
+    white-space: normal;
+  }
+
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    padding-left: 27px;
+    padding-bottom: 32px;
+  }
+
+  .timeline-date {
+    padding: 0 0 6px;
+    text-align: left;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 100%;
+  }
+
+  .timeline-marker::before {
+    left: 1px;
+    top: 3px;
+    width: 9px;
+    height: 9px;
+  }
+
+  .timeline-marker::after {
+    left: 5px;
+    top: 16px;
+    bottom: -32px;
+  }
+
+  .timeline-content {
+    padding-left: 0;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 1px;
+    margin-bottom: 9px;
+  }
+
+  .detail-label {
+    margin-bottom: 1px;
+  }
+
+  .about-intro p {
+    text-align: left;
+  }
+
+}
