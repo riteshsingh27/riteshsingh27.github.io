@@ -1,51 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Blogs | Dr. Ritesh Kumar Singh</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="../css/style.css" />
 </head>
+
+
 <body>
+
   <div class="page">
+
+
+    <!-- HEADER -->
+
     <header class="topbar">
-      <div class="brand">Dr. Ritesh Kumar Singh</div>
+
+      <div class="brand">
+        Dr. Ritesh Kumar <span>Singh</span>
+      </div>
+
+
       <nav class="nav">
-        <a href="../index.html">Home</a>
-        <a href="../publications.html">Publications</a>
-        <a href="../projects.html">Projects</a>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="../about.html">
+          About Me
+        </a>
+
+        <a href="../publications.html">
+          Publications
+        </a>
+
+        <a href="../projects.html">
+          Projects
+        </a>
+
+        <a href="../activities.html">
+          Academic Activities
+        </a>
+
+
+        <button
+          type="button"
+          aria-label="Search"
+          title="Search"
+          onclick="toggleSiteSearch()"
+          style="
+            border: 0;
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+          "
+        >
+
+          <svg
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <path
+              d="M16.5 16.5L21 21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+
+        </button>
+
       </nav>
+
     </header>
 
+
+
+    <!-- SEARCH -->
+
+    <div
+      id="siteSearch"
+      style="
+        display: none;
+        padding: 14px 62px;
+        border-bottom: 1px solid rgba(216,222,231,0.9);
+        background: rgba(255,255,255,0.72);
+      "
+    >
+
+      <form
+        onsubmit="runSiteSearch(event)"
+        style="
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        "
+      >
+
+        <input
+          id="siteSearchInput"
+          type="search"
+          placeholder="Search this website..."
+          aria-label="Search this website"
+          style="
+            flex: 1;
+            max-width: 520px;
+            padding: 10px 12px;
+            border: 1px solid #d8dee7;
+            border-radius: 10px;
+            font: inherit;
+            color: inherit;
+            background: #fff;
+          "
+        >
+
+
+        <button
+          type="submit"
+          style="
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 10px;
+            background: #1f5ea9;
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+          "
+        >
+          Search
+        </button>
+
+      </form>
+
+    </div>
+
+
+
+    <!-- BLOG ARCHIVE -->
+
     <main class="content-page">
-      <h1>Blogs</h1>
-      <p class="lead">This page lists all blog posts. As you add more blogs, duplicate the blog card below and update the link.</p>
+
+      <h1 class="page-title">
+        Blog
+      </h1>
+
+
+      <p class="lead">
+        Thoughts, perspectives, and notes on low-power IoT,
+        energy-neutral systems, wireless communication,
+        embedded intelligence, research, and emerging technologies.
+      </p>
+
+
 
       <div class="blog-grid">
-        <article class="blog-list-card">
-          <img src="../images/profile.png" alt="Blog image">
-          <div>
-            <h3>Blog Title 1</h3>
-            <div class="blog-meta">Add date here</div>
-            <p class="blog-desc">Short summary of blog 1 goes here.</p>
-            <a class="read-link" href="blog1.html">Read More</a>
-          </div>
-        </article>
+
+
+        <!-- BLOG 1 -->
 
         <article class="blog-list-card">
-          <img src="../images/profile.png" alt="Blog image">
+
+          <img
+            src="../images/profile.png"
+            alt="Blog 1"
+          >
+
+
           <div>
-            <h3>Blog Title 2</h3>
-            <div class="blog-meta">Add date here</div>
-            <p class="blog-desc">Short summary of blog 2 goes here.</p>
-            <a class="read-link" href="blog2.html">Read More</a>
+
+            <div class="blog-meta">
+              September 2026
+            </div>
+
+
+            <h2 class="blog-title">
+              Blog Title 1
+            </h2>
+
+
+            <p class="blog-desc">
+              Short summary of Blog 1 goes here. Add two or three
+              lines explaining what the article discusses.
+            </p>
+
+
+            <a
+              class="read-link"
+              href="blog1.html"
+            >
+              Read Article →
+            </a>
+
           </div>
+
         </article>
+
+
+
+        <!-- BLOG 2 -->
+
+        <article class="blog-list-card">
+
+          <img
+            src="../images/profile.png"
+            alt="Blog 2"
+          >
+
+
+          <div>
+
+            <div class="blog-meta">
+              August 2026
+            </div>
+
+
+            <h2 class="blog-title">
+              Blog Title 2
+            </h2>
+
+
+            <p class="blog-desc">
+              Short summary of Blog 2 goes here. Add two or three
+              lines explaining what the article discusses.
+            </p>
+
+
+            <a
+              class="read-link"
+              href="blog2.html"
+            >
+              Read Article →
+            </a>
+
+          </div>
+
+        </article>
+
+
       </div>
+
     </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+      © 2026, Ritesh Kumar <strong>Singh</strong>
+    </footer>
+
+
   </div>
+
+
+
+  <!-- SEARCH SCRIPT -->
+
+  <script>
+
+    function toggleSiteSearch() {
+
+      const search =
+        document.getElementById('siteSearch');
+
+      const input =
+        document.getElementById('siteSearchInput');
+
+
+      if (
+        search.style.display === 'none' ||
+        search.style.display === ''
+      ) {
+
+        search.style.display = 'block';
+        input.focus();
+
+      } else {
+
+        search.style.display = 'none';
+
+      }
+
+    }
+
+
+
+    function runSiteSearch(event) {
+
+      event.preventDefault();
+
+      const query =
+        document
+          .getElementById('siteSearchInput')
+          .value
+          .trim();
+
+
+      if (!query) return;
+
+
+      window.open(
+
+        'https://www.google.com/search?q=' +
+
+        encodeURIComponent(
+          'site:riteshsingh.org ' + query
+        ),
+
+        '_blank',
+
+        'noopener'
+
+      );
+
+    }
+
+  </script>
+
+
 </body>
+
 </html>
