@@ -1,1 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Academic Activities | Ritesh Singh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+
+    /* =========================================================
+       ACADEMIC ACTIVITIES PAGE
+       ========================================================= */
+
+    .activities-page {
+      padding: 48px 62px 70px;
+      max-width: 1220px;
+      margin: 0 auto;
+    }
+
+    .activities-title {
+      margin: 0;
+      font-size: 42px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--teal);
+    }
+
+    .activities-intro {
+      max-width: 900px;
+      margin: 22px 0 38px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: #475467;
+    }
+
+    /* Quick links */
+
+    .activity-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 42px;
+    }
+
+    .activity-nav a {
+      text-decoration: none;
+      color: var(--primary);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .activity-nav a:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* Summary cards */
+
+    .activity-highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    .highlight-card {
+      position: relative;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(216,222,231,0.9);
+      border-radius: 14px;
+      padding: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.045);
+    }
+
+    .highlight-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        var(--primary),
+        var(--teal)
+      );
+    }
+
+    .highlight-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #667085;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .highlight-value {
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* Sections */
+
+    .activity-section {
+      margin-top: 54px;
+      scroll-margin-top: 30px;
+    }
+
+    .activity-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .activity-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(31,94,169,0.10),
+          rgba(26,163,163,0.08)
+        );
+      border: 1px solid rgba(31,94,169,0.12);
+    }
+
+    .activity-heading h2 {
+      margin: 0;
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .activity-heading-line {
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+      margin-left: 10px;
+    }
+
+    /* Teaching */
+
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .teaching-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+    }
+
+    .teaching-level {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(31,94,169,0.08);
+      border-radius: 999px;
+      padding: 5px 9px;
+      margin-bottom: 13px;
+    }
+
+    .teaching-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 650;
+    }
+
+    .teaching-card p {
+      margin: 0;
+      color: #667085;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Timeline/list */
+
+    .activity-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .activity-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 22px;
+      padding: 20px 22px;
+      background: rgba(255,255,255,0.87);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      box-shadow: 0 7px 22px rgba(15,23,42,0.035);
+    }
+
+    .activity-date {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .activity-content h3 {
+      margin: 0 0 7px;
+      font-size: 17px;
+      font-weight: 650;
+    }
+
+    .activity-content p {
+      margin: 0;
+      color: #667085;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Recognition */
+
+    .recognition-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .recognition-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.98),
+          rgba(244,247,250,0.92)
+        );
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .recognition-year {
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 9px;
+    }
+
+    .recognition-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .recognition-card p {
+      margin: 0;
+      color: #667085;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .back-top-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-top-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1050px) {
+
+      .activities-page {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .activity-highlights {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .teaching-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .recognition-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      .activities-page {
+        padding-top: 34px;
+      }
+
+      .activities-title {
+        font-size: 34px;
+      }
+
+      .activity-highlights,
+      .teaching-grid,
+      .recognition-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-item {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+
+  <header class="topbar" id="top">
+
+    <div class="brand">
+      Ritesh <span>Singh</span>
+    </div>
+
+    <nav class="nav">
+
+      <a href="index.html">Home</a>
+
+      <a href="about.html">About Me</a>
+
+      <a href="publications.html">Publications</a>
+
+      <a href="projects.html">Projects</a>
+
+      <a href="activities.html" class="active">
+        Academic Activities
+      </a>
+
+      <button
+        type="button"
+        aria-label="Search"
+        title="Search"
+        onclick="toggleSiteSearch()"
+        style="
+          border:0;
+          background:transparent;
+          color:inherit;
+          padding:0;
+          display:inline-flex;
+          align-items:center;
+          cursor:pointer;
+        "
+      >
+
+        <svg
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+
+          <path
+            d="M16.5 16.5L21 21"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================================================
+       SEARCH
+       ========================================================= -->
+
+  <div
+    id="siteSearch"
+    style="
+      display:none;
+      padding:14px 62px;
+      border-bottom:1px solid rgba(216,222,231,0.9);
+      background:rgba(255,255,255,0.72);
+    "
+  >
+
+    <form
+      onsubmit="runSiteSearch(event)"
+      style="
+        display:flex;
+        gap:10px;
+        align-items:center;
+      "
+    >
+
+      <input
+        id="siteSearchInput"
+        type="search"
+        placeholder="Search this website..."
+        aria-label="Search this website"
+        style="
+          flex:1;
+          max-width:520px;
+          padding:10px 12px;
+          border:1px solid #d8dee7;
+          border-radius:10px;
+          font:inherit;
+          color:inherit;
+          background:#fff;
+        "
+      >
+
+      <button
+        type="submit"
+        style="
+          padding:10px 16px;
+          border:0;
+          border-radius:10px;
+          background:#1f5ea9;
+          color:#fff;
+          font:inherit;
+          font-weight:600;
+          cursor:pointer;
+        "
+      >
+        Search
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <!-- =========================================================
+       PAGE
+       ========================================================= -->
+
+  <main class="activities-page">
+
+    <h1 class="activities-title">
+      Academic Activities
+    </h1>
+
+    <p class="activities-intro">
+      Alongside research, I am actively involved in teaching,
+      student supervision, academic governance, professional service,
+      and the organisation of scientific workshops and conferences.
+      These activities allow me to connect research with education,
+      contribute to the wider academic community, and support the
+      development of young researchers.
+    </p>
+
+
+    <!-- QUICK LINKS -->
+
+    <div class="activity-nav">
+
+      <a href="#teaching">
+        Teaching
+      </a>
+
+      <a href="#supervision">
+        Supervision
+      </a>
+
+      <a href="#service">
+        Academic Service
+      </a>
+
+      <a href="#conferences">
+        Conferences & Workshops
+      </a>
+
+      <a href="#recognition">
+        Recognition
+      </a>
+
+    </div>
+
+
+    <!-- =========================================================
+         HIGHLIGHTS
+         ========================================================= -->
+
+    <div class="activity-highlights">
+
+      <div class="highlight-card">
+
+        <div class="highlight-label">
+          Teaching
+        </div>
+
+        <div class="highlight-value">
+          Bachelor & Master courses
+        </div>
+
+      </div>
+
+
+      <div class="highlight-card">
+
+        <div class="highlight-label">
+          Mentoring
+        </div>
+
+        <div class="highlight-value">
+          PhD, Master & Bachelor students
+        </div>
+
+      </div>
+
+
+      <div class="highlight-card">
+
+        <div class="highlight-label">
+          Academic Service
+        </div>
+
+        <div class="highlight-value">
+          Faculty boards & doctoral committees
+        </div>
+
+      </div>
+
+
+      <div class="highlight-card">
+
+        <div class="highlight-label">
+          Community
+        </div>
+
+        <div class="highlight-value">
+          Workshops, conferences & alliances
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         TEACHING
+         ========================================================= -->
+
+    <section
+      class="activity-section"
+      id="teaching"
+    >
+
+      <div class="activity-heading">
+
+        <div class="activity-icon">
+
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M3 7L12 3L21 7L12 11L3 7Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M6 9.5V14C6 16 8.7 18 12 18C15.3 18 18 16 18 14V9.5"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+          </svg>
+
+        </div>
+
+        <h2>
+          Teaching
+        </h2>
+
+        <div class="activity-heading-line"></div>
+
+      </div>
+
+
+      <div class="teaching-grid">
+
+
+        <article class="teaching-card">
+
+          <span class="teaching-level">
+            Master
+          </span>
+
+          <h3>
+            Low-Power IoT Systems
+          </h3>
+
+          <p>
+            Teaching low-power embedded communication and IoT
+            with emphasis on energy-aware design, energy harvesting,
+            TinyML, constrained devices and hands-on system projects.
+          </p>
+
+        </article>
+
+
+        <article class="teaching-card">
+
+          <span class="teaching-level">
+            Bachelor
+          </span>
+
+          <h3>
+            Computer Networks
+          </h3>
+
+          <p>
+            Lectures and practical exercises covering networking
+            fundamentals, protocol behaviour and packet-level analysis,
+            including hands-on work with tools such as Wireshark.
+          </p>
+
+        </article>
+
+
+        <article class="teaching-card">
+
+          <span class="teaching-level">
+            Bachelor
+          </span>
+
+          <h3>
+            Mobile Communication
+          </h3>
+
+          <p>
+            Teaching principles of wireless and mobile communication,
+            linking fundamental concepts with current communication
+            systems and practical engineering examples.
+          </p>
+
+        </article>
+
+
+        <article class="teaching-card">
+
+          <span class="teaching-level">
+            Bachelor
+          </span>
+
+          <h3>
+            Embedded Systems
+          </h3>
+
+          <p>
+            Teaching and supervision around embedded computing,
+            resource-constrained platforms and the interaction between
+            software, hardware and communication systems.
+          </p>
+
+        </article>
+
+
+        <article class="teaching-card">
+
+          <span class="teaching-level">
+            Teaching Support
+          </span>
+
+          <h3>
+            Software for Embedded Systems
+          </h3>
+
+          <p>
+            Earlier teaching support at KU Leuven, including laboratory
+            activities in low-level programming, integration and
+            embedded-system development.
+          </p>
+
+        </article>
+
+
+        <article class="teaching-card">
+
+          <span class="teaching-level">
+            Earlier Teaching
+          </span>
+
+          <h3>
+            Data Structures
+          </h3>
+
+          <p>
+            Teaching activities at IIIT Allahabad during my Master's
+            studies, contributing to undergraduate education in
+            fundamental computer science concepts.
+          </p>
+
+        </article>
+
+
+      </div>
+
+
+      <a
+        href="#top"
+        class="back-top-link"
+      >
+        ↑ Back to top
+      </a>
+
+    </section>
+
+
+    <!-- =========================================================
+         SUPERVISION
+         ========================================================= -->
+
+    <section
+      class="activity-section"
+      id="supervision"
+    >
+
+      <div class="activity-heading">
+
+        <div class="activity-icon">
+
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <circle
+              cx="9"
+              cy="8"
+              r="3"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M3.5 18C4 14.8 6 13 9 13C12 13 14 14.8 14.5 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M17 7V13M14 10H20"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+
+        </div>
+
+        <h2>
+          Supervision & Mentoring
+        </h2>
+
+        <div class="activity-heading-line"></div>
+
+      </div>
+
+
+      <div class="activity-list">
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            Current
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              PhD Supervision
+            </h3>
+
+            <p>
+              Daily supervision and mentoring of doctoral researchers
+              working on energy-neutral intelligent systems,
+              energy harvesting, embedded AI, low-power communication,
+              and real-world IoT deployments.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            Ongoing
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              Master & Bachelor Thesis Supervision
+            </h3>
+
+            <p>
+              Supervising student research projects with emphasis on
+              experimental methodology, system implementation,
+              scientific writing, technical presentation and
+              independent engineering decisions.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            Academic Service
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              PhD Jury & Doctoral Evaluation
+            </h3>
+
+            <p>
+              Serving as a PhD jury and doctoral committee member,
+              reviewing doctoral research and contributing to the
+              academic evaluation and development of researchers.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+      <a
+        href="#top"
+        class="back-top-link"
+      >
+        ↑ Back to top
+      </a>
+
+    </section>
+
+
+    <!-- =========================================================
+         ACADEMIC SERVICE
+         ========================================================= -->
+
+    <section
+      class="activity-section"
+      id="service"
+    >
+
+      <div class="activity-heading">
+
+        <div class="activity-icon">
+
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M4 5H20V19H4V5Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M8 9H16M8 13H16"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+
+        </div>
+
+        <h2>
+          Academic & Professional Service
+        </h2>
+
+        <div class="activity-heading-line"></div>
+
+      </div>
+
+
+      <div class="activity-list">
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            University of Antwerp
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              Faculty Research & Doctoral Governance
+            </h3>
+
+            <p>
+              Member of faculty-level research and doctoral committees,
+              contributing to doctoral evaluation, research policy,
+              academic governance, budget discussions and assessment
+              of research and innovation activities.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            DASH7 Alliance
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              Protocol Action Member
+            </h3>
+
+            <p>
+              Supporting interaction between research and industry
+              around low-power wireless technologies and contributing
+              to collaboration within the DASH7 ecosystem.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            Research Community
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              Reviewer & Technical Programme Activities
+            </h3>
+
+            <p>
+              Reviewing research proposals, journal manuscripts and
+              conference submissions, and contributing to technical
+              programme committees and research-community activities.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+      <a
+        href="#top"
+        class="back-top-link"
+      >
+        ↑ Back to top
+      </a>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONFERENCE & WORKSHOP ORGANISATION
+         ========================================================= -->
+
+    <section
+      class="activity-section"
+      id="conferences"
+    >
+
+      <div class="activity-heading">
+
+        <div class="activity-icon">
+
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <rect
+              x="4"
+              y="5"
+              width="16"
+              height="14"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M8 3V7M16 3V7M4 10H20"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+
+        </div>
+
+        <h2>
+          Conferences & Workshops
+        </h2>
+
+        <div class="activity-heading-line"></div>
+
+      </div>
+
+
+      <div class="activity-list">
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            EN-IoT
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              Energy-Neutral & Sustainable IoT Workshop
+            </h3>
+
+            <p>
+              Co-organising the EN-IoT workshop series, bringing
+              together researchers working on energy harvesting,
+              batteryless systems, sustainable IoT, low-power
+              communication and energy-neutral devices.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            IEEE Future Networks
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              Demo & Test-and-Validation Activities
+            </h3>
+
+            <p>
+              Contributing to the organisation of IEEE Future Networks
+              activities with responsibility for demonstrations,
+              validation and interaction around emerging communication
+              technologies.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="activity-item">
+
+          <div class="activity-date">
+            IEEE COMSNETS
+          </div>
+
+          <div class="activity-content">
+
+            <h3>
+              Conference Organisation
+            </h3>
+
+            <p>
+              Supporting conference organisation and research-community
+              engagement for IEEE COMSNETS, including activities aimed
+              at increasing interaction and visibility for emerging
+              research.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+      <a
+        href="#top"
+        class="back-top-link"
+      >
+        ↑ Back to top
+      </a>
+
+    </section>
+
+
+    <!-- =========================================================
+         RECOGNITION
+         ========================================================= -->
+
+    <section
+      class="activity-section"
+      id="recognition"
+    >
+
+      <div class="activity-heading">
+
+        <div class="activity-icon">
+
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M8 4H16V8C16 11 14.2 13 12 13C9.8 13 8 11 8 8V4Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M8 6H5V8C5 10 6.5 11 9 11"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M16 6H19V8C19 10 17.5 11 15 11"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M12 13V17M9 20H15M10 17H14"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+
+        </div>
+
+        <h2>
+          Selected Recognition
+        </h2>
+
+        <div class="activity-heading-line"></div>
+
+      </div>
+
+
+      <div class="recognition-grid">
+
+
+        <article class="recognition-card">
+
+          <div class="recognition-year">
+            2013
+          </div>
+
+          <h3>
+            LG President Award
+          </h3>
+
+          <p>
+            Recognised by LG Electronics as Innovative Employee
+            of the Year.
+          </p>
+
+        </article>
+
+
+        <article class="recognition-card">
+
+          <div class="recognition-year">
+            LG Research Lab
+          </div>
+
+          <h3>
+            First Design Patent
+          </h3>
+
+          <p>
+            Contributed to the first design patent originating
+            from LG Research Lab India.
+          </p>
+
+        </article>
+
+
+        <article class="recognition-card">
+
+          <div class="recognition-year">
+            2012
+          </div>
+
+          <h3>
+            Best Master's Thesis Award
+          </h3>
+
+          <p>
+            Awarded at IIIT Allahabad for Master's research on
+            lifetime enhancement and analysis of wireless sensor
+            networks.
+          </p>
+
+        </article>
+
+
+      </div>
+
+      <a
+        href="#top"
+        class="back-top-link"
+      >
+        ↑ Back to top
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer class="site-footer">
+    © 2026, Ritesh Kumar <strong>Singh</strong>
+  </footer>
+
+
+</div>
+
+
+<!-- =========================================================
+     SEARCH JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+  function toggleSiteSearch() {
+
+    const search =
+      document.getElementById('siteSearch');
+
+    const input =
+      document.getElementById('siteSearchInput');
+
+
+    if (
+      search.style.display === 'none' ||
+      search.style.display === ''
+    ) {
+
+      search.style.display = 'block';
+
+      input.focus();
+
+    } else {
+
+      search.style.display = 'none';
+
+    }
+
+  }
+
+
+  function runSiteSearch(event) {
+
+    event.preventDefault();
+
+    const query =
+      document
+        .getElementById('siteSearchInput')
+        .value
+        .trim();
+
+
+    if (!query) return;
+
+
+    window.open(
+
+      'https://www.google.com/search?q=' +
+      encodeURIComponent(
+        'site:riteshsingh.org ' + query
+      ),
+
+      '_blank',
+
+      'noopener'
+
+    );
+
+  }
+
+</script>
+
+
+</body>
+
+</html>
