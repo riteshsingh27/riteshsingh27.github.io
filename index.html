@@ -25,6 +25,362 @@
   >
 
   <link rel="stylesheet" href="css/style.css" />
+
+
+  <!-- Home-page layout: activities + blog carousel + recent publications -->
+  <style>
+    .home-content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.75fr) minmax(300px, 0.95fr);
+      gap: 54px;
+      padding: 46px 62px 58px;
+      align-items: start;
+    }
+
+    .home-activities {
+      min-width: 0;
+    }
+
+    .home-sidebar {
+      min-width: 0;
+      position: sticky;
+      top: 24px;
+      align-self: start;
+    }
+
+    .home-panel + .home-panel {
+      margin-top: 34px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 8px;
+      padding-left: 25px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 12px;
+      width: 2px;
+      background: rgba(26, 163, 163, 0.28);
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding: 0 0 31px 22px;
+    }
+
+    .timeline-entry:last-child {
+      padding-bottom: 6px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -25px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #1aa3a3;
+      box-shadow: 0 0 0 5px rgba(26, 163, 163, 0.11);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .timeline-entry:hover .timeline-dot {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 7px rgba(26, 163, 163, 0.13);
+    }
+
+    .activity-topline {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 6px;
+    }
+
+    .activity-date {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .activity-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(26, 163, 163, 0.10);
+      color: #168b8b;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .activity-title {
+      margin: 0 0 6px;
+      font-size: 18px;
+      line-height: 1.38;
+      font-weight: 650;
+      color: var(--text);
+    }
+
+    .activity-summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .activity-media {
+      display: block;
+      width: min(100%, 390px);
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      margin-top: 13px;
+      border-radius: 13px;
+      border: 1px solid var(--border);
+      box-shadow: 0 7px 18px rgba(15, 23, 42, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .activity-media:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .blog-carousel-shell {
+      position: relative;
+      margin-top: 6px;
+    }
+
+    .blog-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 14px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .blog-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .blog-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .blog-slide:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.11);
+    }
+
+    .blog-slide img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 8.8;
+      object-fit: cover;
+    }
+
+    .blog-slide-content {
+      padding: 16px 17px 17px;
+    }
+
+    .blog-slide-title {
+      margin: 0 0 5px;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .blog-slide-meta {
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .blog-slide-desc {
+      margin: 0 0 11px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      margin-top: 13px;
+    }
+
+    .carousel-arrow {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--surface-strong);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 150ms ease, color 150ms ease, border-color 150ms ease;
+    }
+
+    .carousel-arrow:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border: 0;
+      border-radius: 50%;
+      padding: 0;
+      background: #c7ced8;
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      width: 18px;
+      border-radius: 999px;
+      background: #1aa3a3;
+    }
+
+    .sidebar-action {
+      display: inline-flex;
+      margin-top: 16px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 14px;
+    }
+
+    .sidebar-action:hover {
+      text-decoration: underline;
+    }
+
+    .recent-pub {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .recent-pub:first-of-type {
+      padding-top: 2px;
+    }
+
+    .recent-pub-title {
+      margin: 0 0 5px;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .recent-pub-meta {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .recent-pub-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .recent-pub-link:hover {
+      text-decoration: underline;
+    }
+
+    html.dark-mode .activity-tag {
+      background: rgba(130, 183, 244, 0.12);
+      color: #8dc3ff;
+    }
+
+    html.dark-mode .timeline::before {
+      background: rgba(130, 183, 244, 0.28);
+    }
+
+    html.dark-mode .timeline-dot {
+      background: #82b7f4;
+      box-shadow: 0 0 0 5px rgba(130, 183, 244, 0.11);
+    }
+
+    html.dark-mode .blog-slide,
+    html.dark-mode .carousel-arrow {
+      background: #171b21;
+      border-color: #2d333b;
+    }
+
+    html.dark-mode .carousel-dot {
+      background: #4d5663;
+    }
+
+    html.dark-mode .carousel-dot.active {
+      background: #82b7f4;
+    }
+
+    @media (max-width: 980px) {
+      .home-content-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      .home-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .home-content-grid {
+        padding: 34px 20px 46px;
+      }
+
+      .timeline {
+        padding-left: 19px;
+      }
+
+      .timeline-entry {
+        padding-left: 17px;
+      }
+
+      .timeline-dot {
+        left: -19px;
+      }
+    }
+  </style>
+
 </head>
 
 
@@ -378,333 +734,267 @@
          MAIN CONTENT
     ========================================================== -->
 
-    <main class="main-grid">
+    <main class="home-content-grid">
 
+      <!-- =======================================================
+           LEFT: LATEST ACTIVITIES
+      ======================================================== -->
 
-      <!-- LATEST ACTIVITIES -->
-
-      <section class="activities">
+      <section class="home-activities">
 
         <h2 class="section-title">
           Latest Activities
         </h2>
 
+        <div class="timeline">
 
+          <article class="timeline-entry">
+            <span class="timeline-dot" aria-hidden="true"></span>
 
-        <div class="activity-item">
+            <div class="activity-topline">
+              <span class="activity-date">October 2026</span>
+              <span class="activity-tag">Workshop</span>
+            </div>
 
-          <div class="activity-icon">
+            <h3 class="activity-title">
+              EN-IoT 2026 at IEEE SENSORS 2026
+            </h3>
 
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
+            <p class="activity-summary">
+              Co-organizing the third edition of the Workshop on Energy-Neutral &amp; Sustainable IoT Devices and Infrastructure in Rotterdam.
+            </p>
+
+            <!-- Optional activity image. Upload the image, then remove the comment markers.
+            <img
+              class="activity-media"
+              src="images/activity-en-iot-2026.jpg"
+              alt="EN-IoT 2026 workshop"
             >
-
-              <path
-                d="M4 6H20V18H4V6Z"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-
-              <path
-                d="M7 10H17"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-
-              <path
-                d="M7 14H13"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-
-            </svg>
-
-          </div>
+            -->
+          </article>
 
 
-          <div class="activity-text">
+          <article class="timeline-entry">
+            <span class="timeline-dot" aria-hidden="true"></span>
 
-            <strong>
-              April 2024
-            </strong>
+            <div class="activity-topline">
+              <span class="activity-date">August 2026</span>
+              <span class="activity-tag">Academic Visit</span>
+            </div>
 
-            – Add your latest paper, project, talk, or workshop update here.
+            <h3 class="activity-title">
+              Research collaboration visits across leading institutes in India
+            </h3>
 
-          </div>
+            <p class="activity-summary">
+              Academic visits and research discussions with IITs and IIITs focused on Ambient IoT, energy-neutral devices, embedded intelligence, 6G and future collaboration.
+            </p>
+
+            <!-- Optional activity image.
+            <img
+              class="activity-media"
+              src="images/activity-india-visit.jpg"
+              alt="Research collaboration visit in India"
+            >
+            -->
+          </article>
+
+
+          <article class="timeline-entry">
+            <span class="timeline-dot" aria-hidden="true"></span>
+
+            <div class="activity-topline">
+              <span class="activity-date">August 2026</span>
+              <span class="activity-tag">Community</span>
+            </div>
+
+            <h3 class="activity-title">
+              SNS JU Sustainability Working Group
+            </h3>
+
+            <p class="activity-summary">
+              Contributing to discussions on sustainability for next-generation communication systems, including sustainable-by-design and sustainable-in-operation approaches for 6G.
+            </p>
+          </article>
+
+
+          <article class="timeline-entry">
+            <span class="timeline-dot" aria-hidden="true"></span>
+
+            <div class="activity-topline">
+              <span class="activity-date">2026</span>
+              <span class="activity-tag">Publication</span>
+            </div>
+
+            <h3 class="activity-title">
+              Zero-Energy Devices for 6G
+            </h3>
+
+            <p class="activity-summary">
+              Our work on Zero-Energy Devices explores how energy harvesting, ultra-low-power communication and embedded intelligence can enable sustainable future IoT systems.
+            </p>
+          </article>
+
+
+          <article class="timeline-entry">
+            <span class="timeline-dot" aria-hidden="true"></span>
+
+            <div class="activity-topline">
+              <span class="activity-date">2026</span>
+              <span class="activity-tag">Workshop</span>
+            </div>
+
+            <h3 class="activity-title">
+              Sustainable by Design, Sustainable in Operation: The 6G Perspective
+            </h3>
+
+            <p class="activity-summary">
+              Co-organized a workshop around sustainable design and operation of future communication systems, bringing together perspectives from devices, networks and applications.
+            </p>
+          </article>
+
+
+          <article class="timeline-entry">
+            <span class="timeline-dot" aria-hidden="true"></span>
+
+            <div class="activity-topline">
+              <span class="activity-date">2026</span>
+              <span class="activity-tag">Research</span>
+            </div>
+
+            <h3 class="activity-title">
+              Energy-neutral and Ambient IoT research across European 6G projects
+            </h3>
+
+            <p class="activity-summary">
+              Advancing low-power communication, energy-aware computing and scalable intelligent devices through research activities in AMBIENT-6G, BEL6GICA and related initiatives.
+            </p>
+          </article>
 
         </div>
 
-
-
-        <div class="activity-item">
-
-          <div class="activity-icon">
-
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-
-              <path
-                d="M2 9L12 4L22 9L12 14L2 9Z"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linejoin="round"
-              />
-
-              <path
-                d="M6 11.5V16L12 19L18 16V11.5"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-
+        <div class="button-row" style="margin-top: 22px;">
+          <a class="btn-primary" href="updates.html">
+            View All Activities
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-
-          </div>
-
-
-          <div class="activity-text">
-
-            <strong>
-              March 2024
-            </strong>
-
-            – Add conference presentations, chairing roles, or teaching updates here.
-
-          </div>
-
-        </div>
-
-
-
-        <div class="activity-item">
-
-          <div class="activity-icon">
-
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-
-              <path
-                d="M4 7H20V18H4V7Z"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-
-              <path
-                d="M8 4V9"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-
-              <path
-                d="M16 4V9"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-
-            </svg>
-
-          </div>
-
-
-          <div class="activity-text">
-
-            <strong>
-              February 2024
-            </strong>
-
-            – Add another short milestone or project achievement here.
-
-          </div>
-
-        </div>
-
-
-
-        <div class="button-row">
-
-          <a
-            class="btn-primary"
-            href="projects.html"
-          >
-
-            View All Updates
-
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-
-              <path
-                d="M5 12H19"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-
-              <path
-                d="M13 6L19 12L13 18"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-
-            </svg>
-
           </a>
-
         </div>
 
       </section>
 
 
+      <!-- =======================================================
+           RIGHT: BLOGS + RECENT PUBLICATIONS
+      ======================================================== -->
 
-      <!-- =====================================================
-           BLOG
-      ====================================================== -->
+      <aside class="home-sidebar">
 
-  <!-- =====================================================
-     BLOG
-====================================================== -->
+        <section class="home-panel">
 
-<section>
+          <h2 class="section-title">
+            Latest Blog Posts
+          </h2>
 
-  <h2 class="section-title">
-    Latest Blog Posts
-  </h2>
+          <div class="blog-carousel-shell">
 
+            <div class="blog-carousel" id="blogCarousel" aria-label="Latest blog posts">
 
-  <!-- BLOG 1 -->
+              <article class="blog-slide">
+                <img src="images/profile.png" alt="Blog thumbnail">
+                <div class="blog-slide-content">
+                  <h3 class="blog-slide-title">Blog Title 1</h3>
+                  <div class="blog-slide-meta">Add date here</div>
+                  <p class="blog-slide-desc">
+                    Short description of your first blog post. Keep this to approximately two lines.
+                  </p>
+                  <a class="read-link" href="blogs/blog1.html">Read More</a>
+                </div>
+              </article>
 
-  <article class="blog-item">
+              <article class="blog-slide">
+                <img src="images/profile.png" alt="Blog thumbnail">
+                <div class="blog-slide-content">
+                  <h3 class="blog-slide-title">Blog Title 2</h3>
+                  <div class="blog-slide-meta">Add date here</div>
+                  <p class="blog-slide-desc">
+                    Short description of your second blog post. Keep this to approximately two lines.
+                  </p>
+                  <a class="read-link" href="blogs/blog2.html">Read More</a>
+                </div>
+              </article>
 
-    <img
-      class="blog-thumb"
-      src="images/profile.png"
-      alt="Blog thumbnail"
-    >
+            </div>
 
-    <div>
+            <div class="carousel-controls" aria-label="Blog carousel controls">
+              <button class="carousel-arrow" type="button" onclick="moveBlogCarousel(-1)" aria-label="Previous blog">
+                &#8592;
+              </button>
 
-      <div class="blog-title">
-        Blog Title 1
-      </div>
+              <div class="carousel-dots" id="blogDots">
+                <button class="carousel-dot active" type="button" onclick="goToBlog(0)" aria-label="Show blog 1"></button>
+                <button class="carousel-dot" type="button" onclick="goToBlog(1)" aria-label="Show blog 2"></button>
+              </div>
 
-      <div class="blog-meta">
-        Add date here
-      </div>
+              <button class="carousel-arrow" type="button" onclick="moveBlogCarousel(1)" aria-label="Next blog">
+                &#8594;
+              </button>
+            </div>
 
-      <p class="blog-desc">
-        Short 2-line description of your first blog post.
-      </p>
+          </div>
 
-      <a
-        class="read-link"
-        href="blogs/blog1.html"
-      >
-        Read More
-      </a>
+          <a class="sidebar-action" href="blogs/index.html">
+            View All Blog Posts &#8594;
+          </a>
 
-    </div>
-
-  </article>
-
-
-  <!-- BLOG 2 -->
-
-  <article class="blog-item">
-
-    <img
-      class="blog-thumb"
-      src="images/profile.png"
-      alt="Blog thumbnail"
-    >
-
-    <div>
-
-      <div class="blog-title">
-        Blog Title 2
-      </div>
-
-      <div class="blog-meta">
-        Add date here
-      </div>
-
-      <p class="blog-desc">
-        Short 2-line description of your second blog post.
-      </p>
-
-      <a
-        class="read-link"
-        href="blogs/blog2.html"
-      >
-        Read More
-      </a>
-
-    </div>
-
-  </article>
+        </section>
 
 
-  <!-- VIEW ALL BLOG POSTS -->
+        <section class="home-panel">
 
-  <div class="button-row">
+          <h2 class="section-title">
+            Recent Publications
+          </h2>
 
-    <a
-      class="btn-primary"
-      href="blogs/index.html"
-    >
+          <article class="recent-pub">
+            <h3 class="recent-pub-title">
+              Zero-Energy Devices for 6G
+            </h3>
+            <p class="recent-pub-meta">
+              Ritesh Singh et al. · IEEE Internet of Things Magazine
+            </p>
+            <a class="recent-pub-link" href="publications.html">View publication &#8599;</a>
+          </article>
 
-      View All Blog Posts
+          <article class="recent-pub">
+            <h3 class="recent-pub-title">
+              Add your second recent publication title
+            </h3>
+            <p class="recent-pub-meta">
+              Authors · Venue · 2026
+            </p>
+            <a class="recent-pub-link" href="publications.html">View publication &#8599;</a>
+          </article>
 
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
+          <article class="recent-pub">
+            <h3 class="recent-pub-title">
+              Add your third recent publication title
+            </h3>
+            <p class="recent-pub-meta">
+              Authors · Venue · 2026
+            </p>
+            <a class="recent-pub-link" href="publications.html">View publication &#8599;</a>
+          </article>
 
-        <path
-          d="M5 12H19"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
+          <a class="sidebar-action" href="publications.html">
+            View All Publications &#8594;
+          </a>
 
-        <path
-          d="M13 6L19 12L13 18"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        </section>
 
-      </svg>
-
-    </a>
-
-  </div>
-
-</section>
+      </aside>
 
     </main>
 
@@ -795,6 +1085,71 @@
 
 
 
+
+
+
+  <!-- =========================================================
+       BLOG CAROUSEL
+  ========================================================== -->
+  <script>
+    let currentBlog = 0;
+
+    function blogSlides() {
+      return Array.from(document.querySelectorAll('#blogCarousel .blog-slide'));
+    }
+
+    function updateBlogDots() {
+      const dots = Array.from(document.querySelectorAll('#blogDots .carousel-dot'));
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentBlog);
+      });
+    }
+
+    function goToBlog(index) {
+      const carousel = document.getElementById('blogCarousel');
+      const slides = blogSlides();
+      if (!carousel || !slides.length) return;
+
+      currentBlog = Math.max(0, Math.min(index, slides.length - 1));
+      carousel.scrollTo({
+        left: slides[currentBlog].offsetLeft - carousel.offsetLeft,
+        behavior: 'smooth'
+      });
+      updateBlogDots();
+    }
+
+    function moveBlogCarousel(direction) {
+      const slides = blogSlides();
+      if (!slides.length) return;
+
+      currentBlog = (currentBlog + direction + slides.length) % slides.length;
+      goToBlog(currentBlog);
+    }
+
+    const blogCarousel = document.getElementById('blogCarousel');
+    if (blogCarousel) {
+      blogCarousel.addEventListener('scroll', () => {
+        const slides = blogSlides();
+        if (!slides.length) return;
+
+        let nearest = 0;
+        let nearestDistance = Infinity;
+
+        slides.forEach((slide, index) => {
+          const distance = Math.abs(
+            (slide.offsetLeft - blogCarousel.offsetLeft) - blogCarousel.scrollLeft
+          );
+          if (distance < nearestDistance) {
+            nearestDistance = distance;
+            nearest = index;
+          }
+        });
+
+        currentBlog = nearest;
+        updateBlogDots();
+      }, { passive: true });
+    }
+  </script>
 
   <script>
     function updateThemeIcon() {
