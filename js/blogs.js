@@ -1,21 +1,24 @@
 /* =========================================================
-   RITESH SINGH — BLOG POSTS
+   RITESH SINGH — BLOGS
    =========================================================
 
-   HOME:
-   renderLatestBlogs('latestBlogs', 2);
+   SINGLE SOURCE OF TRUTH
 
-   BLOG ARCHIVE:
-   renderAllBlogs('allBlogs');
+   Home:
+   single-card carousel
 
-   Add each blog once below.
+   Blog tab:
+   all posts
+
+   Add every new blog ONLY here.
    ========================================================= */
 
 
 const blogsData = [
 
   {
-    date: '2026-09-01',
+    date:
+      '2026-09-01',
 
     displayDate:
       'September 2026',
@@ -24,18 +27,19 @@ const blogsData = [
       'Add your latest blog title here',
 
     excerpt:
-      'Write four or five interesting lines here that introduce the idea behind the post without giving everything away. This teaser should tell the reader why the topic matters and encourage them to continue reading the complete article.',
+      'Write four or five interesting lines here that introduce the idea behind the post without giving everything away. This teaser should explain why the topic matters and encourage the reader to continue reading.',
 
     image:
-      '',
+      'images/blogs/blog1.jpg',
 
     url:
-      'blogs/blog2.html'
+      'blogs/blog1.html'
   },
 
 
   {
-    date: '2026-08-01',
+    date:
+      '2026-08-01',
 
     displayDate:
       'August 2026',
@@ -47,34 +51,19 @@ const blogsData = [
       'Use this space for a short introduction to the blog. Around four or five lines works well on the homepage and gives visitors enough context to decide whether they would like to read the complete article.',
 
     image:
-      '',
+      'images/blogs/blog2.jpg',
 
     url:
-      'blogs/blog1.html'
+      'blogs/blog2.html'
   }
 
 ];
 
 
 
-/* =========================================================
-   SORT BLOGS
-   ========================================================= */
-
-function sortedBlogs() {
-
-  return [...blogsData].sort(
-    (a, b) =>
-      new Date(b.date) - new Date(a.date)
-  );
-
-}
+let currentBlogIndex = 0;
 
 
-
-/* =========================================================
-   HTML SAFETY
-   ========================================================= */
 
 function escapeBlogHtml(value) {
 
@@ -89,77 +78,110 @@ function escapeBlogHtml(value) {
 
 
 
+function sortedBlogs() {
+
+  return [...blogsData].sort(
+
+    (a, b) =>
+      new Date(b.date) -
+      new Date(a.date)
+
+  );
+
+}
+
+
+
 /* =========================================================
-   HOME PAGE BLOGS
+   HOME BLOG CAROUSEL
    ========================================================= */
 
 function renderLatestBlogs(
-  containerId = 'latestBlogs',
-  limit = 2
+  containerId = 'latestBlogs'
 ) {
 
   const container =
     document.getElementById(containerId);
 
+
   if (!container) return;
 
 
   const blogs =
-    sortedBlogs()
-      .slice(0, limit);
+    sortedBlogs();
+
+
+  if (!blogs.length) {
+
+    container.innerHTML =
+      '<p>No blog posts yet.</p>';
+
+    return;
+
+  }
 
 
   container.innerHTML =
     blogs.map(blog => `
 
-      <article class="home-blog-card">
+      <article class="blog-slide">
 
         ${
           blog.image
+
             ? `
-              <a
-                class="home-blog-image"
-                href="${escapeBlogHtml(blog.url)}"
+              <img
+                src="${escapeBlogHtml(blog.image)}"
+                alt="${escapeBlogHtml(blog.title)}"
+                loading="lazy"
               >
-
-                <img
-                  src="${escapeBlogHtml(blog.image)}"
-                  alt="${escapeBlogHtml(blog.title)}"
-                  loading="lazy"
-                >
-
-              </a>
             `
-            : ''
+
+            : `
+              <div
+                class="blog-slide-placeholder"
+                aria-hidden="true"
+              ></div>
+            `
         }
 
 
-        <div class="home-blog-content">
+        <div class="blog-slide-content">
 
-          <div class="home-blog-date">
-            ${escapeBlogHtml(blog.displayDate)}
-          </div>
+          <h3 class="blog-slide-title">
 
-
-          <h3 class="home-blog-title">
-
-            <a href="${escapeBlogHtml(blog.url)}">
+            <a
+              href="${escapeBlogHtml(blog.url)}"
+              style="
+                color:inherit;
+                text-decoration:none;
+              "
+            >
               ${escapeBlogHtml(blog.title)}
             </a>
 
           </h3>
 
 
-          <p class="home-blog-excerpt">
+          <div class="blog-slide-meta">
+
+            ${escapeBlogHtml(blog.displayDate)}
+
+          </div>
+
+
+          <p class="blog-slide-desc">
+
             ${escapeBlogHtml(blog.excerpt)}
+
           </p>
 
 
           <a
-            class="home-blog-link"
+            class="read-link"
             href="${escapeBlogHtml(blog.url)}"
           >
-            Read More →
+            Read More
           </a>
 
         </div>
@@ -168,12 +190,163 @@ function renderLatestBlogs(
 
     `).join('');
 
+
+  renderBlogDots();
+
+}
+
+
+
+function blogSlides() {
+
+  return Array.from(
+
+    document.querySelectorAll(
+      '#latestBlogs .blog-slide'
+    )
+
+  );
+
+}
+
+
+
+function renderBlogDots() {
+
+  const container =
+    document.getElementById(
+      'blogDots'
+    );
+
+
+  if (!container) return;
+
+
+  const blogs =
+    sortedBlogs();
+
+
+  container.innerHTML =
+    blogs.map((blog, index) => `
+
+      <button
+        class="carousel-dot ${
+          index === currentBlogIndex
+            ? 'active'
+            : ''
+        }"
+        type="button"
+        onclick="goToBlog(${index})"
+        aria-label="Show blog ${index + 1}"
+      ></button>
+
+    `).join('');
+
+}
+
+
+
+function updateBlogDots() {
+
+  document
+    .querySelectorAll(
+      '#blogDots .carousel-dot'
+    )
+    .forEach(
+      (dot, index) => {
+
+        dot.classList.toggle(
+          'active',
+          index === currentBlogIndex
+        );
+
+      }
+    );
+
+}
+
+
+
+function goToBlog(index) {
+
+  const carousel =
+    document.getElementById(
+      'latestBlogs'
+    );
+
+
+  const slides =
+    blogSlides();
+
+
+  if (
+    !carousel ||
+    !slides.length
+  ) return;
+
+
+  currentBlogIndex =
+    (
+      index +
+      slides.length
+    ) % slides.length;
+
+
+  carousel.scrollTo({
+
+    left:
+      slides[currentBlogIndex]
+        .offsetLeft -
+      carousel.offsetLeft,
+
+    behavior:
+      'smooth'
+
+  });
+
+
+  updateBlogDots();
+
+}
+
+
+
+function nextBlog() {
+
+  const slides =
+    blogSlides();
+
+
+  if (!slides.length) return;
+
+
+  goToBlog(
+    currentBlogIndex + 1
+  );
+
+}
+
+
+
+function previousBlog() {
+
+  const slides =
+    blogSlides();
+
+
+  if (!slides.length) return;
+
+
+  goToBlog(
+    currentBlogIndex - 1
+  );
+
 }
 
 
 
 /* =========================================================
-   BLOG ARCHIVE PAGE
+   BLOG ARCHIVE
    ========================================================= */
 
 function renderAllBlogs(
@@ -183,67 +356,96 @@ function renderAllBlogs(
   const container =
     document.getElementById(containerId);
 
+
   if (!container) return;
 
 
-  container.innerHTML =
-    sortedBlogs()
-      .map(blog => `
+  const blogs =
+    sortedBlogs();
 
-        <article class="blog-archive-card">
+
+  container.innerHTML =
+    blogs.map(blog => {
+
+      /*
+       blogs/index.html is inside the
+       /blogs/ directory.
+
+       Therefore images and article links
+       need ../ adjustment.
+      */
+
+      const image =
+        blog.image
+          ? '../' + blog.image
+          : '';
+
+
+      const url =
+        blog.url.startsWith('blogs/')
+          ? blog.url.replace(
+              'blogs/',
+              ''
+            )
+          : blog.url;
+
+
+      return `
+
+        <article class="blog-list-card">
 
           ${
-            blog.image
+            image
+
               ? `
-                <a
-                  class="blog-archive-image"
-                  href="../${escapeBlogHtml(blog.url)}"
+                <img
+                  class="blog-thumb"
+                  src="${escapeBlogHtml(image)}"
+                  alt="${escapeBlogHtml(blog.title)}"
+                  loading="lazy"
                 >
-
-                  <img
-                    src="../${escapeBlogHtml(blog.image)}"
-                    alt="${escapeBlogHtml(blog.title)}"
-                    loading="lazy"
-                  >
-
-                </a>
               `
+
               : ''
           }
 
 
-          <div class="blog-archive-content">
-
-            <div class="blog-meta">
-              ${escapeBlogHtml(blog.displayDate)}
-            </div>
-
+          <div>
 
             <h2 class="blog-title">
 
-              <a href="../${escapeBlogHtml(blog.url)}">
-                ${escapeBlogHtml(blog.title)}
-              </a>
+              ${escapeBlogHtml(blog.title)}
 
             </h2>
 
 
+            <div class="blog-meta">
+
+              ${escapeBlogHtml(blog.displayDate)}
+
+            </div>
+
+
             <p class="blog-desc">
+
               ${escapeBlogHtml(blog.excerpt)}
+
             </p>
 
 
             <a
-              href="../${escapeBlogHtml(blog.url)}"
+              class="read-link"
+              href="${escapeBlogHtml(url)}"
             >
-              Read More →
+              Read More
             </a>
 
           </div>
 
         </article>
 
-      `)
-      .join('');
+      `;
+
+    }).join('');
 
 }
