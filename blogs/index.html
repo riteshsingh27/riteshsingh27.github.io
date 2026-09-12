@@ -1,351 +1,451 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =========================================================
+   RITESH SINGH — BLOGS
+   =========================================================
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   SINGLE SOURCE OF TRUTH
 
-  <title>Blogs | Dr. Ritesh Kumar Singh</title>
+   Home:
+   single-card carousel
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   Blog tab:
+   all posts
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="../css/style.css" />
-</head>
+   Add every new blog ONLY here.
+   ========================================================= */
 
 
-<body>
+const blogsData = [
 
-  <div class="page">
+  {
+    date:
+      '2026-09-01',
 
+    displayDate:
+      'September 2026',
 
-    <!-- HEADER -->
+    title:
+      'Add your latest blog title here',
 
-    <header class="topbar">
+    excerpt:
+      'Write four or five interesting lines here that introduce the idea behind the post without giving everything away. This teaser should explain why the topic matters and encourage the reader to continue reading.',
 
-      <div class="brand">
-        Dr. Ritesh Kumar <span>Singh</span>
-      </div>
+    image:
+      'images/blogs/blog1.jpg',
 
-
-      <nav class="nav">
-
-        <a href="../index.html">
-          Home
-        </a>
-
-        <a href="../about.html">
-          About Me
-        </a>
-
-        <a href="../publications.html">
-          Publications
-        </a>
-
-        <a href="../projects.html">
-          Projects
-        </a>
-
-        <a href="../activities.html">
-          Academic Activities
-        </a>
+    url:
+      'blogs/blog1.html'
+  },
 
 
-        <button
-          type="button"
-          aria-label="Search"
-          title="Search"
-          onclick="toggleSiteSearch()"
-          style="
-            border: 0;
-            background: transparent;
-            color: inherit;
-            padding: 0;
-            display: inline-flex;
-            align-items: center;
-            cursor: pointer;
-          "
-        >
+  {
+    date:
+      '2026-08-01',
 
-          <svg
-            width="21"
-            height="21"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle
-              cx="11"
-              cy="11"
-              r="7"
-              stroke="currentColor"
-              stroke-width="2"
-            />
+    displayDate:
+      'August 2026',
 
-            <path
-              d="M16.5 16.5L21 21"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
+    title:
+      'Add your second blog title here',
 
-        </button>
+    excerpt:
+      'Use this space for a short introduction to the blog. Around four or five lines works well on the homepage and gives visitors enough context to decide whether they would like to read the complete article.',
 
-      </nav>
+    image:
+      'images/blogs/blog2.jpg',
 
-    </header>
+    url:
+      'blogs/blog2.html'
+  }
+
+];
 
 
 
-    <!-- SEARCH -->
-
-    <div
-      id="siteSearch"
-      style="
-        display: none;
-        padding: 14px 62px;
-        border-bottom: 1px solid rgba(216,222,231,0.9);
-        background: rgba(255,255,255,0.72);
-      "
-    >
-
-      <form
-        onsubmit="runSiteSearch(event)"
-        style="
-          display: flex;
-          gap: 10px;
-          align-items: center;
-        "
-      >
-
-        <input
-          id="siteSearchInput"
-          type="search"
-          placeholder="Search this website..."
-          aria-label="Search this website"
-          style="
-            flex: 1;
-            max-width: 520px;
-            padding: 10px 12px;
-            border: 1px solid #d8dee7;
-            border-radius: 10px;
-            font: inherit;
-            color: inherit;
-            background: #fff;
-          "
-        >
-
-
-        <button
-          type="submit"
-          style="
-            padding: 10px 16px;
-            border: 0;
-            border-radius: 10px;
-            background: #1f5ea9;
-            color: #fff;
-            font: inherit;
-            font-weight: 600;
-            cursor: pointer;
-          "
-        >
-          Search
-        </button>
-
-      </form>
-
-    </div>
+let currentBlogIndex = 0;
 
 
 
-    <!-- BLOG ARCHIVE -->
+function escapeBlogHtml(value) {
 
-    <main class="content-page">
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
 
-      <h1 class="page-title">
-        Blog
-      </h1>
-
-
-      <p class="lead">
-        Thoughts, perspectives, and notes on low-power IoT,
-        energy-neutral systems, wireless communication,
-        embedded intelligence, research, and emerging technologies.
-      </p>
+}
 
 
 
-      <div class="blog-grid">
+function sortedBlogs() {
+
+  return [...blogsData].sort(
+
+    (a, b) =>
+      new Date(b.date) -
+      new Date(a.date)
+
+  );
+
+}
 
 
-        <!-- BLOG 1 -->
 
-        <article class="blog-list-card">
+/* =========================================================
+   HOME BLOG CAROUSEL
+   ========================================================= */
 
-          <img
-            src="../images/profile.png"
-            alt="Blog 1"
-          >
+function renderLatestBlogs(
+  containerId = 'latestBlogs'
+) {
 
-
-          <div>
-
-            <div class="blog-meta">
-              September 2026
-            </div>
+  const container =
+    document.getElementById(containerId);
 
 
-            <h2 class="blog-title">
-              Blog Title 1
-            </h2>
+  if (!container) return;
 
 
-            <p class="blog-desc">
-              Short summary of Blog 1 goes here. Add two or three
-              lines explaining what the article discusses.
-            </p>
+  const blogs =
+    sortedBlogs();
 
+
+  if (!blogs.length) {
+
+    container.innerHTML =
+      '<p>No blog posts yet.</p>';
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    blogs.map(blog => `
+
+      <article class="blog-slide">
+
+        ${
+          blog.image
+
+            ? `
+              <img
+                src="${escapeBlogHtml(blog.image)}"
+                alt="${escapeBlogHtml(blog.title)}"
+                loading="lazy"
+              >
+            `
+
+            : `
+              <div
+                class="blog-slide-placeholder"
+                aria-hidden="true"
+              ></div>
+            `
+        }
+
+
+        <div class="blog-slide-content">
+
+          <h3 class="blog-slide-title">
 
             <a
-              class="read-link"
-              href="blog1.html"
+              href="${escapeBlogHtml(blog.url)}"
+              style="
+                color:inherit;
+                text-decoration:none;
+              "
             >
-              Read Article →
+              ${escapeBlogHtml(blog.title)}
             </a>
+
+          </h3>
+
+
+          <div class="blog-slide-meta">
+
+            ${escapeBlogHtml(blog.displayDate)}
 
           </div>
 
-        </article>
+
+          <p class="blog-slide-desc">
+
+            ${escapeBlogHtml(blog.excerpt)}
+
+          </p>
 
 
-
-        <!-- BLOG 2 -->
-
-        <article class="blog-list-card">
-
-          <img
-            src="../images/profile.png"
-            alt="Blog 2"
+          <a
+            class="read-link"
+            href="${escapeBlogHtml(blog.url)}"
           >
+            Read More
+          </a>
+
+        </div>
+
+      </article>
+
+    `).join('');
 
 
-          <div>
+  renderBlogDots();
 
-            <div class="blog-meta">
-              August 2026
-            </div>
-
-
-            <h2 class="blog-title">
-              Blog Title 2
-            </h2>
-
-
-            <p class="blog-desc">
-              Short summary of Blog 2 goes here. Add two or three
-              lines explaining what the article discusses.
-            </p>
-
-
-            <a
-              class="read-link"
-              href="blog2.html"
-            >
-              Read Article →
-            </a>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </main>
+}
 
 
 
-    <!-- FOOTER -->
+function blogSlides() {
 
-    <footer class="site-footer">
-      © 2026, Ritesh Kumar <strong>Singh</strong>
-    </footer>
+  return Array.from(
 
+    document.querySelectorAll(
+      '#latestBlogs .blog-slide'
+    )
 
-  </div>
+  );
 
-
-
-  <!-- SEARCH SCRIPT -->
-
-  <script>
-
-    function toggleSiteSearch() {
-
-      const search =
-        document.getElementById('siteSearch');
-
-      const input =
-        document.getElementById('siteSearchInput');
+}
 
 
-      if (
-        search.style.display === 'none' ||
-        search.style.display === ''
-      ) {
 
-        search.style.display = 'block';
-        input.focus();
+function renderBlogDots() {
 
-      } else {
+  const container =
+    document.getElementById(
+      'blogDots'
+    );
 
-        search.style.display = 'none';
+
+  if (!container) return;
+
+
+  const blogs =
+    sortedBlogs();
+
+
+  container.innerHTML =
+    blogs.map((blog, index) => `
+
+      <button
+        class="carousel-dot ${
+          index === currentBlogIndex
+            ? 'active'
+            : ''
+        }"
+        type="button"
+        onclick="goToBlog(${index})"
+        aria-label="Show blog ${index + 1}"
+      ></button>
+
+    `).join('');
+
+}
+
+
+
+function updateBlogDots() {
+
+  document
+    .querySelectorAll(
+      '#blogDots .carousel-dot'
+    )
+    .forEach(
+      (dot, index) => {
+
+        dot.classList.toggle(
+          'active',
+          index === currentBlogIndex
+        );
 
       }
+    );
 
-    }
-
-
-
-    function runSiteSearch(event) {
-
-      event.preventDefault();
-
-      const query =
-        document
-          .getElementById('siteSearchInput')
-          .value
-          .trim();
+}
 
 
-      if (!query) return;
+
+function goToBlog(index) {
+
+  const carousel =
+    document.getElementById(
+      'latestBlogs'
+    );
 
 
-      window.open(
-
-        'https://www.google.com/search?q=' +
-
-        encodeURIComponent(
-          'site:riteshsingh.org ' + query
-        ),
-
-        '_blank',
-
-        'noopener'
-
-      );
-
-    }
-
-  </script>
+  const slides =
+    blogSlides();
 
 
-</body>
+  if (
+    !carousel ||
+    !slides.length
+  ) return;
 
-</html>
+
+  currentBlogIndex =
+    (
+      index +
+      slides.length
+    ) % slides.length;
+
+
+  carousel.scrollTo({
+
+    left:
+      slides[currentBlogIndex]
+        .offsetLeft -
+      carousel.offsetLeft,
+
+    behavior:
+      'smooth'
+
+  });
+
+
+  updateBlogDots();
+
+}
+
+
+
+function nextBlog() {
+
+  const slides =
+    blogSlides();
+
+
+  if (!slides.length) return;
+
+
+  goToBlog(
+    currentBlogIndex + 1
+  );
+
+}
+
+
+
+function previousBlog() {
+
+  const slides =
+    blogSlides();
+
+
+  if (!slides.length) return;
+
+
+  goToBlog(
+    currentBlogIndex - 1
+  );
+
+}
+
+
+
+/* =========================================================
+   BLOG ARCHIVE
+   ========================================================= */
+
+function renderAllBlogs(
+  containerId = 'allBlogs'
+) {
+
+  const container =
+    document.getElementById(containerId);
+
+
+  if (!container) return;
+
+
+  const blogs =
+    sortedBlogs();
+
+
+  container.innerHTML =
+    blogs.map(blog => {
+
+      /*
+       blogs/index.html is inside the
+       /blogs/ directory.
+
+       Therefore images and article links
+       need ../ adjustment.
+      */
+
+      const image =
+        blog.image
+          ? '../' + blog.image
+          : '';
+
+
+      const url =
+        blog.url.startsWith('blogs/')
+          ? blog.url.replace(
+              'blogs/',
+              ''
+            )
+          : blog.url;
+
+
+      return `
+
+        <article class="blog-list-card">
+
+          ${
+            image
+
+              ? `
+                <img
+                  class="blog-thumb"
+                  src="${escapeBlogHtml(image)}"
+                  alt="${escapeBlogHtml(blog.title)}"
+                  loading="lazy"
+                >
+              `
+
+              : ''
+          }
+
+
+          <div>
+
+            <h2 class="blog-title">
+
+              ${escapeBlogHtml(blog.title)}
+
+            </h2>
+
+
+            <div class="blog-meta">
+
+              ${escapeBlogHtml(blog.displayDate)}
+
+            </div>
+
+
+            <p class="blog-desc">
+
+              ${escapeBlogHtml(blog.excerpt)}
+
+            </p>
+
+
+            <a
+              class="read-link"
+              href="${escapeBlogHtml(url)}"
+            >
+              Read More
+            </a>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join('');
+
+}
