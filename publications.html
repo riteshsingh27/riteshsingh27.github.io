@@ -2,23 +2,55 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>Publications | Ritesh Singh</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    rel="icon"
+    type="image/png"
+    href="images/ritesh_pic.png"
+  >
 
-  <!-- Apply saved theme before page renders -->
+
   <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark-mode');
+    if (
+      localStorage.getItem('theme') === 'dark'
+    ) {
+      document.documentElement
+        .classList
+        .add('dark-mode');
     }
   </script>
 
-  <link rel="stylesheet" href="css/style.css" />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  />
+
 </head>
 
 
@@ -26,34 +58,46 @@
 
 <div class="page">
 
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
 
-  <header class="topbar" id="top">
+  <header
+    class="topbar"
+    id="top"
+  >
 
     <div class="brand">
       Ritesh <span>Singh</span>
     </div>
 
+
     <nav class="nav">
 
-      <a href="index.html">Home</a>
+      <a href="index.html">
+        Home
+      </a>
 
-      <a href="about.html">About Me</a>
+      <a href="about.html">
+        About Me
+      </a>
 
-      <a href="publications.html" class="active">
+      <a
+        href="publications.html"
+        class="active"
+      >
         Publications
       </a>
 
-      <a href="projects.html">Projects</a>
+      <a href="projects.html">
+        Projects
+      </a>
 
       <a href="activities.html">
         Academic Activities
       </a>
 
+      <a href="blogs/index.html">
+        Blog
+      </a>
 
-      <!-- Search -->
 
       <button
         type="button"
@@ -70,6 +114,7 @@
           cursor:pointer;
         "
       >
+
         <svg
           width="21"
           height="21"
@@ -77,6 +122,7 @@
           fill="none"
           aria-hidden="true"
         >
+
           <circle
             cx="11"
             cy="11"
@@ -91,11 +137,11 @@
             stroke-width="2"
             stroke-linecap="round"
           />
+
         </svg>
+
       </button>
 
-
-      <!-- Light / Dark Mode -->
 
       <button
         class="theme-toggle"
@@ -104,36 +150,17 @@
         aria-label="Toggle light and dark mode"
         title="Light / Dark mode"
       >
-        <svg
-          class="theme-icon"
-          width="26"
-          height="26"
-          viewBox="0 0 24 24"
-          fill="none"
+
+        <span
+          id="themeIcon"
+          style="
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+          "
           aria-hidden="true"
-        >
-          <path
-            d="M12 3V5M12 19V21M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M3 12H5M19 12H21M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          />
+        ></span>
 
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-            stroke="currentColor"
-            stroke-width="1.8"
-          />
-
-          <path
-            d="M5 20L19 4"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          />
-        </svg>
       </button>
 
     </nav>
@@ -141,19 +168,17 @@
   </header>
 
 
-  <!-- =====================================================
-       SEARCH
-  ====================================================== -->
 
   <div
     id="siteSearch"
     style="
       display:none;
       padding:14px 62px;
-      border-bottom:1px solid rgba(216,222,231,0.9);
-      background:rgba(255,255,255,0.72);
+      border-bottom:1px solid rgba(216,222,231,.9);
+      background:rgba(255,255,255,.72);
     "
   >
+
     <form
       onsubmit="runSiteSearch(event)"
       style="
@@ -162,6 +187,7 @@
         align-items:center;
       "
     >
+
       <input
         id="siteSearchInput"
         type="search"
@@ -179,6 +205,7 @@
         "
       >
 
+
       <button
         type="submit"
         style="
@@ -194,839 +221,228 @@
       >
         Search
       </button>
+
     </form>
+
   </div>
 
 
-  <!-- =====================================================
-       PUBLICATIONS
-  ====================================================== -->
 
   <main class="publications-page">
 
-    <h1 class="publications-title">
+    <h1 class="page-title">
       Publications
     </h1>
 
 
-    <!-- 2026 -->
-
-    <section class="pub-year-section" id="year-2026">
-
-      <h2 class="pub-year">2026</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Optimized Hyperdimensional Edge AI Evaluation for Efficiency and Reliability under Real Radiation
-          </h3>
-
-          <p class="pub-authors">
-            Anuj Justus Rajappa, Laura Smets, Philippe Reiter, Paolo Rech,
-            Ynte Vanderhoydonc, Ritesh Kumar Singh, Siegfried Mercelis
-          </p>
-
-          <p class="pub-venue">
-            ACM Transactions on Embedded Computing Systems, 2026.
-          </p>
-
-          <p class="pub-links">
-            <a
-              href="https://dl.acm.org/doi/full/10.1145/3773032"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2025 -->
-
-    <section class="pub-year-section" id="year-2025">
-
-      <h2 class="pub-year">2025</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Energy-aware multi-robot task scheduling using meta-heuristic optimization methods for ambiently-powered robot swarms
-          </h3>
-
-          <p class="pub-authors">
-            Mohmmadsadegh Mokhtari, Parham Haji Ali Mohamadi,
-            Michiel Aernouts, Ritesh Kumar Singh,
-            Bram Vanderborght, Maarten Weyn, Jeroen Famaey
-          </p>
-
-          <p class="pub-venue">
-            Robotics and Autonomous Systems, 2025.
-          </p>
-
-          <p class="pub-links">
-            <a
-              href="https://www.sciencedirect.com/science/article/abs/pii/S0921889024002823"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Title to fill from IEEE page
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Venue to fill, 2025.
-          </p>
-
-          <p class="pub-links">
-            <a
-              href="https://ieeexplore.ieee.org/abstract/document/10980490"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Toward Sustainable Mars Exploration: A Perspective on Collaborative Intelligent Systems
-          </h3>
-
-          <p class="pub-authors">
-            Authors listed on the journal page
-          </p>
-
-          <p class="pub-venue">
-            Aerospace, 2025.
-          </p>
-
-          <p class="pub-links">
-            <a
-              href="https://www.mdpi.com/2226-4310/12/5/432"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Foundations for Energy-Aware Zero-Energy Devices:
-            From Energy Sensing to Adaptive Protocols
-          </h3>
-
-          <p class="pub-authors">
-            Onel L. A. López, Mateen Ashraf, Samer Nasser,
-            Gabriel M. de Jesus, Ritesh Kumar Singh,
-            Miltiadis C. Filippou, Jeroen Famaey
-          </p>
-
-          <p class="pub-venue">
-            arXiv preprint, 2025.
-          </p>
-
-          <p class="pub-links">
-            <a
-              href="https://arxiv.org/abs/2507.22740"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Feasibility of Energy Neutral Wildlife Tracking using Multi-Source Energy Harvesting
-          </h3>
-
-          <p class="pub-authors">
-            Samer Nasser, Henrique Duarte Moura, Dragan Subotic,
-            Ritesh Kumar Singh, Maarten Weyn, Jeroen Famaey
-          </p>
-
-          <p class="pub-venue">
-            Proceedings of the 2025 International Conference on
-            Information Technology for Social Good, 2025.
-          </p>
-
-          <p class="pub-links">
-            <a
-              href="https://dl.acm.org/doi/full/10.1145/3748699.3749811"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            A fully wearable conductive yarn-based sweat sensor powered by shoe insole-based TENG
-          </h3>
-
-          <p class="pub-authors">
-            Maby Johns, Priyesh Pappinisseri Puluckul,
-            Ritesh Kumar Singh, M. L. Parrilla,
-            Karolien De Wael, Maarten Weyn
-          </p>
-
-          <p class="pub-venue">
-            Sensors and Actuators B: Chemical, 2025.
-          </p>
-
-          <p class="pub-links">
-            <a
-              href="https://www.sciencedirect.com/science/article/abs/pii/S0925400525009426"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2024 -->
-
-    <section class="pub-year-section" id="year-2024">
-
-      <h2 class="pub-year">2024</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-          <h3 class="pub-card-title">
-            Optimized Hyperdimensional Edge AI Evaluation for Efficiency and Reliability under Real Radiation
-          </h3>
-          <p class="pub-authors">
-            A. Justus Rajappa and co-authors
-          </p>
-          <p class="pub-venue">
-            PDF manuscript link, 2024.
-          </p>
-          <p class="pub-links">
-            <a href="https://www.famaey.eu/papers/jnl-rajappa2025b.pdf" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-        </article>
-
-
-        <article class="pub-card">
-          <h3 class="pub-card-title">
-            TEGBed: A thermal energy harvesting testbed for batteryless internet of things
-          </h3>
-          <p class="pub-authors">
-            Priyesh Pappinisseri Puluckul, Ritesh Kumar Singh, Maarten Weyn
-          </p>
-          <p class="pub-venue">
-            Internet of Things, 2024.
-          </p>
-          <p class="pub-links">
-            <a href="https://www.sciencedirect.com/science/article/pii/S2542660524000027" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-        </article>
-
-
-        <article class="pub-card">
-          <h3 class="pub-card-title">
-            Title to fill from IEEE page
-          </h3>
-          <p class="pub-authors">Authors to fill</p>
-          <p class="pub-venue">Venue to fill, 2024.</p>
-          <p class="pub-links">
-            <a href="https://ieeexplore.ieee.org/abstract/document/10765699" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-        </article>
-
-
-        <article class="pub-card">
-          <h3 class="pub-card-title">
-            Title to fill from IEEE page
-          </h3>
-          <p class="pub-authors">Authors to fill</p>
-          <p class="pub-venue">Venue to fill, 2024.</p>
-          <p class="pub-links">
-            <a href="https://ieeexplore.ieee.org/abstract/document/10765754" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-        </article>
-
-
-        <article class="pub-card">
-          <h3 class="pub-card-title">
-            Title to fill from IEEE page
-          </h3>
-          <p class="pub-authors">Authors to fill</p>
-          <p class="pub-venue">Venue to fill, 2024.</p>
-          <p class="pub-links">
-            <a href="https://ieeexplore.ieee.org/abstract/document/10822934" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2022 -->
-
-    <section class="pub-year-section" id="year-2022">
-
-      <h2 class="pub-year">2022</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Joint Communication and Sensing: A Proof of Concept and Datasets for Greenhouse Monitoring Using LoRaWAN
-          </h3>
-
-          <p class="pub-authors">
-            Ritesh Kumar Singh, Mohammad Hasan Rahmani,
-            Maarten Weyn, Rafael Berkvens
-          </p>
-
-          <p class="pub-venue">
-            Sensors, 2022.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://www.mdpi.com/1424-8220/22/4/1326" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Repository entry to fill from University of Antwerp
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            University of Antwerp Repository, 2022.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://repository.uantwerpen.be/desktop/irua" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2021 -->
-
-    <section class="pub-year-section" id="year-2021">
-
-      <h2 class="pub-year">2021</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Title to fill from IEEE page
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Venue to fill, 2021.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://ieeexplore.ieee.org/abstract/document/9552863" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2020 -->
-
-    <section class="pub-year-section" id="year-2020">
-
-      <h2 class="pub-year">2020</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Title to fill from IEEE page
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Venue to fill, 2020.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://ieeexplore.ieee.org/abstract/document/9027392" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Title to fill from MDPI page
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Sensors, 2020.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://www.mdpi.com/1424-8220/20/7/1827" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Energy Consumption Analysis of LPWAN Technologies and Lifetime Estimation for IoT Applications
-          </h3>
-
-          <p class="pub-authors">
-            Ritesh Kumar Singh, Rafaël Berkvens, Maarten Weyn
-          </p>
-
-          <p class="pub-venue">
-            Sensors, 2020.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://www.mdpi.com/1424-8220/20/17/4794" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Title to fill from ScienceDirect page
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Internet of Things, 2020.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://www.sciencedirect.com/science/article/abs/pii/S2542660520300664" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2019 -->
-
-    <section class="pub-year-section" id="year-2019">
-
-      <h2 class="pub-year">2019</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Time Synchronization with Channel Hopping Scheme for LoRa Networks
-          </h3>
-
-          <p class="pub-authors">
-            Ritesh Kumar Singh and co-authors
-          </p>
-
-          <p class="pub-venue">
-            Springer book chapter, 2019.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://link.springer.com/chapter/10.1007/978-3-030-33509-0_74" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2018 -->
-
-    <section class="pub-year-section" id="year-2018">
-
-      <h2 class="pub-year">2018</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Cost-Benefit Analysis at Runtime for Self-adaptive Systems
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Venue to fill, 2018.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://www.semanticscholar.org/paper/Cost-Benefit-Analysis-at-Runtime-for-Self-adaptive-Donckt-Weyns/a362b63503bd1a191ba6f5f4ff237d1c48cce8f3" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2017 -->
-
-    <section class="pub-year-section" id="year-2017">
-
-      <h2 class="pub-year">2017</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Title to fill from Springer chapter
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Springer book chapter, 2017.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://link.springer.com/chapter/10.1007/978-3-319-73117-9_5" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- 2014 -->
-
-    <section class="pub-year-section" id="year-2014">
-
-      <h2 class="pub-year">2014</h2>
-
-      <a href="#top" class="back-to-top">
-        [back to top]
-      </a>
-
-      <div class="pub-list">
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Optimized Angular a Star Algorithm for Global Path Search Based on Neighbor Node Evaluation
-          </h3>
-
-          <p class="pub-authors">
-            Ankit Bhadoria, Ritesh Kumar Singh
-          </p>
-
-          <p class="pub-venue">
-            International Journal of Intelligent Systems and Applications (IJISA), 2014.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://www.mecs-press.org/ijisa/ijisa-v6-n8/IJISA-V6-N8-5.pdf" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Title to fill from archived PDF paper
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Venue to fill, 2014.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://web.archive.org/web/20170812232733id_/http://www.mecs-press.org/ijmecs/ijmecs-v6-n7/IJMECS-V6-N7-7.pdf" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-
-        <article class="pub-card">
-
-          <h3 class="pub-card-title">
-            Protract Lifetime by Exploiting Heterogeneity in Wireless Sensor Network
-          </h3>
-
-          <p class="pub-authors">
-            Authors to fill
-          </p>
-
-          <p class="pub-venue">
-            Paper PDF link, 2014.
-          </p>
-
-          <p class="pub-links">
-            <a href="https://www.researchgate.net/profile/Ritesh-Singh-13/publication/339912994_Protract_Lifetime_by_Exploiting_Heterogeneity_in_Wireless_Sensor_Network/links/61bf07aafd2cbd7200af5233/Protract-Lifetime-by-Exploiting-Heterogeneity-in-Wireless-Sensor-Network.pdf" target="_blank" rel="noopener noreferrer">
-              Paper
-            </a>
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
+    <div id="allPublications">
+
+      <!--
+        All publications inserted
+        automatically from
+        js/publications.js
+      -->
+
+    </div>
 
   </main>
 
 
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
 
   <footer class="site-footer">
     © 2026, Ritesh Kumar <strong>Singh</strong>
   </footer>
 
+
 </div>
 
 
-<!-- =====================================================
-     SEARCH + THEME SCRIPT
-====================================================== -->
 
 <script>
 
-  function toggleSiteSearch() {
+function toggleSiteSearch() {
 
-    const search =
-      document.getElementById('siteSearch');
+  const search =
+    document.getElementById('siteSearch');
 
-    const input =
-      document.getElementById('siteSearchInput');
+  const input =
+    document.getElementById('siteSearchInput');
 
-    if (
-      search.style.display === 'none' ||
-      search.style.display === ''
-    ) {
 
-      search.style.display = 'block';
-      input.focus();
+  if (
+    search.style.display === 'none' ||
+    search.style.display === ''
+  ) {
 
-    } else {
+    search.style.display = 'block';
 
-      search.style.display = 'none';
-
-    }
+    input.focus();
 
   }
 
+  else {
 
-  function runSiteSearch(event) {
+    search.style.display = 'none';
 
-    event.preventDefault();
+  }
 
-    const query =
-      document
-        .getElementById('siteSearchInput')
-        .value
-        .trim();
+}
 
-    if (!query) return;
 
-    window.open(
-      'https://www.google.com/search?q=' +
-      encodeURIComponent(
-        'site:riteshsingh.org ' + query
-      ),
-      '_blank',
-      'noopener'
+
+function runSiteSearch(event) {
+
+  event.preventDefault();
+
+
+  const query =
+    document
+      .getElementById('siteSearchInput')
+      .value
+      .trim();
+
+
+  if (!query) return;
+
+
+  window.open(
+
+    'https://www.google.com/search?q=' +
+
+    encodeURIComponent(
+      'site:riteshsingh.org ' + query
+    ),
+
+    '_blank',
+
+    'noopener'
+
+  );
+
+}
+
+</script>
+
+
+
+<script src="js/publications.js"></script>
+
+<script>
+
+  renderAllPublications(
+    'allPublications'
+  );
+
+</script>
+
+
+
+<script>
+
+function updateThemeIcon() {
+
+  const icon =
+    document.getElementById('themeIcon');
+
+  if (!icon) return;
+
+
+  const isDark =
+    document.documentElement
+      .classList
+      .contains('dark-mode');
+
+
+  if (isDark) {
+
+    icon.innerHTML = `
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5A8.5 8.5 0 1 0 20.5 14.2Z"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linejoin="round"
+        />
+      </svg>
+    `;
+
+  }
+
+  else {
+
+    icon.innerHTML = `
+      <svg
+        width="25"
+        height="25"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+
+        <path
+          d="M12 2V4
+             M12 20V22
+             M4.93 4.93L6.34 6.34
+             M17.66 17.66L19.07 19.07
+             M2 12H4
+             M20 12H22
+             M4.93 19.07L6.34 17.66
+             M17.66 6.34L19.07 4.93"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+
+      </svg>
+    `;
+
+  }
+
+}
+
+
+
+function toggleTheme() {
+
+  const root =
+    document.documentElement;
+
+
+  const isDark =
+    root.classList.toggle(
+      'dark-mode'
     );
 
-  }
+
+  localStorage.setItem(
+
+    'theme',
+
+    isDark
+      ? 'dark'
+      : 'light'
+
+  );
 
 
-  function toggleTheme() {
+  updateThemeIcon();
 
-    document.documentElement.classList.toggle('dark-mode');
+}
 
-    const dark =
-      document.documentElement.classList.contains('dark-mode');
 
-    localStorage.setItem(
-      'theme',
-      dark ? 'dark' : 'light'
-    );
-
-  }
+updateThemeIcon();
 
 </script>
 
