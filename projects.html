@@ -44,29 +44,19 @@
 
     <nav class="nav">
 
-      <a href="index.html">
-        Home
-      </a>
+      <a href="index.html">Home</a>
 
-      <a href="about.html">
-        About Me
-      </a>
+      <a href="about.html">About Me</a>
 
-      <a href="publications.html">
-        Publications
-      </a>
+      <a href="publications.html">Publications</a>
 
-      <a href="projects.html" class="active">
-        Projects
-      </a>
+      <a href="projects.html" class="active">Projects</a>
 
-      <a href="activities.html">
-        Academic Activities
-      </a>
+      <a href="activities.html">Academic Activities</a>
 
+      <a href="blogs/index.html">Blog</a>
 
       <!-- Search -->
-
       <button
         type="button"
         aria-label="Search"
@@ -82,37 +72,13 @@
           cursor: pointer;
         "
       >
-
-        <svg
-          width="21"
-          height="21"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-
-          <circle
-            cx="11"
-            cy="11"
-            r="7"
-            stroke="currentColor"
-            stroke-width="2"
-          />
-
-          <path
-            d="M16.5 16.5L21 21"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-
       </button>
 
-
       <!-- Light / Dark mode -->
-
       <button
         class="theme-toggle"
         type="button"
@@ -120,40 +86,11 @@
         aria-label="Toggle light and dark mode"
         title="Light / Dark mode"
       >
-
-        <svg
-          class="theme-icon"
-          width="26"
-          height="26"
-          viewBox="0 0 24 24"
-          fill="none"
+        <span
+          id="themeIcon"
+          style="display:inline-flex;align-items:center;justify-content:center;"
           aria-hidden="true"
-        >
-
-          <path
-            d="M12 3V5M12 19V21M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M3 12H5M19 12H21M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          />
-
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-            stroke="currentColor"
-            stroke-width="1.8"
-          />
-
-          <path
-            d="M5 20L19 4"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
+        ></span>
       </button>
 
     </nav>
@@ -456,21 +393,66 @@
 
   }
 
+</script>
+
+
+<script>
+
+  function updateThemeIcon() {
+    const icon = document.getElementById('themeIcon');
+    if (!icon) return;
+
+    const isDark =
+      document.documentElement.classList.contains('dark-mode');
+
+    if (isDark) {
+      icon.innerHTML = `
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5A8.5 8.5 0 1 0 20.5 14.2Z"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
+        </svg>
+      `;
+    } else {
+      icon.innerHTML = `
+        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+          <path
+            d="M12 2V4
+               M12 20V22
+               M4.93 4.93L6.34 6.34
+               M17.66 17.66L19.07 19.07
+               M2 12H4
+               M20 12H22
+               M4.93 19.07L6.34 17.66
+               M17.66 6.34L19.07 4.93"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+      `;
+    }
+  }
 
 
   function toggleTheme() {
-
-    document.documentElement.classList.toggle('dark-mode');
-
-    const dark =
-      document.documentElement.classList.contains('dark-mode');
+    const root = document.documentElement;
+    const isDark = root.classList.toggle('dark-mode');
 
     localStorage.setItem(
       'theme',
-      dark ? 'dark' : 'light'
+      isDark ? 'dark' : 'light'
     );
 
+    updateThemeIcon();
   }
+
+
+  updateThemeIcon();
 
 </script>
 
