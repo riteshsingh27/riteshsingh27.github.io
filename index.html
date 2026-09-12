@@ -178,6 +178,10 @@
     .blog-slide {
       flex: 0 0 100%;
       scroll-snap-align: start;
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 0;
+      min-height: 182px;
       background: var(--surface-strong);
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -193,13 +197,15 @@
 
     .blog-slide img {
       display: block;
-      width: 100%;
-      aspect-ratio: 16 / 8.8;
+      width: 112px;
+      height: 100%;
+      min-height: 182px;
       object-fit: cover;
     }
 
     .blog-slide-content {
-      padding: 16px 17px 17px;
+      padding: 15px 16px 15px;
+      min-width: 0;
     }
 
     .blog-slide-title {
@@ -219,8 +225,12 @@
     .blog-slide-desc {
       margin: 0 0 11px;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
+      font-size: 13.5px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .carousel-controls {
@@ -321,6 +331,121 @@
       text-decoration: underline;
     }
 
+    .activity-inline-link,
+    .update-inline-link {
+      display: inline-flex;
+      margin-top: 10px;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 650;
+    }
+
+    .activity-inline-link:hover,
+    .update-inline-link:hover {
+      text-decoration: underline;
+    }
+
+    .activity-visual {
+      margin: 14px 0 0;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface-strong);
+      box-shadow: 0 7px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .activity-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 220ms ease;
+    }
+
+    .activity-visual:hover img {
+      transform: scale(1.02);
+    }
+
+    .activity-visual figcaption {
+      padding: 8px 11px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .activity-featured {
+      position: relative;
+      width: min(100%, 500px);
+      aspect-ratio: 16 / 8.8;
+    }
+
+    .activity-featured figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 34px 13px 11px;
+      color: #fff;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.72) 100%);
+    }
+
+    .activity-single-image {
+      width: min(100%, 360px);
+    }
+
+    .activity-single-image img {
+      aspect-ratio: 16 / 9;
+    }
+
+    .activity-gallery {
+      width: min(100%, 500px);
+      display: grid;
+      grid-template-columns: 1.6fr 0.9fr;
+      grid-template-rows: 190px auto;
+      gap: 5px;
+      padding: 5px;
+    }
+
+    .activity-gallery-main,
+    .activity-gallery-side,
+    .activity-gallery-last {
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .activity-gallery-main {
+      grid-row: 1;
+    }
+
+    .activity-gallery-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 5px;
+    }
+
+    .activity-gallery-last {
+      position: relative;
+    }
+
+    .activity-gallery-count {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: rgba(0,0,0,0.48);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .activity-gallery figcaption {
+      grid-column: 1 / -1;
+      padding: 5px 7px 3px;
+    }
+
     html.dark-mode .activity-tag {
       background: rgba(130, 183, 244, 0.12);
       color: #8dc3ff;
@@ -377,6 +502,19 @@
 
       .timeline-dot {
         left: -19px;
+      }
+
+
+      .blog-slide {
+        grid-template-columns: 94px minmax(0, 1fr);
+      }
+
+      .blog-slide img {
+        width: 94px;
+      }
+
+      .activity-gallery {
+        grid-template-rows: 150px auto;
       }
     }
   </style>
@@ -746,131 +884,8 @@
           Latest Activities
         </h2>
 
-        <div class="timeline">
-
-          <article class="timeline-entry">
-            <span class="timeline-dot" aria-hidden="true"></span>
-
-            <div class="activity-topline">
-              <span class="activity-date">October 2026</span>
-              <span class="activity-tag">Workshop</span>
-            </div>
-
-            <h3 class="activity-title">
-              EN-IoT 2026 at IEEE SENSORS 2026
-            </h3>
-
-            <p class="activity-summary">
-              Co-organizing the third edition of the Workshop on Energy-Neutral &amp; Sustainable IoT Devices and Infrastructure in Rotterdam.
-            </p>
-
-            <!-- Optional activity image. Upload the image, then remove the comment markers.
-            <img
-              class="activity-media"
-              src="images/activity-en-iot-2026.jpg"
-              alt="EN-IoT 2026 workshop"
-            >
-            -->
-          </article>
-
-
-          <article class="timeline-entry">
-            <span class="timeline-dot" aria-hidden="true"></span>
-
-            <div class="activity-topline">
-              <span class="activity-date">August 2026</span>
-              <span class="activity-tag">Academic Visit</span>
-            </div>
-
-            <h3 class="activity-title">
-              Research collaboration visits across leading institutes in India
-            </h3>
-
-            <p class="activity-summary">
-              Academic visits and research discussions with IITs and IIITs focused on Ambient IoT, energy-neutral devices, embedded intelligence, 6G and future collaboration.
-            </p>
-
-            <!-- Optional activity image.
-            <img
-              class="activity-media"
-              src="images/activity-india-visit.jpg"
-              alt="Research collaboration visit in India"
-            >
-            -->
-          </article>
-
-
-          <article class="timeline-entry">
-            <span class="timeline-dot" aria-hidden="true"></span>
-
-            <div class="activity-topline">
-              <span class="activity-date">August 2026</span>
-              <span class="activity-tag">Community</span>
-            </div>
-
-            <h3 class="activity-title">
-              SNS JU Sustainability Working Group
-            </h3>
-
-            <p class="activity-summary">
-              Contributing to discussions on sustainability for next-generation communication systems, including sustainable-by-design and sustainable-in-operation approaches for 6G.
-            </p>
-          </article>
-
-
-          <article class="timeline-entry">
-            <span class="timeline-dot" aria-hidden="true"></span>
-
-            <div class="activity-topline">
-              <span class="activity-date">2026</span>
-              <span class="activity-tag">Publication</span>
-            </div>
-
-            <h3 class="activity-title">
-              Zero-Energy Devices for 6G
-            </h3>
-
-            <p class="activity-summary">
-              Our work on Zero-Energy Devices explores how energy harvesting, ultra-low-power communication and embedded intelligence can enable sustainable future IoT systems.
-            </p>
-          </article>
-
-
-          <article class="timeline-entry">
-            <span class="timeline-dot" aria-hidden="true"></span>
-
-            <div class="activity-topline">
-              <span class="activity-date">2026</span>
-              <span class="activity-tag">Workshop</span>
-            </div>
-
-            <h3 class="activity-title">
-              Sustainable by Design, Sustainable in Operation: The 6G Perspective
-            </h3>
-
-            <p class="activity-summary">
-              Co-organized a workshop around sustainable design and operation of future communication systems, bringing together perspectives from devices, networks and applications.
-            </p>
-          </article>
-
-
-          <article class="timeline-entry">
-            <span class="timeline-dot" aria-hidden="true"></span>
-
-            <div class="activity-topline">
-              <span class="activity-date">2026</span>
-              <span class="activity-tag">Research</span>
-            </div>
-
-            <h3 class="activity-title">
-              Energy-neutral and Ambient IoT research across European 6G projects
-            </h3>
-
-            <p class="activity-summary">
-              Advancing low-power communication, energy-aware computing and scalable intelligent devices through research activities in AMBIENT-6G, BEL6GICA and related initiatives.
-            </p>
-          </article>
-
+        <div class="timeline" id="homeActivities">
+          <!-- Latest 10 activities are inserted automatically from js/activities.js -->
         </div>
 
         <div class="button-row" style="margin-top: 22px;">
@@ -908,7 +923,7 @@
                   <h3 class="blog-slide-title">Blog Title 1</h3>
                   <div class="blog-slide-meta">Add date here</div>
                   <p class="blog-slide-desc">
-                    Short description of your first blog post. Keep this to approximately two lines.
+                    Add a short four-to-five-line teaser here that gives the reader enough context to understand the question, idea or experience behind the post and creates interest without revealing the complete story.
                   </p>
                   <a class="read-link" href="blogs/blog1.html">Read More</a>
                 </div>
@@ -920,7 +935,7 @@
                   <h3 class="blog-slide-title">Blog Title 2</h3>
                   <div class="blog-slide-meta">Add date here</div>
                   <p class="blog-slide-desc">
-                    Short description of your second blog post. Keep this to approximately two lines.
+                    Use this space for a concise four-to-five-line introduction: the problem you are discussing, why it matters, and one intriguing point that encourages the visitor to open and read the complete blog post.
                   </p>
                   <a class="read-link" href="blogs/blog2.html">Read More</a>
                 </div>
@@ -1086,6 +1101,15 @@
 
 
 
+
+
+  <!-- =========================================================
+       ACTIVITIES DATA
+  ========================================================== -->
+  <script src="js/activities.js"></script>
+  <script>
+    renderHomeActivities('homeActivities', 10);
+  </script>
 
 
   <!-- =========================================================
