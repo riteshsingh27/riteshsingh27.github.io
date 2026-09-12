@@ -65,1324 +65,715 @@
   ========================================================== -->
 
   <style>
-
-
     /* =========================================================
-       MAIN HOME GRID
-    ========================================================== */
+       HOME LAYOUT — POLISHED TWO-COLUMN DESIGN
+       ========================================================= */
 
     .home-content-grid {
-
       display: grid;
-
-      grid-template-columns:
-        minmax(0, 1.75fr)
-        minmax(300px, 0.95fr);
-
-      gap: 54px;
-
-      padding:
-        46px 62px 58px;
-
+      grid-template-columns: minmax(0, 1.72fr) minmax(330px, 0.88fr);
+      gap: 48px;
+      padding: 46px 62px 58px;
       align-items: start;
-
     }
 
-
-    .home-activities {
-
+    .home-activities,
+    .home-sidebar {
       min-width: 0;
-
     }
-
 
     .home-sidebar {
-
-      min-width: 0;
-
       position: static;
-
       align-self: start;
-
     }
 
+    /* Soft section cards on the right */
+    .home-panel {
+      background: rgba(246, 248, 251, 0.92);
+      border: 1px solid #e1e6ed;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+    }
 
     .home-panel + .home-panel {
-
-      margin-top: 34px;
-
-      padding-top: 28px;
-
-      border-top:
-        1px solid var(--border);
-
+      margin-top: 20px;
     }
 
-
+    .home-sidebar .section-title {
+      margin: 0 0 16px;
+      font-size: 28px;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+    }
 
     /* =========================================================
        ACTIVITY TIMELINE
-    ========================================================== */
+       ========================================================= */
 
     .timeline {
-
       position: relative;
-
       margin-top: 8px;
-
       padding-left: 25px;
-
     }
-
 
     .timeline::before {
-
       content: "";
-
       position: absolute;
-
       left: 6px;
-
       top: 8px;
-
       bottom: 12px;
-
       width: 2px;
-
-      background:
-        rgba(26, 163, 163, 0.28);
-
+      background: rgba(26, 163, 163, 0.28);
     }
-
 
     .timeline-entry {
-
       position: relative;
-
-      padding:
-        0 0 31px 22px;
-
+      padding: 0 0 31px 22px;
     }
-
 
     .timeline-entry:last-child {
-
       padding-bottom: 6px;
-
     }
 
-
     .timeline-dot {
-
       position: absolute;
-
       left: -25px;
-
       top: 6px;
-
       width: 12px;
-
       height: 12px;
-
       border-radius: 50%;
-
       background: #1aa3a3;
-
-      box-shadow:
-        0 0 0 5px
-        rgba(26, 163, 163, 0.11);
-
-      transition:
-        transform 160ms ease,
-        box-shadow 160ms ease;
-
+      box-shadow: 0 0 0 5px rgba(26, 163, 163, 0.11);
+      transition: transform 160ms ease, box-shadow 160ms ease;
     }
 
-
-    .timeline-entry:hover
-    .timeline-dot {
-
-      transform:
-        scale(1.12);
-
-      box-shadow:
-        0 0 0 7px
-        rgba(26, 163, 163, 0.13);
-
+    .timeline-entry:hover .timeline-dot {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 7px rgba(26, 163, 163, 0.13);
     }
-
 
     .activity-topline {
-
       display: flex;
-
       align-items: center;
-
       flex-wrap: wrap;
-
       gap: 9px;
-
       margin-bottom: 6px;
-
     }
-
 
     .activity-date {
-
       font-size: 14px;
-
       font-weight: 700;
-
       color: var(--text);
-
     }
-
 
     .activity-tag {
-
       display: inline-flex;
-
       align-items: center;
-
       min-height: 22px;
-
-      padding:
-        2px 8px;
-
+      padding: 2px 8px;
       border-radius: 999px;
-
-      background:
-        rgba(26, 163, 163, 0.10);
-
+      background: rgba(26, 163, 163, 0.10);
       color: #168b8b;
-
       font-size: 10px;
-
       font-weight: 700;
-
       letter-spacing: 0.08em;
-
       text-transform: uppercase;
-
     }
-
 
     .activity-title {
-
-      margin:
-        0 0 6px;
-
+      margin: 0 0 6px;
       font-size: 18px;
-
       line-height: 1.38;
-
       font-weight: 650;
-
       color: var(--text);
-
     }
-
 
     .activity-summary {
-
       margin: 0;
-
       color: var(--muted);
-
       font-size: 15px;
-
       line-height: 1.65;
-
     }
-
 
     .activity-inline-link,
     .update-inline-link {
-
       display: inline-flex;
-
       margin-top: 10px;
-
       color: var(--primary);
-
       text-decoration: none;
-
       font-size: 13.5px;
-
       font-weight: 650;
-
     }
-
 
     .activity-inline-link:hover,
     .update-inline-link:hover {
-
       text-decoration: underline;
-
     }
 
-
-
-    /* =========================================================
-       ACTIVITY MEDIA
-    ========================================================== */
-
+    /* Activity media */
     .activity-visual {
-
-      margin:
-        14px 0 0;
-
+      margin: 14px 0 0;
       overflow: hidden;
-
       border-radius: 14px;
-
-      border:
-        1px solid var(--border);
-
-      background:
-        var(--surface-strong);
-
-      box-shadow:
-        0 7px 18px
-        rgba(15, 23, 42, 0.08);
-
+      border: 1px solid var(--border);
+      background: var(--surface-strong);
+      box-shadow: 0 7px 18px rgba(15, 23, 42, 0.08);
     }
-
 
     .activity-visual img {
-
       display: block;
-
       width: 100%;
-
       height: 100%;
-
       object-fit: cover;
-
-      transition:
-        transform 220ms ease;
-
+      transition: transform 220ms ease;
     }
-
 
     .activity-visual:hover img {
-
-      transform:
-        scale(1.02);
-
+      transform: scale(1.02);
     }
-
 
     .activity-visual figcaption {
-
-      padding:
-        8px 11px;
-
+      padding: 8px 11px;
       color: var(--muted);
-
       font-size: 12px;
-
       line-height: 1.4;
-
     }
-
 
     .activity-featured {
-
       position: relative;
-
-      width:
-        min(100%, 500px);
-
-      aspect-ratio:
-        16 / 8.8;
-
+      width: min(100%, 500px);
+      aspect-ratio: 16 / 8.8;
     }
-
 
     .activity-featured figcaption {
-
       position: absolute;
-
       left: 0;
-
       right: 0;
-
       bottom: 0;
-
-      padding:
-        34px 13px 11px;
-
+      padding: 34px 13px 11px;
       color: #fff;
-
-      background:
-        linear-gradient(
-          180deg,
-          transparent 0%,
-          rgba(0,0,0,0.72) 100%
-        );
-
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.72) 100%);
     }
-
 
     .activity-single-image {
-
-      width:
-        min(100%, 360px);
-
+      width: min(100%, 360px);
     }
-
 
     .activity-single-image img {
-
-      aspect-ratio:
-        16 / 9;
-
+      aspect-ratio: 16 / 9;
     }
-
 
     .activity-gallery {
-
-      width:
-        min(100%, 500px);
-
+      width: min(100%, 500px);
       display: grid;
-
-      grid-template-columns:
-        1.6fr 0.9fr;
-
-      grid-template-rows:
-        190px auto;
-
+      grid-template-columns: 1.6fr 0.9fr;
+      grid-template-rows: 190px auto;
       gap: 5px;
-
       padding: 5px;
-
     }
-
 
     .activity-gallery-main,
     .activity-gallery-side,
     .activity-gallery-last {
-
       min-width: 0;
-
       min-height: 0;
-
       overflow: hidden;
-
       border-radius: 10px;
-
     }
-
 
     .activity-gallery-main {
-
       grid-row: 1;
-
     }
-
 
     .activity-gallery-side {
-
       display: grid;
-
-      grid-template-rows:
-        1fr 1fr;
-
+      grid-template-rows: 1fr 1fr;
       gap: 5px;
-
     }
-
 
     .activity-gallery-last {
-
       position: relative;
-
     }
-
 
     .activity-gallery-count {
-
       position: absolute;
-
       inset: 0;
-
       display: grid;
-
       place-items: center;
-
-      background:
-        rgba(0,0,0,0.48);
-
+      background: rgba(0,0,0,0.48);
       color: #fff;
-
       font-size: 18px;
-
       font-weight: 700;
-
     }
-
 
     .activity-gallery figcaption {
-
-      grid-column:
-        1 / -1;
-
-      padding:
-        5px 7px 3px;
-
+      grid-column: 1 / -1;
+      padding: 5px 7px 3px;
     }
 
-
-
     /* =========================================================
-       BLOG CAROUSEL
-    ========================================================== */
+       BLOG — ONE CLEAN CARD AT A TIME
+       Supports both old and new blogs.js class names.
+       ========================================================= */
 
     .blog-carousel-shell {
-
       position: relative;
-
-      margin-top: 6px;
-
     }
 
-
-    .blog-carousel {
-
-      display: flex;
-
-      overflow-x: auto;
-
-      scroll-snap-type:
-        x mandatory;
-
-      scroll-behavior: smooth;
-
-      gap: 14px;
-
-      scrollbar-width: none;
-
-      -ms-overflow-style: none;
-
-    }
-
-
-    .blog-carousel::-webkit-scrollbar {
-
-      display: none;
-
-    }
-
-
-    .blog-slide {
-
-      flex:
-        0 0 100%;
-
-      scroll-snap-align: start;
-
-      display: grid;
-
-      grid-template-columns:
-        112px minmax(0, 1fr);
-
-      gap: 0;
-
-      min-height: 182px;
-
-      background:
-        var(--surface-strong);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 16px;
-
-      overflow: hidden;
-
-      box-shadow:
-        0 8px 22px
-        rgba(15, 23, 42, 0.07);
-
-      transition:
-        transform 180ms ease,
-        box-shadow 180ms ease;
-
-    }
-
-
-    .blog-slide:hover {
-
-      transform:
-        translateY(-2px);
-
-      box-shadow:
-        0 12px 28px
-        rgba(15, 23, 42, 0.11);
-
-    }
-
-
-    .blog-slide > img {
-
-      display: block;
-
-      width: 112px;
-
-      height: 100%;
-
-      min-height: 182px;
-
-      object-fit: cover;
-
-    }
-
-
-    .blog-slide-placeholder {
-
-      width: 112px;
-
-      height: 100%;
-
-      min-height: 182px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(26,163,163,0.12),
-          rgba(31,94,169,0.08)
-        );
-
-    }
-
-
-    .blog-slide-content {
-
+    #latestBlogs {
+      position: relative;
       min-width: 0;
-
-      padding:
-        15px 16px 15px;
-
     }
 
-
-    .blog-slide-title {
-
-      margin:
-        0 0 5px;
-
-      font-size: 18px;
-
-      line-height: 1.35;
-
-      font-weight: 700;
-
-      color: var(--text);
-
+    /* All blog cards are hidden first; JS shows the active one */
+    #latestBlogs > article {
+      display: none;
     }
 
-
-    .blog-slide-meta {
-
-      margin-bottom: 9px;
-
-      color: var(--muted);
-
-      font-size: 13px;
-
+    #latestBlogs > article.is-active-blog {
+      display: grid;
     }
 
-
-    .blog-slide-desc {
-
-      margin:
-        0 0 11px;
-
-      color: var(--muted);
-
-      font-size: 13.5px;
-
-      line-height: 1.5;
-
-      display:
-        -webkit-box;
-
-      -webkit-line-clamp: 5;
-
-      -webkit-box-orient:
-        vertical;
-
+    .blog-slide,
+    .home-blog-card {
+      grid-template-columns: 118px minmax(0, 1fr);
+      min-height: 172px;
       overflow: hidden;
-
+      border: 1px solid #dfe5ec;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 5px 16px rgba(15, 23, 42, 0.06);
     }
 
+    .blog-slide > img,
+    img.home-blog-image {
+      display: block;
+      width: 118px;
+      height: 100%;
+      min-height: 172px;
+      object-fit: cover;
+      background: #eef2f6;
+    }
 
-    .read-link {
+    .blog-slide-placeholder,
+    .home-blog-placeholder {
+      width: 118px;
+      min-height: 172px;
+      background:
+        linear-gradient(145deg, rgba(26,163,163,0.12), rgba(31,94,169,0.08));
+    }
 
-      color: var(--primary);
+    .blog-slide-content,
+    .home-blog-content {
+      min-width: 0;
+      padding: 15px 16px 14px;
+    }
 
-      text-decoration: none;
+    .blog-slide-title,
+    .home-blog-title {
+      margin: 0 0 5px;
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
 
+    .blog-slide-meta,
+    .home-blog-date {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .blog-slide-desc,
+    .home-blog-excerpt {
+      margin: 0 0 10px;
+      color: var(--muted);
       font-size: 13px;
+      line-height: 1.48;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
+    .read-link,
+    .home-blog-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 13px;
       font-weight: 650;
-
     }
 
-
-    .read-link:hover {
-
+    .read-link:hover,
+    .home-blog-link:hover {
       text-decoration: underline;
-
     }
-
-
-
-    /* =========================================================
-       BLOG CAROUSEL CONTROLS
-    ========================================================== */
 
     .carousel-controls {
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
-      gap: 11px;
-
-      margin-top: 13px;
-
+      gap: 10px;
+      margin-top: 11px;
     }
-
 
     .carousel-arrow {
-
-      width: 30px;
-
-      height: 30px;
-
-      border:
-        1px solid var(--border);
-
+      width: 29px;
+      height: 29px;
+      border: 1px solid #d7dee7;
       border-radius: 50%;
-
-      background:
-        var(--surface-strong);
-
+      background: #fff;
       color: var(--text);
-
       display: inline-flex;
-
       align-items: center;
-
       justify-content: center;
-
       cursor: pointer;
-
-      transition:
-        transform 150ms ease,
-        color 150ms ease,
-        border-color 150ms ease;
-
+      transition: color 150ms ease, border-color 150ms ease, transform 150ms ease;
     }
-
 
     .carousel-arrow:hover {
-
       color: var(--primary);
-
-      border-color:
-        var(--primary);
-
-      transform:
-        translateY(-1px);
-
+      border-color: var(--primary);
+      transform: translateY(-1px);
     }
-
 
     .carousel-dots {
-
       display: flex;
-
       gap: 6px;
-
       align-items: center;
-
+      justify-content: center;
     }
-
 
     .carousel-dot {
-
       width: 6px;
-
       height: 6px;
-
-      border: 0;
-
-      border-radius: 50%;
-
       padding: 0;
-
-      background: #c7ced8;
-
+      border: 0;
+      border-radius: 50%;
+      background: #c4ccd6;
       cursor: pointer;
-
     }
-
 
     .carousel-dot.active {
-
-      width: 18px;
-
+      width: 17px;
       border-radius: 999px;
-
       background: #1aa3a3;
-
     }
 
-
-
     /* =========================================================
-       RECENT PUBLICATIONS
-    ========================================================== */
+       PUBLICATIONS — FIVE COMPACT CARDS
+       ========================================================= */
 
     #recentPublications {
-
-      margin-top: 2px;
-
+      display: grid;
+      gap: 9px;
     }
-
 
     .home-publication-item {
-
-      padding:
-        15px 0;
-
-      border-bottom:
-        1px solid var(--border);
-
+      padding: 12px 13px 11px;
+      border: 1px solid #dfe5ec;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 3px 11px rgba(15, 23, 42, 0.04);
     }
-
-
-    .home-publication-item:first-child {
-
-      padding-top: 2px;
-
-    }
-
 
     .home-publication-title {
-
-      margin:
-        0 0 5px;
-
+      margin: 0 0 5px;
       color: var(--text);
-
-      font-size: 15px;
-
-      line-height: 1.45;
-
+      font-size: 14px;
+      line-height: 1.38;
       font-weight: 700;
-
     }
-
 
     .home-publication-meta {
-
-      margin:
-        0 0 7px;
-
+      margin: 0 0 6px;
       color: var(--muted);
-
-      font-size: 12.5px;
-
-      line-height: 1.5;
-
+      font-size: 11.8px;
+      line-height: 1.45;
     }
-
 
     .home-publication-link {
-
       color: var(--primary);
-
       text-decoration: none;
-
-      font-size: 13px;
-
+      font-size: 12px;
       font-weight: 650;
-
     }
-
 
     .home-publication-link:hover {
-
       text-decoration: underline;
-
     }
 
-
-
     /* =========================================================
-       SIDEBAR LINKS
-    ========================================================== */
+       SIDEBAR ACTIONS
+       ========================================================= */
 
     .sidebar-action {
-
       display: inline-flex;
-
-      margin-top: 16px;
-
+      margin-top: 13px;
       color: var(--primary);
-
       text-decoration: none;
-
       font-weight: 650;
-
-      font-size: 14px;
-
+      font-size: 13.5px;
     }
-
 
     .sidebar-action:hover {
-
       text-decoration: underline;
-
     }
-
-
 
     /* =========================================================
-       WORTH SHARING
-    ========================================================== */
+       WORTH SHARING — COMPACT AND CONSISTENT
+       ========================================================= */
 
     .sharing-card {
-
-      margin-top: 6px;
-
+      margin-top: 0;
       overflow: hidden;
-
-      background:
-        var(--surface-strong);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 16px;
-
-      box-shadow:
-        0 8px 22px
-        rgba(15, 23, 42, 0.07);
-
+      background: #fff;
+      border: 1px solid #dfe5ec;
+      border-radius: 14px;
+      box-shadow: 0 5px 16px rgba(15, 23, 42, 0.05);
     }
-
 
     .sharing-content {
-
-      padding:
-        16px 17px 17px;
-
+      padding: 14px 15px 15px;
     }
-
 
     .sharing-type {
-
-      margin-bottom: 6px;
-
+      margin-bottom: 5px;
       color: #168b8b;
-
-      font-size: 10px;
-
+      font-size: 9.5px;
       font-weight: 750;
-
-      letter-spacing:
-        0.08em;
-
-      text-transform:
-        uppercase;
-
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
-
 
     .sharing-title {
-
-      margin:
-        0 0 7px;
-
+      margin: 0 0 6px;
       color: var(--text);
-
-      font-size: 17px;
-
-      line-height: 1.4;
-
+      font-size: 15.5px;
+      line-height: 1.38;
       font-weight: 700;
-
     }
-
 
     .sharing-source,
     .sharing-author {
-
       color: var(--muted);
-
-      font-size: 12.5px;
-
-      line-height: 1.5;
-
+      font-size: 11.8px;
+      line-height: 1.45;
     }
-
 
     .sharing-note {
-
-      margin:
-        10px 0 11px;
-
+      margin: 8px 0 9px;
       color: var(--muted);
-
-      font-size: 13.5px;
-
-      line-height: 1.55;
-
+      font-size: 12.5px;
+      line-height: 1.5;
     }
-
 
     .sharing-thumb-wrap,
     .sharing-image-wrap {
-
       overflow: hidden;
-
     }
-
 
     .sharing-thumb,
     .sharing-feature-image {
-
       display: block;
-
       width: 100%;
-
-      max-height: 210px;
-
+      max-height: 170px;
       object-fit: cover;
-
     }
-
 
     .sharing-link {
-
       color: var(--primary);
-
       text-decoration: none;
-
-      font-size: 13px;
-
+      font-size: 12px;
       font-weight: 650;
-
     }
-
 
     .sharing-link:hover {
-
       text-decoration: underline;
-
     }
-
-
-
-    /* Quote type */
 
     .sharing-quote-card {
-
       position: relative;
-
-      padding:
-        20px 20px 18px;
-
+      padding: 17px 18px 16px;
     }
-
 
     .sharing-quote-mark {
-
-      height: 27px;
-
+      height: 24px;
       color: #1aa3a3;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size: 46px;
-
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
       line-height: 1;
-
     }
-
 
     .sharing-quote-text {
-
-      margin:
-        4px 0 13px;
-
+      margin: 3px 0 11px;
       color: var(--text);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size: 17px;
-
-      line-height: 1.55;
-
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15.5px;
+      line-height: 1.5;
       font-style: italic;
-
     }
-
-
-
-    /* Worth Sharing controls */
 
     .sharing-controls {
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
-      gap: 12px;
-
-      margin-top: 12px;
-
+      gap: 11px;
+      margin-top: 10px;
     }
-
 
     .sharing-controls button {
-
-      width: 30px;
-
-      height: 30px;
-
+      width: 29px;
+      height: 29px;
       padding: 0;
-
-      border:
-        1px solid var(--border);
-
+      border: 1px solid #d7dee7;
       border-radius: 50%;
-
-      background:
-        var(--surface-strong);
-
+      background: #fff;
       color: var(--text);
-
       display: inline-flex;
-
       align-items: center;
-
       justify-content: center;
-
       cursor: pointer;
-
     }
-
 
     .sharing-controls button:hover {
-
       color: var(--primary);
-
-      border-color:
-        var(--primary);
-
+      border-color: var(--primary);
     }
-
 
     #sharingCounter {
-
       min-width: 42px;
-
       color: var(--muted);
-
-      font-size: 12px;
-
+      font-size: 11.5px;
       text-align: center;
-
     }
-
-
 
     /* =========================================================
-       DARK MODE — HOME SPECIFIC
-    ========================================================== */
+       DARK MODE
+       ========================================================= */
 
-    html.dark-mode
-    .activity-tag {
-
-      background:
-        rgba(130, 183, 244, 0.12);
-
-      color: #8dc3ff;
-
-    }
-
-
-    html.dark-mode
-    .timeline::before {
-
-      background:
-        rgba(130, 183, 244, 0.28);
-
-    }
-
-
-    html.dark-mode
-    .timeline-dot {
-
-      background: #82b7f4;
-
-      box-shadow:
-        0 0 0 5px
-        rgba(130, 183, 244, 0.11);
-
-    }
-
-
-    html.dark-mode
-    .blog-slide,
-
-    html.dark-mode
-    .carousel-arrow,
-
-    html.dark-mode
-    .sharing-card,
-
-    html.dark-mode
-    .sharing-controls button {
-
-      background: #171b21;
-
+    html.dark-mode .home-panel {
+      background: #14181d;
       border-color: #2d333b;
-
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
 
-
-    html.dark-mode
-    .carousel-dot {
-
-      background: #4d5663;
-
+    html.dark-mode .activity-tag {
+      background: rgba(130, 183, 244, 0.12);
+      color: #8dc3ff;
     }
 
+    html.dark-mode .timeline::before {
+      background: rgba(130, 183, 244, 0.28);
+    }
 
-    html.dark-mode
-    .carousel-dot.active {
-
+    html.dark-mode .timeline-dot {
       background: #82b7f4;
-
+      box-shadow: 0 0 0 5px rgba(130, 183, 244, 0.11);
     }
 
+    html.dark-mode .blog-slide,
+    html.dark-mode .home-blog-card,
+    html.dark-mode .home-publication-item,
+    html.dark-mode .sharing-card,
+    html.dark-mode .carousel-arrow,
+    html.dark-mode .sharing-controls button {
+      background: #191d23;
+      border-color: #303741;
+    }
 
-    html.dark-mode
-    .sharing-type,
+    html.dark-mode .carousel-dot {
+      background: #4d5663;
+    }
 
-    html.dark-mode
-    .sharing-quote-mark {
+    html.dark-mode .carousel-dot.active {
+      background: #82b7f4;
+    }
 
+    html.dark-mode .sharing-type,
+    html.dark-mode .sharing-quote-mark {
       color: #82b7f4;
-
     }
-
-
 
     /* =========================================================
        RESPONSIVE
-    ========================================================== */
+       ========================================================= */
 
-    @media
-    (max-width: 980px) {
-
+    @media (max-width: 1080px) {
       .home-content-grid {
-
-        grid-template-columns:
-          1fr;
-
-        gap: 42px;
-
-        padding-left:
-          32px;
-
-        padding-right:
-          32px;
-
+        grid-template-columns: minmax(0, 1.5fr) minmax(315px, 0.9fr);
+        gap: 34px;
+        padding-left: 36px;
+        padding-right: 36px;
       }
-
     }
 
-
-    @media
-    (max-width: 640px) {
-
+    @media (max-width: 900px) {
       .home-content-grid {
-
-        padding:
-          34px 20px 46px;
-
+        grid-template-columns: 1fr;
+        gap: 38px;
       }
 
+      .home-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .home-panel + .home-panel {
+        margin-top: 0;
+      }
+
+      .worth-sharing-section {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .home-content-grid {
+        padding: 34px 20px 46px;
+      }
+
+      .home-sidebar {
+        display: block;
+      }
+
+      .home-panel + .home-panel {
+        margin-top: 18px;
+      }
 
       .timeline {
-
-        padding-left:
-          19px;
-
+        padding-left: 19px;
       }
-
 
       .timeline-entry {
-
-        padding-left:
-          17px;
-
+        padding-left: 17px;
       }
-
 
       .timeline-dot {
-
-        left:
-          -19px;
-
+        left: -19px;
       }
 
-
-      .blog-slide {
-
-        grid-template-columns:
-          94px minmax(0, 1fr);
-
+      .blog-slide,
+      .home-blog-card {
+        grid-template-columns: 92px minmax(0, 1fr);
+        min-height: 160px;
       }
-
 
       .blog-slide > img,
-      .blog-slide-placeholder {
-
-        width: 94px;
-
+      img.home-blog-image,
+      .blog-slide-placeholder,
+      .home-blog-placeholder {
+        width: 92px;
+        min-height: 160px;
       }
-
 
       .activity-gallery {
-
-        grid-template-rows:
-          150px auto;
-
+        grid-template-rows: 150px auto;
       }
-
     }
-
-
   </style>
 
 </head>
@@ -2492,144 +1883,107 @@
 
 
 <!-- =========================================================
-     BLOG CAROUSEL SCROLL SYNC
+     BLOG CAROUSEL — ROBUST HOME DISPLAY
+     Works with both older and newer blogs.js markup.
 ========================================================== -->
 
 <script>
+  let homeBlogIndex = 0;
 
+  function getHomeBlogCards() {
+    const container = document.getElementById('latestBlogs');
+    if (!container) return [];
 
-  /*
-    blogs.js controls:
-      previousBlog()
-      nextBlog()
-      goToBlog()
-
-    This listener only keeps the dots
-    synchronized when a visitor manually
-    swipes or scrolls the carousel.
-  */
-
-
-  const latestBlogCarousel =
-    document.getElementById(
-      'latestBlogs'
+    return Array.from(container.children).filter(
+      element => element.tagName === 'ARTICLE'
     );
-
-
-  if (latestBlogCarousel) {
-
-
-    latestBlogCarousel.addEventListener(
-
-      'scroll',
-
-      () => {
-
-
-        if (
-          typeof blogSlides !==
-          'function'
-        ) {
-
-          return;
-
-        }
-
-
-        const slides =
-          blogSlides();
-
-
-        if (!slides.length) {
-
-          return;
-
-        }
-
-
-        let nearestIndex = 0;
-
-        let nearestDistance =
-          Infinity;
-
-
-        slides.forEach(
-
-          (slide, index) => {
-
-
-            const distance =
-              Math.abs(
-
-                (
-                  slide.offsetLeft -
-                  latestBlogCarousel.offsetLeft
-                )
-
-                -
-
-                latestBlogCarousel.scrollLeft
-
-              );
-
-
-            if (
-              distance <
-              nearestDistance
-            ) {
-
-              nearestDistance =
-                distance;
-
-              nearestIndex =
-                index;
-
-            }
-
-
-          }
-
-        );
-
-
-        /*
-          currentBlogIndex is declared
-          globally inside blogs.js.
-        */
-
-        if (
-          typeof currentBlogIndex !==
-          'undefined'
-        ) {
-
-          currentBlogIndex =
-            nearestIndex;
-
-        }
-
-
-        if (
-          typeof updateBlogDots ===
-          'function'
-        ) {
-
-          updateBlogDots();
-
-        }
-
-
-      },
-
-      {
-        passive: true
-      }
-
-    );
-
-
   }
 
+  function prepareBlogImages(cards) {
+    cards.forEach(card => {
+      const img = card.querySelector('img');
 
+      if (!img) {
+        if (!card.querySelector('.home-blog-placeholder')) {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'home-blog-placeholder';
+          card.insertBefore(placeholder, card.firstChild);
+        }
+        return;
+      }
+
+      img.addEventListener('error', () => {
+        img.style.display = 'none';
+
+        if (!card.querySelector('.home-blog-placeholder')) {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'home-blog-placeholder';
+          card.insertBefore(placeholder, card.firstChild);
+        }
+      }, { once: true });
+    });
+  }
+
+  function renderHomeBlogDots(cards) {
+    const dots = document.getElementById('blogDots');
+    if (!dots) return;
+
+    dots.innerHTML = cards.map((_, index) => `
+      <button
+        class="carousel-dot ${index === homeBlogIndex ? 'active' : ''}"
+        type="button"
+        onclick="goToBlog(${index})"
+        aria-label="Show blog ${index + 1}"
+      ></button>
+    `).join('');
+  }
+
+  function showHomeBlog(index) {
+    const cards = getHomeBlogCards();
+    if (!cards.length) return;
+
+    homeBlogIndex = (index + cards.length) % cards.length;
+
+    cards.forEach((card, cardIndex) => {
+      card.classList.toggle(
+        'is-active-blog',
+        cardIndex === homeBlogIndex
+      );
+    });
+
+    renderHomeBlogDots(cards);
+  }
+
+  function nextBlog() {
+    showHomeBlog(homeBlogIndex + 1);
+  }
+
+  function previousBlog() {
+    showHomeBlog(homeBlogIndex - 1);
+  }
+
+  function goToBlog(index) {
+    showHomeBlog(index);
+  }
+
+  function setupHomeBlogCarousel() {
+    const cards = getHomeBlogCards();
+    if (!cards.length) return;
+
+    prepareBlogImages(cards);
+    showHomeBlog(0);
+
+    const controls = document.querySelector(
+      '.blog-carousel-shell .carousel-controls'
+    );
+
+    if (controls) {
+      controls.style.display =
+        cards.length > 1 ? 'flex' : 'none';
+    }
+  }
+
+  setupHomeBlogCarousel();
 </script>
 
 
