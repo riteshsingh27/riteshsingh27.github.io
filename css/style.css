@@ -76,14 +76,23 @@ a {
    CLICKABLE SITE NAME
    ========================================================= */
 
-.brand-link {
-  text-decoration: none;
-  color: inherit;
+a.brand-link,
+a.brand-link:link,
+a.brand-link:visited {
+  color: #111;
+  text-decoration: none !important;
   cursor: pointer;
   transition: color 160ms ease;
 }
 
-.brand-link:hover {
+a.brand-link:hover,
+a.brand-link:focus {
+  color: var(--primary);
+  text-decoration: none !important;
+}
+
+a.brand-link:hover span,
+a.brand-link:focus span {
   color: var(--primary);
 }
 
@@ -1250,13 +1259,18 @@ html.dark-mode .topbar {
 }
 
 html.dark-mode .brand,
-html.dark-mode .brand-link,
+html.dark-mode a.brand-link,
+html.dark-mode a.brand-link:link,
+html.dark-mode a.brand-link:visited,
 html.dark-mode .nav a,
 html.dark-mode .theme-toggle {
   color: #f3f4f6;
 }
 
-html.dark-mode .brand-link:hover,
+html.dark-mode a.brand-link:hover,
+html.dark-mode a.brand-link:focus,
+html.dark-mode a.brand-link:hover span,
+html.dark-mode a.brand-link:focus span,
 html.dark-mode .nav a:hover,
 html.dark-mode .nav a.active,
 html.dark-mode .theme-toggle:hover {
