@@ -1,451 +1,770 @@
-/* =========================================================
-   RITESH SINGH — BLOGS
-   =========================================================
+<!DOCTYPE html>
+<html lang="en">
 
-   SINGLE SOURCE OF TRUTH
+<head>
 
-   Home:
-   single-card carousel
+  <meta charset="UTF-8" />
 
-   Blog tab:
-   all posts
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-   Add every new blog ONLY here.
-   ========================================================= */
+  <title>Blog | Ritesh Singh</title>
 
+  <link
+    rel="icon"
+    type="image/png"
+    href="../images/ritesh_pic.png"
+  >
 
-const blogsData = [
 
-  {
-    date:
-      '2026-09-01',
+  <!-- Apply saved theme before rendering -->
 
-    displayDate:
-      'September 2026',
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 
-    title:
-      'Add your latest blog title here',
 
-    excerpt:
-      'Write four or five interesting lines here that introduce the idea behind the post without giving everything away. This teaser should explain why the topic matters and encourage the reader to continue reading.',
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-    image:
-      'images/blogs/blog1.jpg',
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-    url:
-      'blogs/blog1.html'
-  },
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
+  <link
+    rel="stylesheet"
+    href="../css/style.css"
+  />
 
-  {
-    date:
-      '2026-08-01',
 
-    displayDate:
-      'August 2026',
+  <style>
 
-    title:
-      'Add your second blog title here',
+    .blog-page {
 
-    excerpt:
-      'Use this space for a short introduction to the blog. Around four or five lines works well on the homepage and gives visitors enough context to decide whether they would like to read the complete article.',
+      max-width: 980px;
 
-    image:
-      'images/blogs/blog2.jpg',
+      margin: 0 auto;
 
-    url:
-      'blogs/blog2.html'
-  }
+      padding: 48px 32px 70px;
 
-];
+    }
 
 
+    .blog-intro {
 
-let currentBlogIndex = 0;
+      max-width: 760px;
 
+      margin: 18px 0 34px;
 
+      color: var(--muted);
 
-function escapeBlogHtml(value) {
+      font-size: 16px;
 
-  return String(value ?? '')
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
+      line-height: 1.7;
 
-}
+    }
 
 
+    #allBlogs {
 
-function sortedBlogs() {
+      display: grid;
 
-  return [...blogsData].sort(
+      gap: 20px;
 
-    (a, b) =>
-      new Date(b.date) -
-      new Date(a.date)
+    }
 
-  );
 
-}
+    .blog-list-card {
 
+      display: grid;
 
+      grid-template-columns:
+        190px minmax(0, 1fr);
 
-/* =========================================================
-   HOME BLOG CAROUSEL
-   ========================================================= */
+      overflow: hidden;
 
-function renderLatestBlogs(
-  containerId = 'latestBlogs'
-) {
+      background: #ffffff;
 
-  const container =
-    document.getElementById(containerId);
+      border:
+        1px solid var(--border);
 
+      border-radius: 16px;
 
-  if (!container) return;
+      box-shadow:
+        0 8px 24px
+        rgba(15, 23, 42, 0.07);
 
+    }
 
-  const blogs =
-    sortedBlogs();
 
+    .blog-list-card img,
+    .blog-thumb {
 
-  if (!blogs.length) {
+      width: 190px;
 
-    container.innerHTML =
-      '<p>No blog posts yet.</p>';
+      height: 100%;
 
-    return;
+      min-height: 180px;
 
-  }
+      object-fit: cover;
 
+      display: block;
 
-  container.innerHTML =
-    blogs.map(blog => `
+    }
 
-      <article class="blog-slide">
 
-        ${
-          blog.image
+    .blog-list-card > div {
 
-            ? `
-              <img
-                src="${escapeBlogHtml(blog.image)}"
-                alt="${escapeBlogHtml(blog.title)}"
-                loading="lazy"
-              >
-            `
+      padding: 20px 22px;
 
-            : `
-              <div
-                class="blog-slide-placeholder"
-                aria-hidden="true"
-              ></div>
-            `
-        }
+    }
 
 
-        <div class="blog-slide-content">
+    .blog-title {
 
-          <h3 class="blog-slide-title">
+      margin: 0 0 6px;
 
-            <a
-              href="${escapeBlogHtml(blog.url)}"
-              style="
-                color:inherit;
-                text-decoration:none;
-              "
-            >
-              ${escapeBlogHtml(blog.title)}
-            </a>
+      font-size: 21px;
 
-          </h3>
+      line-height: 1.35;
 
+      color: var(--text);
 
-          <div class="blog-slide-meta">
+    }
 
-            ${escapeBlogHtml(blog.displayDate)}
 
-          </div>
+    .blog-meta {
 
+      margin-bottom: 11px;
 
-          <p class="blog-slide-desc">
+      color: var(--muted);
 
-            ${escapeBlogHtml(blog.excerpt)}
+      font-size: 13px;
 
-          </p>
+    }
 
 
-          <a
-            class="read-link"
-            href="${escapeBlogHtml(blog.url)}"
-          >
-            Read More
-          </a>
+    .blog-desc {
 
-        </div>
+      margin: 0 0 13px;
 
-      </article>
+      color: var(--muted);
 
-    `).join('');
+      font-size: 14px;
 
+      line-height: 1.65;
 
-  renderBlogDots();
+    }
 
-}
 
+    .read-link {
 
+      color: var(--primary);
 
-function blogSlides() {
+      text-decoration: none;
 
-  return Array.from(
+      font-weight: 650;
 
-    document.querySelectorAll(
-      '#latestBlogs .blog-slide'
-    )
+      font-size: 14px;
 
-  );
+    }
 
-}
 
+    .read-link:hover {
 
+      text-decoration: underline;
 
-function renderBlogDots() {
+    }
 
-  const container =
-    document.getElementById(
-      'blogDots'
-    );
 
+    /* Brand click + hover */
 
-  if (!container) return;
+    .brand-link {
 
+      text-decoration: none;
 
-  const blogs =
-    sortedBlogs();
+      color: inherit;
 
+      transition:
+        color 160ms ease;
 
-  container.innerHTML =
-    blogs.map((blog, index) => `
+    }
 
-      <button
-        class="carousel-dot ${
-          index === currentBlogIndex
-            ? 'active'
-            : ''
-        }"
-        type="button"
-        onclick="goToBlog(${index})"
-        aria-label="Show blog ${index + 1}"
-      ></button>
 
-    `).join('');
+    .brand-link:hover {
 
-}
+      color: var(--primary);
 
+    }
 
 
-function updateBlogDots() {
+    /* Dark mode */
 
-  document
-    .querySelectorAll(
-      '#blogDots .carousel-dot'
-    )
-    .forEach(
-      (dot, index) => {
+    html.dark-mode
+    .blog-list-card {
 
-        dot.classList.toggle(
-          'active',
-          index === currentBlogIndex
-        );
+      background: #171b21;
+
+      border-color: #2d333b;
+
+    }
+
+
+    /* Mobile */
+
+    @media
+    (max-width: 700px) {
+
+      .blog-page {
+
+        padding:
+          34px 20px 50px;
 
       }
-    );
-
-}
 
 
+      .blog-list-card {
 
-function goToBlog(index) {
+        grid-template-columns:
+          1fr;
 
-  const carousel =
-    document.getElementById(
-      'latestBlogs'
-    );
+      }
 
 
-  const slides =
-    blogSlides();
+      .blog-list-card img,
+      .blog-thumb {
 
+        width: 100%;
+
+        height: 200px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+<div class="page">
+
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="topbar">
+
+
+    <a
+      class="brand brand-link"
+      href="../index.html"
+      title="Back to Home"
+    >
+
+      Ritesh <span>Singh</span>
+
+    </a>
+
+
+
+    <nav class="nav">
+
+
+      <a href="../index.html">
+        Home
+      </a>
+
+
+      <a href="../about.html">
+        About Me
+      </a>
+
+
+      <a href="../publications.html">
+        Publications
+      </a>
+
+
+      <a href="../projects.html">
+        Projects
+      </a>
+
+
+      <a href="../activities.html">
+        Academic Activities
+      </a>
+
+
+      <a
+        href="index.html"
+        class="active"
+      >
+        Blog
+      </a>
+
+
+
+      <!-- SEARCH -->
+
+      <button
+        type="button"
+        aria-label="Search"
+        title="Search"
+        onclick="toggleSiteSearch()"
+        style="
+          border:0;
+          background:transparent;
+          color:inherit;
+          padding:0;
+          display:inline-flex;
+          align-items:center;
+          cursor:pointer;
+        "
+      >
+
+        <svg
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+
+          <path
+            d="M16.5 16.5L21 21"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+      </button>
+
+
+
+      <!-- THEME -->
+
+      <button
+        class="theme-toggle"
+        type="button"
+        onclick="toggleTheme()"
+        aria-label="Toggle light and dark mode"
+        title="Light / Dark mode"
+      >
+
+        <span
+          id="themeIcon"
+          style="
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+          "
+          aria-hidden="true"
+        ></span>
+
+      </button>
+
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       SEARCH
+  ====================================================== -->
+
+  <div
+    id="siteSearch"
+    style="
+      display:none;
+      padding:14px 62px;
+      border-bottom:1px solid rgba(216,222,231,0.9);
+      background:rgba(255,255,255,0.72);
+    "
+  >
+
+
+    <form
+      onsubmit="runSiteSearch(event)"
+      style="
+        display:flex;
+        gap:10px;
+        align-items:center;
+      "
+    >
+
+
+      <input
+        id="siteSearchInput"
+        type="search"
+        placeholder="Search this website..."
+        aria-label="Search this website"
+        style="
+          flex:1;
+          max-width:520px;
+          padding:10px 12px;
+          border:1px solid #d8dee7;
+          border-radius:10px;
+          font:inherit;
+          color:inherit;
+          background:#fff;
+        "
+      >
+
+
+      <button
+        type="submit"
+        style="
+          padding:10px 16px;
+          border:0;
+          border-radius:10px;
+          background:#1f5ea9;
+          color:#fff;
+          font:inherit;
+          font-weight:600;
+          cursor:pointer;
+        "
+      >
+
+        Search
+
+      </button>
+
+
+    </form>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       BLOG PAGE
+  ====================================================== -->
+
+  <main class="blog-page">
+
+
+    <h1 class="page-title">
+
+      Blog
+
+    </h1>
+
+
+    <p class="blog-intro">
+
+      Thoughts and perspectives on low-power systems,
+      Energy-Neutral Devices, sustainable IoT,
+      embedded intelligence and future wireless networks.
+
+    </p>
+
+
+    <div id="allBlogs">
+
+      <!--
+        Blog entries are inserted automatically
+        from ../js/blogs.js
+      -->
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="site-footer">
+
+    © 2026, Ritesh Kumar
+    <strong>Singh</strong>
+
+  </footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     BLOG DATA
+====================================================== -->
+
+<script src="../js/blogs.js"></script>
+
+
+<script>
 
   if (
-    !carousel ||
-    !slides.length
-  ) return;
+    typeof renderAllBlogs ===
+    'function'
+  ) {
 
+    renderAllBlogs(
+      'allBlogs'
+    );
 
-  currentBlogIndex =
-    (
-      index +
-      slides.length
-    ) % slides.length;
+  }
 
+</script>
 
-  carousel.scrollTo({
 
-    left:
-      slides[currentBlogIndex]
-        .offsetLeft -
-      carousel.offsetLeft,
 
-    behavior:
-      'smooth'
+<!-- =====================================================
+     SEARCH
+====================================================== -->
 
-  });
+<script>
 
 
-  updateBlogDots();
+  function toggleSiteSearch() {
 
-}
 
+    const search =
+      document.getElementById(
+        'siteSearch'
+      );
 
 
-function nextBlog() {
+    const input =
+      document.getElementById(
+        'siteSearchInput'
+      );
 
-  const slides =
-    blogSlides();
 
+    if (
+      search.style.display === 'none' ||
+      search.style.display === ''
+    ) {
 
-  if (!slides.length) return;
+      search.style.display =
+        'block';
 
 
-  goToBlog(
-    currentBlogIndex + 1
-  );
+      input.focus();
 
-}
+    }
 
+    else {
 
+      search.style.display =
+        'none';
 
-function previousBlog() {
+    }
 
-  const slides =
-    blogSlides();
 
+  }
 
-  if (!slides.length) return;
 
 
-  goToBlog(
-    currentBlogIndex - 1
-  );
+  function runSiteSearch(event) {
 
-}
 
+    event.preventDefault();
 
 
-/* =========================================================
-   BLOG ARCHIVE
-   ========================================================= */
+    const query =
+      document
+        .getElementById(
+          'siteSearchInput'
+        )
+        .value
+        .trim();
 
-function renderAllBlogs(
-  containerId = 'allBlogs'
-) {
 
-  const container =
-    document.getElementById(containerId);
+    if (!query) return;
 
 
-  if (!container) return;
+    window.open(
 
+      'https://www.google.com/search?q=' +
 
-  const blogs =
-    sortedBlogs();
+      encodeURIComponent(
+        'site:riteshsingh.org ' +
+        query
+      ),
 
+      '_blank',
 
-  container.innerHTML =
-    blogs.map(blog => {
+      'noopener'
 
-      /*
-       blogs/index.html is inside the
-       /blogs/ directory.
+    );
 
-       Therefore images and article links
-       need ../ adjustment.
-      */
 
-      const image =
-        blog.image
-          ? '../' + blog.image
-          : '';
+  }
 
 
-      const url =
-        blog.url.startsWith('blogs/')
-          ? blog.url.replace(
-              'blogs/',
-              ''
-            )
-          : blog.url;
+</script>
 
 
-      return `
 
-        <article class="blog-list-card">
+<!-- =====================================================
+     THEME
+====================================================== -->
 
-          ${
-            image
+<script>
 
-              ? `
-                <img
-                  class="blog-thumb"
-                  src="${escapeBlogHtml(image)}"
-                  alt="${escapeBlogHtml(blog.title)}"
-                  loading="lazy"
-                >
-              `
 
-              : ''
-          }
+  function updateThemeIcon() {
 
 
-          <div>
+    const icon =
+      document.getElementById(
+        'themeIcon'
+      );
 
-            <h2 class="blog-title">
 
-              ${escapeBlogHtml(blog.title)}
+    if (!icon) return;
 
-            </h2>
 
+    const isDark =
+      document.documentElement
+        .classList
+        .contains(
+          'dark-mode'
+        );
 
-            <div class="blog-meta">
 
-              ${escapeBlogHtml(blog.displayDate)}
+    if (isDark) {
 
-            </div>
+      icon.innerHTML = `
 
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
 
-            <p class="blog-desc">
+          <path
+            d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5A8.5 8.5 0 1 0 20.5 14.2Z"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
 
-              ${escapeBlogHtml(blog.excerpt)}
-
-            </p>
-
-
-            <a
-              class="read-link"
-              href="${escapeBlogHtml(url)}"
-            >
-              Read More
-            </a>
-
-          </div>
-
-        </article>
+        </svg>
 
       `;
 
-    }).join('');
+    }
 
-}
+    else {
+
+      icon.innerHTML = `
+
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+
+          <path
+            d="M12 2V4
+               M12 20V22
+               M4.93 4.93L6.34 6.34
+               M17.66 17.66L19.07 19.07
+               M2 12H4
+               M20 12H22
+               M4.93 19.07L6.34 17.66
+               M17.66 6.34L19.07 4.93"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+      `;
+
+    }
+
+
+  }
+
+
+
+  function toggleTheme() {
+
+
+    const root =
+      document.documentElement;
+
+
+    const isDark =
+      root.classList.toggle(
+        'dark-mode'
+      );
+
+
+    localStorage.setItem(
+
+      'theme',
+
+      isDark
+        ? 'dark'
+        : 'light'
+
+    );
+
+
+    updateThemeIcon();
+
+
+  }
+
+
+  updateThemeIcon();
+
+
+</script>
+
+
+</body>
+
+</html>
