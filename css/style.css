@@ -72,6 +72,21 @@ a {
   letter-spacing: 0.18em;
 }
 
+/* =========================================================
+   CLICKABLE SITE NAME
+   ========================================================= */
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.brand-link:hover {
+  color: var(--primary);
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -1235,11 +1250,13 @@ html.dark-mode .topbar {
 }
 
 html.dark-mode .brand,
+html.dark-mode .brand-link,
 html.dark-mode .nav a,
 html.dark-mode .theme-toggle {
   color: #f3f4f6;
 }
 
+html.dark-mode .brand-link:hover,
 html.dark-mode .nav a:hover,
 html.dark-mode .nav a.active,
 html.dark-mode .theme-toggle:hover {
