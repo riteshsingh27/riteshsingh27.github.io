@@ -1,374 +1,1145 @@
-<section class="about-intro about-intro-redesign">
+<!DOCTYPE html>
+<html lang="en">
 
-  <h1 class="page-title">
-    About Me
-  </h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <div class="about-role">
-    Principal Research Fellow &amp; Principal Investigator at IDLab,
-    <span>imec – University of Antwerp</span>
-  </div>
+  <title>About Me | Ritesh Singh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Apply saved theme before page renders -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
 
-  <div class="about-profile-grid">
+<body>
 
-    <!-- =====================================================
-         LEFT — RESEARCH PROFILE
-    ====================================================== -->
+  <div class="page">
 
-    <div class="about-profile-main">
 
-      <p class="about-lead">
-        I work at the intersection of low-power wireless systems,
-        embedded intelligence, and sustainable IoT, with a focus on
-        making Zero-Energy and Energy-Neutral Devices more capable,
-        intelligent, and scalable.
-      </p>
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-      <p>
-        My research spans energy-aware communication and computing,
-        intermittent systems, TinyML/TinyOL, and distributed edge
-        intelligence, with the goal of enabling devices that can adapt
-        their sensing, computing, learning, and communication to their
-        available energy.
-      </p>
+    <header class="topbar">
 
-      <p class="about-impact">
-        My work connects fundamental research with real-world systems
-        and industry collaboration, from energy-constrained IoT
-        deployments to the integration of intelligent, energy-neutral
-        devices into future 6G networks.
-      </p>
+      <div class="brand">
+        Ritesh <span>Singh</span>
+      </div>
+
+
+      <nav class="nav">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html" class="active">
+          About Me
+        </a>
+
+        <a href="publications.html">
+          Publications
+        </a>
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="activities.html">
+          Academic Activities
+        </a>
+
+
+        <button
+          type="button"
+          aria-label="Search"
+          title="Search"
+          onclick="toggleSiteSearch()"
+          style="
+            border: 0;
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+          "
+        >
+
+          <svg
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <path
+              d="M16.5 16.5L21 21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+
+        </button>
+
+
+        <!-- Light / Dark Mode -->
+
+        <button
+          class="theme-toggle"
+          type="button"
+          onclick="toggleTheme()"
+          aria-label="Toggle light and dark mode"
+          title="Light / Dark mode"
+        >
+          <svg
+            class="theme-icon"
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 3V5M12 19V21M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M3 12H5M19 12H21M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M5 20L19 4"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+      </nav>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         SEARCH
+    ========================================================== -->
+
+    <div
+      id="siteSearch"
+      style="
+        display: none;
+        padding: 14px 62px;
+        border-bottom: 1px solid rgba(216,222,231,0.9);
+        background: rgba(255,255,255,0.72);
+      "
+    >
+
+      <form
+        onsubmit="runSiteSearch(event)"
+        style="
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        "
+      >
+
+        <input
+          id="siteSearchInput"
+          type="search"
+          placeholder="Search this website..."
+          aria-label="Search this website"
+          style="
+            flex: 1;
+            max-width: 520px;
+            padding: 10px 12px;
+            border: 1px solid #d8dee7;
+            border-radius: 10px;
+            font: inherit;
+            color: inherit;
+            background: #fff;
+          "
+        >
+
+        <button
+          type="submit"
+          style="
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 10px;
+            background: #1f5ea9;
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+          "
+        >
+          Search
+        </button>
+
+      </form>
 
     </div>
 
 
 
-    <!-- =====================================================
-         RIGHT — AT A GLANCE
-    ====================================================== -->
+    <!-- =========================================================
+         ABOUT PAGE
+    ========================================================== -->
 
-    <aside class="about-glance-card">
-
-      <div class="glance-decoration glance-decoration-one"></div>
-      <div class="glance-decoration glance-decoration-two"></div>
+    <main class="about-page">
 
 
-      <div class="glance-card-header">
+      <!-- =====================================================
+           ABOUT ME
+      ====================================================== -->
 
-        <div class="glance-header-icon">
+      <section class="about-intro">
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="8"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
+        <h1 class="page-title">
+          About Me
+        </h1>
 
-            <circle
-              cx="12"
-              cy="12"
-              r="2"
-              fill="currentColor"
-            />
-
-            <path
-              d="M12 4V2M12 22V20M4 12H2M22 12H20"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-
-          </svg>
-
+        <div class="about-role">
+          Principal Research Fellow at IDLab,
+          <span>imec – University of Antwerp</span>
         </div>
 
-        <div>
 
-          <div class="glance-eyebrow">
-            Profile
+        <p>
+          I am a Principal Research Fellow at IDLab, imec – University of
+          Antwerp, working on sustainable and intelligent connected systems.
+          My research lies at the intersection of low-power wireless
+          communication, energy-neutral and zero-energy devices, embedded
+          intelligence, TinyML, and next-generation IoT systems.
+        </p>
+
+        <p>
+          My work focuses on developing energy-efficient technologies that
+          combine communication, computing, sensing, and intelligence for
+          real-world applications. I am particularly interested in
+          energy-neutral computing, low-power communication, intermittent
+          computing, embedded AI, and data-driven situational awareness for
+          future wireless and IoT systems.
+        </p>
+
+      </section>
+
+
+
+      <!-- =====================================================
+           EDUCATION
+      ====================================================== -->
+
+      <section class="profile-section">
+
+
+        <div class="profile-section-heading">
+
+          <div class="section-icon">
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M3 9L12 4L21 9L12 14L3 9Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M7 12V16C9.7 18 14.3 18 17 16V12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+
           </div>
+
 
           <h2>
-            At a Glance
+            Education
           </h2>
 
-        </div>
 
-      </div>
-
+          <div class="heading-line"></div>
 
 
-      <!-- RESEARCH -->
-
-      <div class="glance-item">
-
-        <div class="glance-icon">
-
-          <svg
-            width="19"
-            height="19"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-
-            <path
-              d="M9 3H15"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-
-            <path
-              d="M10 3V8L5.5 18.5C5.1 19.4 5.8 20.5 6.8 20.5H17.2C18.2 20.5 18.9 19.4 18.5 18.5L14 8V3"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M8 15H16"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-
-          </svg>
-
-        </div>
-
-
-        <div class="glance-content">
-
-          <div class="glance-label">
-            Research
-          </div>
-
-          <div class="glance-pills">
-
-            <span>Energy-Neutral Systems</span>
-
-            <span>Ambient IoT</span>
-
-            <span>Embedded AI</span>
-
-            <span>6G</span>
-
+          <div class="heading-note">
+            Building a strong foundation for impactful research
           </div>
 
         </div>
 
-      </div>
+
+
+        <div class="timeline education-timeline">
+
+
+          <!-- PhD -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              2018 – 2022
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                Ph.D.
+              </h3>
+
+              <div class="timeline-organisation">
+                University of Antwerp, Belgium
+              </div>
+
+
+              <div class="detail-box">
+
+                <div class="detail-row">
+                  <div class="detail-label">
+                    Thesis
+                  </div>
+
+                  <div class="detail-value">
+                    Building Energy Efficient IoT Applications using LPWAN
+                  </div>
+                </div>
+
+
+                <div class="detail-row">
+                  <div class="detail-label">
+                    Supervisors
+                  </div>
+
+                  <div class="detail-value">
+                    Prof. Maarten Weyn and Dr. Rafael Berkvens
+                  </div>
+                </div>
+
+
+                <div class="detail-row">
+                  <div class="detail-label">
+                    Research
+                  </div>
+
+                  <div class="detail-value">
+                    Investigated energy-efficient embedded architectures and
+                    communication strategies for large-scale IoT systems, with
+                    particular emphasis on LPWAN technologies. The work covered
+                    low-power communication, system-level energy modelling,
+                    device-lifetime optimisation, and experimental validation
+                    across applications including precision agriculture,
+                    smart water networks, and smart-city infrastructures.
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
 
 
 
-      <!-- CURRENT ROLE -->
+          <!-- M.Tech -->
 
-      <div class="glance-item">
+          <article class="timeline-item">
 
-        <div class="glance-icon">
+            <div class="timeline-date">
+              2010 – 2012
+            </div>
 
-          <svg
-            width="19"
-            height="19"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
 
-            <rect
-              x="4"
-              y="7"
-              width="16"
-              height="13"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
+            <div class="timeline-marker"></div>
 
-            <path
-              d="M9 7V5C9 4.45 9.45 4 10 4H14C14.55 4 15 4.45 15 5V7"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
 
-            <path
-              d="M4 12H20"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
+            <div class="timeline-content">
 
-          </svg>
+              <h3>
+                M.Tech. in Information Technology
+              </h3>
+
+              <div class="timeline-organisation">
+                Indian Institute of Information Technology (IIIT) Allahabad,
+                India
+              </div>
+
+
+              <div class="detail-box">
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Major
+                  </div>
+
+                  <div class="detail-value">
+                    Wireless Communication and Computing
+                  </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Thesis
+                  </div>
+
+                  <div class="detail-value">
+                    Lifetime Enhancement and Analysis of Wireless Sensor Networks
+                  </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Supervisor
+                  </div>
+
+                  <div class="detail-value">
+                    Prof. Shirshu Varma
+                  </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Research
+                  </div>
+
+                  <div class="detail-value">
+                    Focused on wireless sensor networks and techniques for
+                    improving the operational lifetime of resource-constrained
+                    devices. The thesis investigated communication and
+                    energy-efficiency aspects of wireless sensor systems and
+                    received the Best Master's Thesis Award.
+                  </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    GPA
+                  </div>
+
+                  <div class="detail-value">
+                    8.8 / 10
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- B.Tech -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              2006 – 2010
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                B.Tech. in Computer Science and Engineering
+              </h3>
+
+              <div class="timeline-organisation">
+                HCST, Agra, India
+              </div>
+
+
+              <div class="detail-box">
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Major
+                  </div>
+
+                  <div class="detail-value">
+                    Computer Science
+                  </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Final Project
+                  </div>
+
+                  <div class="detail-value">
+                    Mobile App for Tracking Personal Health
+                  </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Supervisor
+                  </div>
+
+                  <div class="detail-value">
+                    Prof. Vikrant Tyagi
+                  </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Studies
+                  </div>
+
+                  <div class="detail-value">
+                    Developed a broad foundation in computer science, software
+                    engineering, algorithms, networking, and application
+                    development. The final-year project explored the use of
+                    mobile technologies for personal health tracking and
+                    monitoring.
+                  </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                  <div class="detail-label">
+                    Result
+                  </div>
+
+                  <div class="detail-value">
+                    First Class
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================================
+           PROFESSIONAL JOURNEY
+      ====================================================== -->
+
+      <section class="profile-section">
+
+
+        <div class="profile-section-heading">
+
+          <div class="section-icon">
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="7"
+                width="16"
+                height="13"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+
+              <path
+                d="M9 7V5C9 4.45 9.45 4 10 4H14C14.55 4 15 4.45 15 5V7"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+
+              <path
+                d="M4 12H20"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+
+          </div>
+
+
+          <h2>
+            Professional Journey
+          </h2>
+
+
+          <div class="heading-line"></div>
+
+
+          <div class="heading-note">
+            Research • Innovation • Real-world Impact
+          </div>
 
         </div>
 
 
-        <div class="glance-content">
 
-          <div class="glance-label">
-            Current Role
+        <div class="timeline professional-timeline">
+
+
+          <!-- Current -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              May 2022 – Present
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                Principal Research Fellow / Principal Investigator
+              </h3>
+
+              <div class="timeline-organisation">
+                IDLab, imec – University of Antwerp, Belgium
+              </div>
+
+
+              <p>
+                Leading research within the Perceptive Radio Systems programme
+                on sustainable AIoT, zero-energy devices, low-power systems,
+                and energy-neutral edge intelligence. Managing and mentoring
+                multidisciplinary researchers working across embedded systems,
+                TinyML, communication technologies, and hardware–software
+                co-design.
+              </p>
+
+              <p>
+                The role includes coordination of European and national
+                research projects, doctoral supervision, teaching, research
+                strategy, project acquisition, academic governance, and
+                collaboration with industrial and academic partners.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- PhD Researcher -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              Apr 2018 – Jun 2022
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                Ph.D. Researcher
+              </h3>
+
+              <div class="timeline-organisation">
+                imec-IDLab, University of Antwerp, Belgium
+              </div>
+
+
+              <p>
+                Conducted research on energy-efficient embedded system
+                architectures for large-scale IoT deployments across precision
+                agriculture, smart water grids, and 5G smart-city
+                infrastructures.
+              </p>
+
+              <p>
+                Designed and evaluated LoRaWAN, Sigfox, NB-IoT, and LTE-based
+                communication systems with system-level energy modelling,
+                device-lifetime optimisation, embedded prototyping, and
+                experimental validation.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- HCL -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              Nov 2018 – Jun 2019
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                Team Lead, IoT Works
+              </h3>
+
+              <div class="timeline-organisation">
+                HCL Technologies, Noida, India
+              </div>
+
+
+              <p>
+                Led a team of seven IoT networking specialists and initiated
+                the establishment of an IoT laboratory supporting client
+                demonstrations, RFP activities, and pre-sales.
+              </p>
+
+              <p>
+                Architected customised IoT solutions for industrial clients,
+                including Volvo and BD, combining networking technologies,
+                connected devices, and application-level requirements.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- KU Leuven -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              Apr 2017 – Apr 2018
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                Researcher
+              </h3>
+
+              <div class="timeline-organisation">
+                imec-DistriNet, KU Leuven, Belgium
+              </div>
+
+
+              <p>
+                Worked on mobile sensing services and geospatial IoT
+                applications in collaboration with Nokia Bell Labs and Belgium
+                Post. The position combined applied IoT research with teaching
+                responsibilities for bachelor's-level courses and laboratory
+                sessions.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- TCS -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              Feb 2016 – Apr 2017
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                Researcher
+              </h3>
+
+              <div class="timeline-organisation">
+                TCS Research Lab, Bangalore, India
+              </div>
+
+
+              <p>
+                Developed IoT technologies for digital agriculture, including
+                solutions deployed across tea farms in India. The work focused
+                on translating sensing, connectivity, and embedded-system
+                technologies into practical solutions for real-world
+                agricultural environments.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- LG -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              Nov 2012 – Feb 2016
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                Research Engineer
+              </h3>
+
+              <div class="timeline-organisation">
+                LG Research Lab, Bangalore, India & Seoul, South Korea
+              </div>
+
+
+              <p>
+                Developed wireless communication modules for LG's WebOS
+                ecosystem, including wearable watches, smartphones, and smart
+                TVs. Worked within the connectivity division and represented
+                the group in innovation activities.
+              </p>
+
+              <p>
+                Contributed to new concepts and intellectual property around
+                connected and IoT devices, including wearable and flexible
+                device technologies.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================================
+           EARLIER RESEARCH & INTERNSHIPS
+      ====================================================== -->
+
+      <section class="profile-section internships-section">
+
+
+        <div class="profile-section-heading">
+
+          <div class="section-icon">
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M9 3H15"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M10 3V8L5 19C4.7 19.7 5.2 20.5 6 20.5H18C18.8 20.5 19.3 19.7 19 19L14 8V3"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M8 15H16"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+            </svg>
+
           </div>
 
-          <div class="glance-value glance-role">
-            Principal Research Fellow &amp; PI
-          </div>
 
-          <div class="glance-subvalue">
-            IDLab, imec – University of Antwerp
+          <h2>
+            Earlier Research & Internships
+          </h2>
+
+
+          <div class="heading-line"></div>
+
+
+          <div class="heading-note">
+            Early learning, lasting perspective
           </div>
 
         </div>
 
-      </div>
+
+
+        <div class="timeline compact-timeline">
+
+
+          <article class="timeline-item">
+
+            <div class="timeline-date">
+              Summer 2012
+            </div>
+
+
+            <div class="timeline-marker"></div>
+
+
+            <div class="timeline-content">
+
+              <h3>
+                Research Intern
+              </h3>
+
+              <div class="timeline-organisation">
+                Verimag Laboratory, Grenoble, France
+              </div>
+
+
+              <p>
+                Worked on analysis and development of the BIP framework for
+                synchronization among heterogeneous devices.
+              </p>
+
+            </div>
+
+          </article>
 
 
 
-      <!-- EXPERIENCE -->
+          <article class="timeline-item">
 
-      <div class="glance-item">
+            <div class="timeline-date">
+              Summers 2008 & 2009
+            </div>
 
-        <div class="glance-icon">
 
-          <svg
-            width="19"
-            height="19"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
+            <div class="timeline-marker"></div>
 
-            <path
-              d="M12 3L14.8 8.7L21 9.6L16.5 14L17.6 20.2L12 17.2L6.4 20.2L7.5 14L3 9.6L9.2 8.7L12 3Z"
-              stroke="currentColor"
-              stroke-width="1.7"
-              stroke-linejoin="round"
-            />
 
-          </svg>
+            <div class="timeline-content">
+
+              <h3>
+                Industrial Intern
+              </h3>
+
+              <div class="timeline-organisation">
+                Tata Consultancy Services, Delhi, India
+              </div>
+
+
+              <p>
+                Worked on software-development projects supporting clients
+                including Asian Paints and the Indian Army.
+              </p>
+
+            </div>
+
+          </article>
+
 
         </div>
 
+      </section>
 
-        <div class="glance-content">
 
-          <div class="glance-label">
-            Experience
-          </div>
-
-          <div class="glance-value">
-            Academia + Industrial R&amp;D
-          </div>
-
-          <div class="glance-subvalue">
-            Research · Innovation · Technology
-          </div>
-
-        </div>
-
-      </div>
+    </main>
 
 
 
-      <!-- JOURNEY -->
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
-      <div class="glance-item glance-journey-item">
+    <footer class="site-footer">
 
-        <div class="glance-icon">
+      © 2026, Ritesh Kumar <strong>Singh</strong>
 
-          <svg
-            width="19"
-            height="19"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
+    </footer>
 
-            <circle
-              cx="12"
-              cy="12"
-              r="9"
-              stroke="currentColor"
-              stroke-width="1.8"
-            />
-
-            <path
-              d="M3 12H21"
-              stroke="currentColor"
-              stroke-width="1.6"
-            />
-
-            <path
-              d="M12 3C14.5 5.5 15.8 8.5 15.8 12C15.8 15.5 14.5 18.5 12 21"
-              stroke="currentColor"
-              stroke-width="1.6"
-            />
-
-            <path
-              d="M12 3C9.5 5.5 8.2 8.5 8.2 12C8.2 15.5 9.5 18.5 12 21"
-              stroke="currentColor"
-              stroke-width="1.6"
-            />
-
-          </svg>
-
-        </div>
-
-
-        <div class="glance-content">
-
-          <div class="glance-label">
-            Research Journey
-          </div>
-
-
-          <div class="journey-line">
-
-            <span class="journey-country">
-              India
-            </span>
-
-            <span class="journey-arrow">
-              →
-            </span>
-
-            <span class="journey-country">
-              South Korea
-            </span>
-
-            <span class="journey-arrow">
-              →
-            </span>
-
-            <span class="journey-country">
-              France
-            </span>
-
-            <span class="journey-arrow">
-              →
-            </span>
-
-            <span class="journey-country journey-current">
-              Belgium
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-    </aside>
 
   </div>
 
-</section>
+
+
+  <!-- =========================================================
+       SEARCH SCRIPT
+  ========================================================== -->
+
+  <script>
+
+    function toggleSiteSearch() {
+
+      const search =
+        document.getElementById('siteSearch');
+
+      const input =
+        document.getElementById('siteSearchInput');
+
+
+      if (
+        search.style.display === 'none' ||
+        search.style.display === ''
+      ) {
+
+        search.style.display = 'block';
+
+        input.focus();
+
+      }
+
+      else {
+
+        search.style.display = 'none';
+
+      }
+
+    }
+
+
+
+    function runSiteSearch(event) {
+
+      event.preventDefault();
+
+
+      const query =
+        document
+          .getElementById('siteSearchInput')
+          .value
+          .trim();
+
+
+      if (!query) return;
+
+
+      window.open(
+
+        'https://www.google.com/search?q=' +
+
+        encodeURIComponent(
+          'site:riteshsingh.org ' + query
+        ),
+
+        '_blank',
+
+        'noopener'
+
+      );
+
+    }
+
+
+    function toggleTheme() {
+
+      document.documentElement.classList.toggle('dark-mode');
+
+      const dark =
+        document.documentElement.classList.contains('dark-mode');
+
+      localStorage.setItem(
+        'theme',
+        dark ? 'dark' : 'light'
+      );
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
