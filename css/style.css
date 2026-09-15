@@ -1398,4 +1398,49 @@ html.dark-mode .site-footer {
   background: #080a0d;
   color: #ffffff;
 }
+/* =========================================================
+   PUBLICATION KEYWORD TAGS
+   ========================================================= */
+
+.pub-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.pub-keyword {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+
+  border: 1px solid rgba(31, 94, 169, 0.18);
+  border-radius: 999px;
+
+  background: rgba(31, 94, 169, 0.07);
+  color: var(--primary);
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Slightly smaller on Home */
+#recentPublications .pub-keywords {
+  gap: 6px;
+  margin-top: 8px;
+}
+
+#recentPublications .pub-keyword {
+  padding: 3px 8px;
+  font-size: 11px;
+}
+
+/* Dark mode */
+html.dark-mode .pub-keyword {
+  background: rgba(130, 183, 244, 0.10);
+  border-color: rgba(130, 183, 244, 0.24);
+  color: var(--primary);
+}
 
