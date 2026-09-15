@@ -22,7 +22,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=20260915-01" />
 </head>
 
 
@@ -37,9 +37,13 @@
 
   <header class="topbar">
 
-    <div class="brand">
+    <a
+      class="brand brand-link"
+      href="index.html"
+      title="Back to Home"
+    >
       Ritesh <span>Singh</span>
-    </div>
+    </a>
 
 
     <nav class="nav">
@@ -72,9 +76,27 @@
           cursor: pointer;
         "
       >
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-          <path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <svg
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+
+          <path
+            d="M16.5 16.5L21 21"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
         </svg>
       </button>
 
@@ -88,7 +110,11 @@
       >
         <span
           id="themeIcon"
-          style="display:inline-flex;align-items:center;justify-content:center;"
+          style="
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+          "
           aria-hidden="true"
         ></span>
       </button>
@@ -399,15 +425,29 @@
 <script>
 
   function updateThemeIcon() {
-    const icon = document.getElementById('themeIcon');
+
+    const icon =
+      document.getElementById('themeIcon');
+
     if (!icon) return;
 
+
     const isDark =
-      document.documentElement.classList.contains('dark-mode');
+      document.documentElement
+        .classList
+        .contains('dark-mode');
+
 
     if (isDark) {
+
       icon.innerHTML = `
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5A8.5 8.5 0 1 0 20.5 14.2Z"
             stroke="currentColor"
@@ -416,10 +456,26 @@
           />
         </svg>
       `;
+
     } else {
+
       icon.innerHTML = `
-        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+
           <path
             d="M12 2V4
                M12 20V22
@@ -433,22 +489,32 @@
             stroke-width="1.8"
             stroke-linecap="round"
           />
+
         </svg>
       `;
+
     }
+
   }
 
 
   function toggleTheme() {
-    const root = document.documentElement;
-    const isDark = root.classList.toggle('dark-mode');
+
+    const root =
+      document.documentElement;
+
+    const isDark =
+      root.classList.toggle('dark-mode');
+
 
     localStorage.setItem(
       'theme',
       isDark ? 'dark' : 'light'
     );
 
+
     updateThemeIcon();
+
   }
 
 
