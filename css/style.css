@@ -1444,3 +1444,61 @@ html.dark-mode .pub-keyword {
   color: var(--primary);
 }
 
+/* =========================================================
+   HOME PROFILE — UNIFORM SOCIAL ICONS
+   ========================================================= */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Same box for ALL icons */
+.social-icon {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  min-height: 58px;
+
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+/* Same visual area for SVG icons */
+.social-icon svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+/* Google Scholar / ResearchGate / LinkedIn
+   if they are text or special symbols */
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+/* CV should also use exactly the same box */
+.social-icon.cv-icon {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  padding: 0;
+}
+
+/* If CV contains icon + CV text, keep them compact */
+.social-icon.cv-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
