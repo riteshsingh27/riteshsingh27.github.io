@@ -2156,3 +2156,41 @@ html.dark-mode .home-org-link:hover, html.dark-mode .home-org-link:focus { color
 html.dark-mode .personal-motto {
   color: #747d89;
 }
+
+/* =========================================================
+   RESEARCHGATE ICON — DEFINITIVE SCOPED FIX
+   ========================================================= */
+.social-row .social-icon[aria-label="ResearchGate"] .researchgate-mark-final {
+  position: relative !important;
+  display: inline-block !important;
+  width: 26px !important;
+  height: 26px !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+.social-row .social-icon[aria-label="ResearchGate"] .researchgate-r-final {
+  position: absolute !important;
+  left: 2px !important;
+  right: auto !important;
+  top: 1px !important;
+  bottom: auto !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 25px !important;
+  font-weight: 400 !important;
+  line-height: 25px !important;
+  letter-spacing: 0 !important;
+}
+
+.social-row .social-icon[aria-label="ResearchGate"] .researchgate-g-final {
+  position: absolute !important;
+  left: 18px !important;
+  right: auto !important;
+  top: 1px !important;
+  bottom: auto !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  line-height: 8px !important;
+  letter-spacing: 0 !important;
+}
