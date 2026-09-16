@@ -2103,3 +2103,56 @@ html.dark-mode .home-org-link:hover, html.dark-mode .home-org-link:focus { color
   font-weight: 600;
   line-height: 1;
 }
+
+
+/* =========================================================
+   HOME PERSONAL MOTTO + FINAL RESEARCHGATE ICON
+   ========================================================= */
+
+.social-row .researchgate-mark-final {
+  position: relative !important;
+  display: inline-block !important;
+  width: 22px !important;
+  height: 22px !important;
+  color: currentColor !important;
+  font-family: Inter, Arial, sans-serif !important;
+  line-height: 1 !important;
+}
+
+.social-row .researchgate-r-final {
+  position: absolute !important;
+  left: 2px !important;
+  top: 2px !important;
+  font-family: Inter, Arial, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 18px !important;
+  letter-spacing: 0 !important;
+}
+
+.social-row .researchgate-g-final {
+  position: absolute !important;
+  left: 14px !important;
+  top: 1px !important;
+  font-family: Inter, Arial, sans-serif !important;
+  font-size: 7px !important;
+  font-weight: 700 !important;
+  line-height: 7px !important;
+  letter-spacing: 0 !important;
+}
+
+.personal-motto {
+  margin-top: 12px;
+  color: #a0a7b2;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.035em;
+  line-height: 1.4;
+  text-align: center;
+}
+
+html.dark-mode .personal-motto {
+  color: #747d89;
+}
