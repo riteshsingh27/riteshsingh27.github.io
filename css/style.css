@@ -1527,16 +1527,23 @@ html.dark-mode .pub-keyword {
 
 /* ResearchGate: slightly smaller than before for equal visual weight */
 .social-icon[aria-label="ResearchGate"] > span {
-  width: 23px !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 25px !important;
   height: 25px !important;
-  font-size: 28px !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 25px !important;
   line-height: 25px !important;
 }
 
 .social-icon[aria-label="ResearchGate"] > span > span {
-  top: -1px !important;
-  right: 0 !important;
-  font-size: 9px !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: -1px !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 8px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
 }
 
 /* CV uses exactly the same compact box */
@@ -2069,8 +2076,8 @@ html.dark-mode .home-org-link:hover, html.dark-mode .home-org-link:focus { color
 .social-row .researchgate-mark {
   position: relative;
   display: inline-block;
-  width: 22px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   color: currentColor;
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1;
@@ -2078,20 +2085,21 @@ html.dark-mode .home-org-link:hover, html.dark-mode .home-org-link:focus { color
 
 .social-row .researchgate-r {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 2px;
+  bottom: 1px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 1;
 }
 
 .social-row .researchgate-g {
   position: absolute;
-  top: 0;
-  right: -1px;
+  top: 1px;
+  left: 17px;
+  right: auto;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 8px;
+  font-weight: 600;
   line-height: 1;
 }
