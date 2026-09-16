@@ -318,70 +318,229 @@ const publicationsData = [
   }
 ];
 
+
+/* =========================================================
+   SORTING
+   ========================================================= */
+
 function sortedPublications() {
+
   return [...publicationsData].sort((a, b) => {
-    const yearDiff = Number(b.year || 0) - Number(a.year || 0);
-    if (yearDiff !== 0) return yearDiff;
-    return String(b.date || '').localeCompare(String(a.date || ''));
+
+    const yearDiff =
+      Number(b.year || 0) -
+      Number(a.year || 0);
+
+    if (yearDiff !== 0) {
+      return yearDiff;
+    }
+
+    return String(b.date || '')
+      .localeCompare(
+        String(a.date || '')
+      );
+
   });
+
 }
+
+
+/* =========================================================
+   HTML ESCAPING
+   ========================================================= */
 
 function escapePublicationHtml(value) {
+
   return String(value ?? '')
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
 }
+
+
+/* =========================================================
+   PUBLICATION LINK
+   ========================================================= */
 
 function publicationLink(pub) {
-  if (!pub.url) return '';
-  return `<a class="read-link" href="${escapePublicationHtml(pub.url)}"
-    target="_blank" rel="noopener noreferrer">Paper →</a>`;
+
+  if (!pub.url) {
+    return '';
+  }
+
+  return `
+    <a
+      class="read-link"
+      href="${escapePublicationHtml(pub.url)}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Paper →
+    </a>
+  `;
+
 }
+
+
+/* =========================================================
+   KEYWORDS
+   ========================================================= */
 
 function publicationKeywords(pub) {
-  if (!Array.isArray(pub.keywords) || !pub.keywords.length) return '';
+
+  if (
+    !Array.isArray(pub.keywords) ||
+    !pub.keywords.length
+  ) {
+    return '';
+  }
+
   return `
     <div class="pub-keywords">
-      ${pub.keywords.map(keyword =>
-        `<span class="pub-keyword">${escapePublicationHtml(keyword)}</span>`
-      ).join('')}
+
+      ${pub.keywords.map(keyword => `
+        <span class="pub-keyword">
+          ${escapePublicationHtml(keyword)}
+        </span>
+      `).join('')}
+
     </div>
   `;
+
 }
 
-function renderRecentPublications(containerId = 'recentPublications', limit = 5) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-  container.innerHTML = sortedPublications().slice(0, limit).map(pub => `
-    <article class="pub-card">
-      <h3 class="pub-card-title">${escapePublicationHtml(pub.title)}</h3>
-      <div class="pub-venue">${escapePublicationHtml(pub.venue)}${pub.year ? ` · ${escapePublicationHtml(pub.year)}` : ''}</div>
-      ${publicationKeywords(pub)}
-      ${publicationLink(pub)}
-    </article>`).join('');
+
+/* =========================================================
+   HOME — LATEST PUBLICATIONS
+   ========================================================= */
+
+function renderRecentPublications(
+  containerId = 'recentPublications',
+  limit = 5
+) {
+
+  const container =
+    document.getElementById(containerId);
+
+  if (!container) {
+    return;
+  }
+
+
+  container.innerHTML =
+    sortedPublications()
+      .slice(0, limit)
+      .map(pub => `
+
+        <article class="pub-card">
+
+          <h3 class="pub-card-title">
+            ${escapePublicationHtml(pub.title)}
+          </h3>
+
+          <div class="pub-venue">
+            ${escapePublicationHtml(pub.venue)}
+            ${pub.year
+              ? ` · ${escapePublicationHtml(pub.year)}`
+              : ''
+            }
+          </div>
+
+          ${publicationKeywords(pub)}
+
+          ${publicationLink(pub)}
+
+        </article>
+
+      `)
+      .join('');
+
 }
 
-function renderAllPublications(containerId = 'allPublications') {
-  const container = document.getElementById(containerId);
-  if (!container) return;
+
+/* =========================================================
+   PUBLICATIONS PAGE
+   ========================================================= */
+
+function renderAllPublications(
+  containerId = 'allPublications'
+) {
+
+  const container =
+    document.getElementById(containerId);
+
+  if (!container) {
+    return;
+  }
+
+
   const byYear = new Map();
+
+
   sortedPublications().forEach(pub => {
-    const year = pub.year || 'Other';
-    if (!byYear.has(year)) byYear.set(year, []);
+
+    const year =
+      pub.year || 'Other';
+
+    if (!byYear.has(year)) {
+      byYear.set(year, []);
+    }
+
     byYear.get(year).push(pub);
+
   });
-  container.innerHTML = [...byYear.entries()].map(([year, pubs]) => `
-    <section class="pub-year-section">
-      <h2 class="pub-year">${escapePublicationHtml(year)}</h2>
-      <div class="pub-year-list">
-        ${pubs.map(pub => `
-          <article class="pub-card">
-            <h3 class="pub-card-title">${escapePublicationHtml(pub.title)}</h3>
-            <div class="pub-venue">${escapePublicationHtml(pub.venue)}${pub.year ? ` · ${escapePublicationHtml(pub.year)}` : ''}</div>
-            ${publicationKeywords(pub)}
-            ${publicationLink(pub)}
-          </article>`).join('')}
-      </div>
-      <a class="back-to-top" href="#top">Back to top ↑</a>
-    </section>`).join('');
+
+
+  container.innerHTML =
+    [...byYear.entries()]
+      .map(([year, pubs]) => `
+
+        <section class="pub-year-section">
+
+          <h2 class="pub-year">
+            ${escapePublicationHtml(year)}
+          </h2>
+
+
+          <div class="pub-year-list">
+
+            ${pubs.map(pub => `
+
+              <article class="pub-card">
+
+                <h3 class="pub-card-title">
+                  ${escapePublicationHtml(pub.title)}
+                </h3>
+
+
+                <div class="pub-venue">
+
+                  ${escapePublicationHtml(pub.venue)}
+
+                  ${pub.year
+                    ? ` · ${escapePublicationHtml(pub.year)}`
+                    : ''
+                  }
+
+                </div>
+
+
+                ${publicationKeywords(pub)}
+
+                ${publicationLink(pub)}
+
+              </article>
+
+            `).join('')}
+
+          </div>
+
+        </section>
+
+      `)
+      .join('');
+
 }
