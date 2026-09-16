@@ -1,455 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Publications | Ritesh Singh</title>
-
-  <link
-    rel="icon"
-    type="image/png"
-    href="images/ritesh_pic.png"
-  >
-
+  <link rel="icon" type="image/png" href="images/ritesh_pic.png">
 
   <script>
-    if (
-      localStorage.getItem('theme') === 'dark'
-    ) {
-      document.documentElement
-        .classList
-        .add('dark-mode');
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
     }
   </script>
 
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <link
-    rel="stylesheet"
-    href="css/style.css?v=20260915-01"
-  />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260916-02" />
 </head>
 
-
 <body>
-
 <div class="page">
-
-
-  <header
-    class="topbar"
-    id="top"
-  >
-
-    <a
-      class="brand brand-link"
-      href="index.html"
-      title="Back to Home"
-    >
+  <header class="topbar" id="top">
+    <a class="brand brand-link" href="index.html" title="Back to Home">
       Ritesh <span>Singh</span>
     </a>
 
-
     <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="publications.html" class="active">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="activities.html">Academic Activities</a>
+      <a href="blogs/index.html">Blog</a>
 
-      <a href="index.html">
-        Home
-      </a>
-
-      <a href="about.html">
-        About Me
-      </a>
-
-      <a
-        href="publications.html"
-        class="active"
-      >
-        Publications
-      </a>
-
-      <a href="projects.html">
-        Projects
-      </a>
-
-      <a href="activities.html">
-        Academic Activities
-      </a>
-
-      <a href="blogs/index.html">
-        Blog
-      </a>
-
-
-      <button
-        type="button"
-        aria-label="Search"
-        title="Search"
-        onclick="toggleSiteSearch()"
-        style="
-          border:0;
-          background:transparent;
-          color:inherit;
-          padding:0;
-          display:inline-flex;
-          align-items:center;
-          cursor:pointer;
-        "
-      >
-
-        <svg
-          width="21"
-          height="21"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-
-          <circle
-            cx="11"
-            cy="11"
-            r="7"
-            stroke="currentColor"
-            stroke-width="2"
-          />
-
-          <path
-            d="M16.5 16.5L21 21"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
+      <button type="button" aria-label="Search" title="Search" onclick="toggleSiteSearch()" style="border:0;background:transparent;color:inherit;padding:0;display:inline-flex;align-items:center;cursor:pointer;">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-
       </button>
 
-
-      <button
-        class="theme-toggle"
-        type="button"
-        onclick="toggleTheme()"
-        aria-label="Toggle light and dark mode"
-        title="Light / Dark mode"
-      >
-
-        <span
-          id="themeIcon"
-          style="
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
-          "
-          aria-hidden="true"
-        ></span>
-
+      <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle light and dark mode" title="Light / Dark mode">
+        <span id="themeIcon" style="display:inline-flex;align-items:center;justify-content:center;" aria-hidden="true"></span>
       </button>
-
     </nav>
-
   </header>
 
-
-
-  <div
-    id="siteSearch"
-    style="
-      display:none;
-      padding:14px 62px;
-      border-bottom:1px solid rgba(216,222,231,.9);
-      background:rgba(255,255,255,.72);
-    "
-  >
-
-    <form
-      onsubmit="runSiteSearch(event)"
-      style="
-        display:flex;
-        gap:10px;
-        align-items:center;
-      "
-    >
-
-      <input
-        id="siteSearchInput"
-        type="search"
-        placeholder="Search this website..."
-        aria-label="Search this website"
-        style="
-          flex:1;
-          max-width:520px;
-          padding:10px 12px;
-          border:1px solid #d8dee7;
-          border-radius:10px;
-          font:inherit;
-          color:inherit;
-          background:#fff;
-        "
-      >
-
-
-      <button
-        type="submit"
-        style="
-          padding:10px 16px;
-          border:0;
-          border-radius:10px;
-          background:#1f5ea9;
-          color:#fff;
-          font:inherit;
-          font-weight:600;
-          cursor:pointer;
-        "
-      >
-        Search
-      </button>
-
+  <div id="siteSearch" style="display:none;padding:14px 62px;border-bottom:1px solid rgba(216,222,231,.9);background:rgba(255,255,255,.72);">
+    <form onsubmit="runSiteSearch(event)" style="display:flex;gap:10px;align-items:center;">
+      <input id="siteSearchInput" type="search" placeholder="Search this website..." aria-label="Search this website" style="flex:1;max-width:520px;padding:10px 12px;border:1px solid #d8dee7;border-radius:10px;font:inherit;color:inherit;background:#fff;">
+      <button type="submit" style="padding:10px 16px;border:0;border-radius:10px;background:#1f5ea9;color:#fff;font:inherit;font-weight:600;cursor:pointer;">Search</button>
     </form>
-
   </div>
 
-
-
   <main class="publications-page">
-
-    <h1 class="page-title">
-      Publications
-    </h1>
-
-
+    <h1 class="page-title">Publications</h1>
     <div id="allPublications">
-
-      <!--
-        All publications inserted
-        automatically from
-        js/publications.js
-      -->
-
+      <!-- All publications inserted automatically from js/publications.js -->
     </div>
-
   </main>
-
-
 
   <footer class="site-footer">
     © 2026, Ritesh Kumar <strong>Singh</strong>
   </footer>
-
-
 </div>
 
-
+<!-- Floating Back to Top -->
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+  <svg class="back-to-top-progress" viewBox="0 0 48 48" aria-hidden="true">
+    <circle class="back-to-top-track" cx="24" cy="24" r="21" />
+    <circle class="back-to-top-ring" cx="24" cy="24" r="21" />
+  </svg>
+  <span class="back-to-top-icon" aria-hidden="true">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+      <path d="M6.5 14.5L12 9L17.5 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</button>
 
 <script>
-
 function toggleSiteSearch() {
-
-  const search =
-    document.getElementById('siteSearch');
-
-  const input =
-    document.getElementById('siteSearchInput');
-
-
-  if (
-    search.style.display === 'none' ||
-    search.style.display === ''
-  ) {
-
+  const search = document.getElementById('siteSearch');
+  const input = document.getElementById('siteSearchInput');
+  if (search.style.display === 'none' || search.style.display === '') {
     search.style.display = 'block';
-
     input.focus();
-
-  }
-
-  else {
-
+  } else {
     search.style.display = 'none';
-
   }
-
 }
-
-
 
 function runSiteSearch(event) {
-
   event.preventDefault();
-
-
-  const query =
-    document
-      .getElementById('siteSearchInput')
-      .value
-      .trim();
-
-
+  const query = document.getElementById('siteSearchInput').value.trim();
   if (!query) return;
-
-
   window.open(
-
-    'https://www.google.com/search?q=' +
-
-    encodeURIComponent(
-      'site:riteshsingh.org ' + query
-    ),
-
+    'https://www.google.com/search?q=' + encodeURIComponent('site:riteshsingh.org ' + query),
     '_blank',
-
     'noopener'
-
   );
-
 }
-
 </script>
-
-
 
 <script src="js/publications.js?v=20260915-01"></script>
-
 <script>
-
-  renderAllPublications(
-    'allPublications'
-  );
-
+  renderAllPublications('allPublications');
 </script>
 
-
-
 <script>
-
 function updateThemeIcon() {
-
-  const icon =
-    document.getElementById('themeIcon');
-
+  const icon = document.getElementById('themeIcon');
   if (!icon) return;
-
-
-  const isDark =
-    document.documentElement
-      .classList
-      .contains('dark-mode');
-
-
+  const isDark = document.documentElement.classList.contains('dark-mode');
   if (isDark) {
-
     icon.innerHTML = `
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-      >
-        <path
-          d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5A8.5 8.5 0 1 0 20.5 14.2Z"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linejoin="round"
-        />
-      </svg>
-    `;
-
-  }
-
-  else {
-
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5A8.5 8.5 0 1 0 20.5 14.2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>`;
+  } else {
     icon.innerHTML = `
-      <svg
-        width="25"
-        height="25"
-        viewBox="0 0 24 24"
-        fill="none"
-      >
-
-        <circle
-          cx="12"
-          cy="12"
-          r="4"
-          stroke="currentColor"
-          stroke-width="1.8"
-        />
-
-        <path
-          d="M12 2V4
-             M12 20V22
-             M4.93 4.93L6.34 6.34
-             M17.66 17.66L19.07 19.07
-             M2 12H4
-             M20 12H22
-             M4.93 19.07L6.34 17.66
-             M17.66 6.34L19.07 4.93"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-        />
-
-      </svg>
-    `;
-
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M12 2V4 M12 20V22 M4.93 4.93L6.34 6.34 M17.66 17.66L19.07 19.07 M2 12H4 M20 12H22 M4.93 19.07L6.34 17.66 M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>`;
   }
-
 }
-
-
 
 function toggleTheme() {
-
-  const root =
-    document.documentElement;
-
-
-  const isDark =
-    root.classList.toggle(
-      'dark-mode'
-    );
-
-
-  localStorage.setItem(
-
-    'theme',
-
-    isDark
-      ? 'dark'
-      : 'light'
-
-  );
-
-
+  const root = document.documentElement;
+  const isDark = root.classList.toggle('dark-mode');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
   updateThemeIcon();
-
 }
-
-
 updateThemeIcon();
-
 </script>
 
+<script>
+const backToTop = document.getElementById('backToTop');
+const backToTopRing = backToTop?.querySelector('.back-to-top-ring');
+const backToTopRadius = 21;
+const backToTopCircumference = 2 * Math.PI * backToTopRadius;
+
+if (backToTopRing) {
+  backToTopRing.style.strokeDasharray = `${backToTopCircumference} ${backToTopCircumference}`;
+  backToTopRing.style.strokeDashoffset = backToTopCircumference;
+}
+
+function updateBackToTop() {
+  if (!backToTop) return;
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? Math.min(Math.max(scrollTop / scrollableHeight, 0), 1) : 0;
+  backToTop.classList.toggle('is-visible', scrollTop > 450);
+  if (backToTopRing) {
+    backToTopRing.style.strokeDashoffset = backToTopCircumference * (1 - progress);
+  }
+}
+
+backToTop?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+window.addEventListener('scroll', updateBackToTop, { passive: true });
+window.addEventListener('resize', updateBackToTop);
+updateBackToTop();
+</script>
 
 </body>
 </html>
