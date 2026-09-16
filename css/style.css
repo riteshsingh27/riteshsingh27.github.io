@@ -1445,60 +1445,99 @@ html.dark-mode .pub-keyword {
 }
 
 /* =========================================================
-   HOME PROFILE — UNIFORM SOCIAL ICONS
+   HOME PROFILE — COMPACT SOCIAL ICONS
    ========================================================= */
 
 .social-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 12px;
 }
 
-/* Same box for ALL icons */
+/* Compact, uniform box for ALL profile icons */
 .social-icon {
-  width: 58px;
-  height: 58px;
-  min-width: 58px;
-  min-height: 58px;
-
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   padding: 0;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 94, 169, 0.16);
+  background: linear-gradient(145deg, #ffffff, #f5f8fc);
+  color: var(--primary);
+  text-decoration: none;
   box-sizing: border-box;
+
+  box-shadow: 0 5px 12px rgba(15, 23, 42, 0.07);
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+/* Subtle lift on hover/focus */
+.social-icon:hover,
+.social-icon:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(31, 94, 169, 0.38);
+  background: #ffffff;
+  box-shadow: 0 9px 20px rgba(31, 94, 169, 0.15);
+}
+
+.social-icon:focus-visible {
+  outline: 2px solid rgba(31, 94, 169, 0.32);
+  outline-offset: 3px;
+}
+
+/* Gentle press effect while clicking */
+.social-icon:active {
+  transform: translateY(0) scale(0.94);
+  box-shadow: 0 3px 7px rgba(15, 23, 42, 0.10);
 }
 
 /* Same visual area for SVG icons */
 .social-icon svg {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   display: block;
 }
 
-/* Google Scholar / ResearchGate / LinkedIn
-   if they are text or special symbols */
+/* Google Scholar / ResearchGate / LinkedIn images */
 .social-icon img {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
   display: block;
 }
 
-/* CV should also use exactly the same box */
+/* CV uses exactly the same compact box */
 .social-icon.cv-icon {
-  width: 58px;
-  height: 58px;
-  min-width: 58px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   padding: 0;
 }
 
-/* If CV contains icon + CV text, keep them compact */
+/* CV document symbol slightly smaller */
 .social-icon.cv-icon svg {
-  width: 27px;
-  height: 27px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Matching hover treatment in dark mode */
+html.dark-mode .social-icon:hover,
+html.dark-mode .social-icon:focus-visible {
+  background: #1b2027;
+  border-color: rgba(130, 183, 244, 0.42);
+  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.28);
 }
 
