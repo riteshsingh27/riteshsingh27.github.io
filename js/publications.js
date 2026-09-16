@@ -1,11 +1,20 @@
 /* =========================================================
    RITESH SINGH — PUBLICATIONS
-   Generated from the supplied Google Scholar records.
-   Keywords below are website research-topic tags inferred from titles.
-   Latest year first. Home page shows the latest 5.
+
+   Publication URLs verified against DOI / publisher /
+   institutional repository records.
+
+   Clicking a publication title opens the publication
+   in a new tab.
    ========================================================= */
 
+
 const publicationsData = [
+
+  /* =======================================================
+     2026
+     ======================================================= */
+
   {
     date: '2026-01-01',
     year: '2026',
@@ -13,9 +22,10 @@ const publicationsData = [
     authors: 'Justus Rajappa, Anuj and Smets, Laura and Reiter, Philippe and Rech, Paolo and Vanderhoydonc, Ynte and Singh, Ritesh Kumar and Mercelis, Siegfried and Famaey, Jeroen',
     venue: 'ACM Transactions on Embedded Computing Systems',
     keywords: ['Edge AI'],
-    url: '',
+    url: 'https://doi.org/10.1145/3773032',
     type: 'Journal / Article'
   },
+
   {
     date: '2026-01-01',
     year: '2026',
@@ -23,9 +33,10 @@ const publicationsData = [
     authors: 'Famaey, Jeroen and López, Onel LA and Pérez, Rubén Altuna and Callebaut, Gilles and De Strycker, Lieven and Katranaras, Efstathios and Liao, Jingyi and Singh, Ritesh Kumar and Ashraf, Mateen and Azarbahram, Amirhossein and others',
     venue: 'IEEE Communications Surveys & Tutorials',
     keywords: ['Ambient IoT', 'IoT'],
-    url: '',
+    url: 'https://doi.org/10.1109/COMST.2026.3727751',
     type: 'Journal / Article'
   },
+
   {
     date: '2026-01-01',
     year: '2026',
@@ -33,9 +44,10 @@ const publicationsData = [
     authors: 'Nasser, Samer and Moura, Henrique Duarte and Singh, Ritesh Kumar and Weyn, Maarten and Famaey, Jeroen',
     venue: 'arXiv preprint arXiv:2606.24340',
     keywords: ['Batteryless IoT', 'Task Scheduling', 'IoT'],
-    url: '',
+    url: 'https://arxiv.org/abs/2606.24340',
     type: 'Journal / Article'
   },
+
   {
     date: '2026-01-01',
     year: '2026',
@@ -43,9 +55,10 @@ const publicationsData = [
     authors: 'Li, Yinze and Nasser, Samer and Moura, Henrique Duarte and Singh, Ritesh and Michiels, Sam and Famaey, Jeroen and Hughes, Danny and others',
     venue: '2026 22nd International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT)',
     keywords: ['Batteryless IoT', 'Edge AI'],
-    url: '',
+    url: 'https://doi.org/10.1109/DCOSS-IoT69657.2026.00032',
     type: 'Conference'
   },
+
   {
     date: '2026-01-01',
     year: '2026',
@@ -53,9 +66,10 @@ const publicationsData = [
     authors: 'Nimr, Ahmad and González, Luis and Svensson, Tommy and Atzeni, Italo and Famaey, Jeroen and Mahmood, Nurul Huda and Vitucci, Enrico Maria and Berardinelli, Gilberto and Desset, Claude and Tervo, Nuutti and others',
     venue: '6G to Build a Sustainable Future',
     keywords: ['6G', 'Wireless Systems'],
-    url: '',
-    type: 'Journal / Article'
+    url: 'https://doi.org/10.1002/9781394363605.ch4',
+    type: 'Book Chapter'
   },
+
   {
     date: '2026-01-01',
     year: '2026',
@@ -63,9 +77,15 @@ const publicationsData = [
     authors: 'Jäntti, Riku and Ashraf, Mateen and Callebaut, Gilles and Cappelle, Jona and D’angelo, Lukas and Filippou, Miltiadis and Koskinen, Kalle and Leenders, Guus and López, Onel and Muehlmann, Ulrich and others',
     venue: 'Digital Sustainability: Legislations, Standards, Solutions and Related Case Studies',
     keywords: ['Ambient IoT', 'Sustainability', 'IoT'],
-    url: '',
+    url: 'https://doi.org/10.1007/978-981-92-0458-8_12',
     type: 'Book Chapter'
   },
+
+
+  /* =======================================================
+     2025
+     ======================================================= */
+
   {
     date: '2025-01-01',
     year: '2025',
@@ -73,9 +93,10 @@ const publicationsData = [
     authors: 'López, Onel and Singh, Ritesh Kumar and Phan-Huy, Dinh-Thuy and Katranaras, Efstathios and Mazloum, Nafiseh and Ruttik, Kalle and Jäntti, Riku and Khan, Hamza and Rosabal, Osmel and Alexias, Pavlos and others',
     venue: 'IEEE Internet of Things Magazine',
     keywords: ['Zero-Energy Devices', '6G'],
-    url: '',
+    url: 'https://doi.org/10.1109/IOTM.001.2400138',
     type: 'Journal / Article'
   },
+
   {
     date: '2025-01-01',
     year: '2025',
@@ -83,9 +104,10 @@ const publicationsData = [
     authors: 'Mokhtari, Mohmmadsadegh and Mohamadi, Parham Haji Ali and Aernouts, Michiel and Singh, Ritesh Kumar and Vanderborght, Bram and Weyn, Maarten and Famaey, Jeroen',
     venue: 'Robotics and Autonomous Systems',
     keywords: ['Robotics', 'Energy-Aware Systems', 'Task Scheduling'],
-    url: '',
+    url: 'https://doi.org/10.1016/j.robot.2024.104898',
     type: 'Journal / Article'
   },
+
   {
     date: '2025-01-01',
     year: '2025',
@@ -93,9 +115,10 @@ const publicationsData = [
     authors: 'Janssen, Thomas and Singh, Ritesh Kumar and Reiter, Phil and Rajappa, Anuj Justus and Puluckul, Priyesh Pappinisseri and Mokhtari, Mohmmadsadegh and Rahmani, Mohammad Hasan and Mannens, Erik and Famaey, Jeroen and Weyn, Maarten',
     venue: 'Aerospace',
     keywords: ['LoRaWAN', 'Space Systems', 'Sustainability'],
-    url: '',
+    url: 'https://doi.org/10.3390/aerospace12050432',
     type: 'Journal / Article'
   },
+
   {
     date: '2025-01-01',
     year: '2025',
@@ -103,9 +126,10 @@ const publicationsData = [
     authors: 'Johns, Maby and Puluckul, Priyesh Pappinisseri and Singh, Ritesh Kumar and Parrilla, Marc and De Wael, Karolien and Weyn, Maarten',
     venue: 'Sensors and Actuators B: Chemical',
     keywords: ['Wearable Sensors'],
-    url: '',
+    url: 'https://doi.org/10.1016/j.snb.2025.138166',
     type: 'Journal / Article'
   },
+
   {
     date: '2025-01-01',
     year: '2025',
@@ -113,9 +137,10 @@ const publicationsData = [
     authors: 'Nasser, Samer and Duarte Moura, Henrique and Subotic, Dragan and Singh, Ritesh Kumar and Weyn, Maarten and Famaey, Jeroen',
     venue: 'Proceedings of the 2025 International Conference on Information Technology for Social Good',
     keywords: ['Energy Harvesting', 'Wildlife Tracking'],
-    url: '',
+    url: 'https://doi.org/10.1145/3748699.3749811',
     type: 'Conference'
   },
+
   {
     date: '2025-01-01',
     year: '2025',
@@ -123,9 +148,10 @@ const publicationsData = [
     authors: 'López, Onel LA and Ashraf, Mateen and Nasser, Samer and de Jesus, Gabriel M and Singh, Ritesh Kumar and Filippou, Miltiadis C and Famaey, Jeroen',
     venue: 'arXiv preprint arXiv:2507.22740',
     keywords: ['Zero-Energy Devices', 'Energy-Aware Systems', 'Sensing'],
-    url: '',
+    url: 'https://arxiv.org/abs/2507.22740',
     type: 'Journal / Article'
   },
+
   {
     date: '2025-01-01',
     year: '2025',
@@ -133,9 +159,15 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Callebaut, Gilles and Cappelle, Jona and Vanderperre, Liesbet and Vanmulders, Jarne and Pappinisseri Puluckul, Priyesh and Nasser, Samer and Famay, Jeroen and Quoitin, Bruno and Naseh, Mehdi and others',
     venue: '',
     keywords: ['6G', 'IoT'],
-    url: '',
-    type: 'Journal / Article'
+    url: 'https://orbi.umons.ac.be/handle/20.500.12907/51983',
+    type: 'Project Deliverable'
   },
+
+
+  /* =======================================================
+     2024
+     ======================================================= */
+
   {
     date: '2024-01-01',
     year: '2024',
@@ -143,9 +175,10 @@ const publicationsData = [
     authors: 'Puluckul, Priyesh Pappinisseri and Singh, Ritesh Kumar and Weyn, Maarten',
     venue: 'Internet of Things',
     keywords: ['Batteryless IoT', 'Energy Harvesting', 'IoT'],
-    url: '',
+    url: 'https://doi.org/10.1016/j.iot.2024.101060',
     type: 'Journal / Article'
   },
+
   {
     date: '2024-01-01',
     year: '2024',
@@ -153,9 +186,10 @@ const publicationsData = [
     authors: 'Van de Poel, Seppe and Puluckul, Priyesh Pappinisseri and Berkvens, Rafael and Singh, Ritesh Kumar',
     venue: '2024 3rd International Conference on 6G Networking (6GNet)',
     keywords: ['IoT'],
-    url: '',
+    url: 'https://doi.org/10.1109/6GNET63182.2024.10765699',
     type: 'Conference'
   },
+
   {
     date: '2024-01-01',
     year: '2024',
@@ -163,9 +197,10 @@ const publicationsData = [
     authors: 'Moons, Lars and Nasser, Samer and Sabovic, Adnan and Singh, Ritesh Kumar and Famaey, Jeroen',
     venue: '2024 3rd International Conference on 6G Networking (6GNet)',
     keywords: ['Cellular IoT', 'IoT'],
-    url: '',
+    url: 'https://doi.org/10.1109/6GNet63182.2024.10765754',
     type: 'Conference'
   },
+
   {
     date: '2024-01-01',
     year: '2024',
@@ -173,9 +208,15 @@ const publicationsData = [
     authors: 'Mokhtari, Mohmmadsadegh and Mohamadi, Parham Haji Ali and Subotic, Dragan and Singh, Ritesh Kumar and Vanderborght, Bram and Weyn, Maarten and Famaey, Jeroen',
     venue: '2024 IEEE 21st International Conference on Smart Communities: Improving Quality of Life using AI, Robotics and IoT (HONET)',
     keywords: ['Robotics', 'Energy Management', 'Low-Power IoT'],
-    url: '',
+    url: 'https://doi.org/10.1109/HONET63146.2024.10822934',
     type: 'Conference'
   },
+
+
+  /* =======================================================
+     2022
+     ======================================================= */
+
   {
     date: '2022-01-01',
     year: '2022',
@@ -183,9 +224,10 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Rahmani, Mohammad Hasan and Weyn, Maarten and Berkvens, Rafael',
     venue: 'Sensors',
     keywords: ['LoRaWAN', 'Smart Agriculture', 'Sensing'],
-    url: '',
+    url: 'https://doi.org/10.3390/s22041326',
     type: 'Journal / Article'
   },
+
   {
     date: '2022-01-01',
     year: '2022',
@@ -193,9 +235,10 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar',
     venue: 'University of Antwerp',
     keywords: ['Low-Power IoT', 'IoT'],
-    url: '',
+    url: 'https://www.uantwerpen.be/nl/overuantwerpen/faculteiten/fac-toegepaste-ingenieurswetenschap/onderzoek/doctoreren/doctoraten/2022/',
     type: 'PhD Thesis'
   },
+
   {
     date: '2022-01-01',
     year: '2022',
@@ -203,9 +246,15 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar',
     venue: '',
     keywords: ['Low-Power IoT', 'IoT'],
-    url: '',
+    url: 'https://www.uantwerpen.be/nl/overuantwerpen/faculteiten/fac-toegepaste-ingenieurswetenschap/onderzoek/doctoreren/doctoraten/2022/',
     type: 'Book / Thesis'
   },
+
+
+  /* =======================================================
+     2021
+     ======================================================= */
+
   {
     date: '2021-01-01',
     year: '2021',
@@ -213,9 +262,15 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Berkvens, Rafael and Weyn, Maarten',
     venue: 'IEEE Access',
     keywords: ['Smart Agriculture', 'IoT'],
-    url: '',
+    url: 'https://doi.org/10.1109/ACCESS.2021.3116814',
     type: 'Journal / Article'
   },
+
+
+  /* =======================================================
+     2020
+     ======================================================= */
+
   {
     date: '2020-01-01',
     year: '2020',
@@ -223,9 +278,10 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Berkvens, Rafael and Weyn, Maarten',
     venue: '2020 International Conference on COMmunication Systems & NETworkS (COMSNETS)',
     keywords: ['Smart Agriculture', 'Low-Power IoT', 'IoT'],
-    url: '',
+    url: 'https://doi.org/10.1109/COMSNETS48256.2020.9027392',
     type: 'Conference'
   },
+
   {
     date: '2020-01-01',
     year: '2020',
@@ -233,9 +289,10 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Aernouts, Michiel and De Meyer, Mats and Weyn, Maarten and Berkvens, Rafael',
     venue: 'Sensors',
     keywords: ['LoRaWAN', 'Smart Agriculture'],
-    url: '',
+    url: 'https://doi.org/10.3390/s20071827',
     type: 'Journal / Article'
   },
+
   {
     date: '2020-01-01',
     year: '2020',
@@ -243,9 +300,10 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Berkvens, Rafael and Weyn, Maarten',
     venue: 'Internet of Things',
     keywords: ['LoRaWAN', 'Low-Power IoT', 'Wireless Networking'],
-    url: '',
+    url: 'https://doi.org/10.1016/j.iot.2020.100233',
     type: 'Journal / Article'
   },
+
   {
     date: '2020-01-01',
     year: '2020',
@@ -253,9 +311,15 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Puluckul, Priyesh Pappinisseri and Berkvens, Rafael and Weyn, Maarten',
     venue: 'Sensors',
     keywords: ['Low-Power IoT', 'IoT'],
-    url: '',
+    url: 'https://doi.org/10.3390/s20174794',
     type: 'Journal / Article'
   },
+
+
+  /* =======================================================
+     2019
+     ======================================================= */
+
   {
     date: '2019-01-01',
     year: '2019',
@@ -263,9 +327,15 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Berkvens, Rafael and Weyn, Maarten',
     venue: 'International Conference on P2P, Parallel, Grid, Cloud and Internet Computing',
     keywords: ['LoRaWAN', 'Wireless Networking'],
-    url: '',
+    url: 'https://doi.org/10.1007/978-3-030-33509-0_74',
     type: 'Conference'
   },
+
+
+  /* =======================================================
+     2018
+     ======================================================= */
+
   {
     date: '2018-01-01',
     year: '2018',
@@ -273,9 +343,15 @@ const publicationsData = [
     authors: 'Van Der Donckt, M Jeroen and Weyns, Danny and Iftikhar, M Usman and Singh, Ritesh Kumar',
     venue: 'ENASE',
     keywords: ['Self-Adaptive Systems', 'IoT'],
-    url: '',
-    type: 'Journal / Article'
+    url: 'https://doi.org/10.5220/0006815404780490',
+    type: 'Conference'
   },
+
+
+  /* =======================================================
+     2017
+     ======================================================= */
+
   {
     date: '2017-01-01',
     year: '2017',
@@ -283,9 +359,15 @@ const publicationsData = [
     authors: 'Weyns, Danny and Ramachandran, Gowri Sankar and Singh, Ritesh Kumar',
     venue: 'International Conference on Current Trends in Theory and Practice of Informatics',
     keywords: ['Self-Adaptive Systems', 'IoT'],
-    url: '',
+    url: 'https://doi.org/10.1007/978-3-319-73117-9_5',
     type: 'Conference'
   },
+
+
+  /* =======================================================
+     2014
+     ======================================================= */
+
   {
     date: '2014-01-01',
     year: '2014',
@@ -293,9 +375,10 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Bhadoria, Ankit',
     venue: 'International Journal of Modern Education and Computer Science',
     keywords: ['Wireless Sensor Networks'],
-    url: '',
+    url: 'https://doi.org/10.5815/ijmecs.2014.07.07',
     type: 'Journal / Article'
   },
+
   {
     date: '2014-01-01',
     year: '2014',
@@ -303,9 +386,15 @@ const publicationsData = [
     authors: 'Bhadoria, Ankit and Singh, Ritesh Kumar',
     venue: 'International Journal of Intelligent Systems and Applications',
     keywords: ['Path Planning'],
-    url: '',
+    url: 'https://doi.org/10.5815/ijisa.2014.08.05',
     type: 'Journal / Article'
   },
+
+
+  /* =======================================================
+     2013
+     ======================================================= */
+
   {
     date: '2013-01-01',
     year: '2013',
@@ -313,9 +402,10 @@ const publicationsData = [
     authors: 'Singh, Ritesh Kumar and Varma, Shirshu',
     venue: 'International Journal of Computer Applications',
     keywords: ['Wireless Sensor Networks'],
-    url: '',
+    url: 'https://www.ijcaonline.org/proceedings/ccsn2013/number1/14757-1311/',
     type: 'Journal / Article'
   }
+
 ];
 
 
@@ -362,23 +452,29 @@ function escapePublicationHtml(value) {
 
 
 /* =========================================================
-   PUBLICATION LINK
+   CLICKABLE PUBLICATION TITLE
    ========================================================= */
 
-function publicationLink(pub) {
+function publicationTitle(pub) {
+
+  const title =
+    escapePublicationHtml(pub.title);
+
 
   if (!pub.url) {
-    return '';
+    return title;
   }
+
 
   return `
     <a
-      class="read-link"
       href="${escapePublicationHtml(pub.url)}"
       target="_blank"
       rel="noopener noreferrer"
+      class="publication-title-link"
+      title="Open publication"
     >
-      Paper →
+      ${title}
     </a>
   `;
 
@@ -398,13 +494,16 @@ function publicationKeywords(pub) {
     return '';
   }
 
+
   return `
     <div class="pub-keywords">
 
       ${pub.keywords.map(keyword => `
+
         <span class="pub-keyword">
           ${escapePublicationHtml(keyword)}
         </span>
+
       `).join('')}
 
     </div>
@@ -425,6 +524,7 @@ function renderRecentPublications(
   const container =
     document.getElementById(containerId);
 
+
   if (!container) {
     return;
   }
@@ -438,20 +538,23 @@ function renderRecentPublications(
         <article class="pub-card">
 
           <h3 class="pub-card-title">
-            ${escapePublicationHtml(pub.title)}
+            ${publicationTitle(pub)}
           </h3>
 
+
           <div class="pub-venue">
+
             ${escapePublicationHtml(pub.venue)}
+
             ${pub.year
               ? ` · ${escapePublicationHtml(pub.year)}`
               : ''
             }
+
           </div>
 
-          ${publicationKeywords(pub)}
 
-          ${publicationLink(pub)}
+          ${publicationKeywords(pub)}
 
         </article>
 
@@ -472,6 +575,7 @@ function renderAllPublications(
   const container =
     document.getElementById(containerId);
 
+
   if (!container) {
     return;
   }
@@ -485,9 +589,11 @@ function renderAllPublications(
     const year =
       pub.year || 'Other';
 
+
     if (!byYear.has(year)) {
       byYear.set(year, []);
     }
+
 
     byYear.get(year).push(pub);
 
@@ -512,7 +618,7 @@ function renderAllPublications(
               <article class="pub-card">
 
                 <h3 class="pub-card-title">
-                  ${escapePublicationHtml(pub.title)}
+                  ${publicationTitle(pub)}
                 </h3>
 
 
@@ -529,8 +635,6 @@ function renderAllPublications(
 
 
                 ${publicationKeywords(pub)}
-
-                ${publicationLink(pub)}
 
               </article>
 
