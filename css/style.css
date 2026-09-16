@@ -1503,19 +1503,40 @@ html.dark-mode .pub-keyword {
   box-shadow: 0 3px 7px rgba(15, 23, 42, 0.10);
 }
 
-/* Same visual area for SVG icons */
-.social-icon svg {
+/* Email + LinkedIn: balanced visual weight */
+.social-icon > svg {
   width: 20px;
   height: 20px;
   display: block;
 }
 
-/* Google Scholar / ResearchGate / LinkedIn images */
-.social-icon img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  display: block;
+/* Google Scholar: reduce the custom letter + cap so it matches the SVG icons */
+.social-icon[aria-label="Google Scholar"] > span {
+  width: 23px !important;
+  height: 25px !important;
+  font-size: 26px !important;
+  line-height: 0.88 !important;
+}
+
+.social-icon[aria-label="Google Scholar"] > span > svg {
+  width: 15px !important;
+  height: 10px !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+
+/* ResearchGate: slightly smaller than before for equal visual weight */
+.social-icon[aria-label="ResearchGate"] > span {
+  width: 23px !important;
+  height: 25px !important;
+  font-size: 28px !important;
+  line-height: 25px !important;
+}
+
+.social-icon[aria-label="ResearchGate"] > span > span {
+  top: -1px !important;
+  right: 0 !important;
+  font-size: 9px !important;
 }
 
 /* CV uses exactly the same compact box */
@@ -1525,12 +1546,15 @@ html.dark-mode .pub-keyword {
   min-width: 40px;
   min-height: 40px;
   padding: 0;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 700;
 }
 
-/* CV document symbol slightly smaller */
-.social-icon.cv-icon svg {
-  width: 18px;
-  height: 18px;
+/* Smaller document mark leaves room for CV text */
+.social-icon.cv-icon > svg {
+  width: 14px;
+  height: 14px;
 }
 
 /* Matching hover treatment in dark mode */
@@ -1540,4 +1564,3 @@ html.dark-mode .social-icon:focus-visible {
   border-color: rgba(130, 183, 244, 0.42);
   box-shadow: 0 9px 20px rgba(0, 0, 0, 0.28);
 }
-
