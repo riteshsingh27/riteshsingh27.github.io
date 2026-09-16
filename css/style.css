@@ -1855,3 +1855,146 @@ html.dark-mode .profile-link:hover,
 html.dark-mode .profile-link:focus {
   color: #b8d7fb;
 }
+
+
+/* =========================================================
+   FLOATING BACK TO TOP — GLASS + SCROLL PROGRESS
+   ========================================================= */
+
+.back-to-top {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--primary);
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, 0.13),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(14px) scale(0.88);
+  transition:
+    opacity 180ms ease,
+    visibility 180ms ease,
+    transform 180ms cubic-bezier(.2,.8,.2,1),
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px) scale(1.04);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 15px 34px rgba(31, 94, 169, 0.20),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+.back-to-top:active {
+  transform: translateY(-1px) scale(0.94);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid rgba(31, 94, 169, 0.22);
+  outline-offset: 4px;
+}
+
+.back-to-top-progress {
+  position: absolute;
+  inset: 0;
+  width: 48px;
+  height: 48px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.back-to-top-track,
+.back-to-top-ring {
+  fill: none;
+  stroke-width: 1.7;
+}
+
+.back-to-top-track {
+  stroke: rgba(31, 94, 169, 0.12);
+}
+
+.back-to-top-ring {
+  stroke: var(--primary);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 80ms linear;
+}
+
+.back-to-top-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 180ms ease;
+}
+
+.back-to-top:hover .back-to-top-icon {
+  transform: translateY(-2px);
+}
+
+html.dark-mode .back-to-top {
+  background: rgba(24, 28, 34, 0.78);
+  color: #82b7f4;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.34),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+html.dark-mode .back-to-top:hover {
+  background: rgba(31, 36, 44, 0.94);
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.42),
+    0 0 22px rgba(130, 183, 244, 0.10),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+}
+
+html.dark-mode .back-to-top-track {
+  stroke: rgba(130, 183, 244, 0.13);
+}
+
+html.dark-mode .back-to-top-ring {
+  stroke: #82b7f4;
+}
+
+@media (max-width: 700px) {
+  .back-to-top {
+    right: 18px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .back-to-top-progress {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top,
+  .back-to-top-icon,
+  .back-to-top-ring {
+    transition: none;
+  }
+}
