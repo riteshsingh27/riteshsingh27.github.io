@@ -2061,3 +2061,37 @@ html.dark-mode .home-org-link:hover, html.dark-mode .home-org-link:focus { color
   line-height: 1;
   letter-spacing: -0.02em;
 }
+
+
+/* =========================================================
+   FINAL RESEARCHGATE MARK
+   ========================================================= */
+.social-row .researchgate-mark {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 24px;
+  color: currentColor;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+}
+
+.social-row .researchgate-r {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.social-row .researchgate-g {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+}
