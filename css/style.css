@@ -1822,3 +1822,36 @@ html.dark-mode .glance-pills span {
   .glance-card-header h2 { font-size: 19px; }
   .about-profile-main .about-lead { font-size: inherit; }
 }
+
+
+/* =========================================================
+   ABOUT PAGE — PROFILE LINKS
+   ========================================================= */
+
+.profile-link,
+.profile-link:link,
+.profile-link:visited {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: inherit;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.profile-link:hover,
+.profile-link:focus {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+html.dark-mode .profile-link,
+html.dark-mode .profile-link:link,
+html.dark-mode .profile-link:visited {
+  color: #82b7f4;
+}
+
+html.dark-mode .profile-link:hover,
+html.dark-mode .profile-link:focus {
+  color: #b8d7fb;
+}
