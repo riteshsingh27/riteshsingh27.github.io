@@ -800,73 +800,44 @@
       }
     }
   
-    /* =========================================================
-       HOME FINAL COMPACT TUNING
-       ========================================================= */
-
-    /* Keep the connected activity design, only make the cards slimmer. */
-    .activity-compact-card {
-      min-height: 54px;
-      padding: 9px 15px;
+    /* Blog moved below Worth Sharing in the left column */
+    .home-left-blog {
+      margin-top: 24px;
     }
 
-    .activity-compact-date {
-      font-family: Inter, Arial, sans-serif;
-      font-size: 12.5px;
-      line-height: 1.35;
-      font-weight: 700;
-    }
-
-    .activity-compact-text {
-      font-family: Inter, Arial, sans-serif;
-      font-size: 13.5px;
-      line-height: 1.38;
-      font-weight: 600;
-    }
-
-    .timeline-entry {
-      margin-bottom: 9px;
-    }
-
-    /* Smaller photo block; retain the existing cover crop and carousel. */
-    .home-academic-carousel {
-      height: 248px;
-    }
-
-    /* Make the Home blog preview noticeably shorter. */
-    .home-sidebar .blog-card {
+    .home-left-blog .blog-card {
       min-height: 0;
     }
 
-    .home-sidebar .blog-card-image,
-    .home-sidebar .blog-image {
+    .home-left-blog .blog-card-image,
+    .home-left-blog .blog-image {
       min-height: 112px;
       height: 112px;
     }
 
-    .home-sidebar .blog-card-content,
-    .home-sidebar .blog-content {
+    .home-left-blog .blog-card-content,
+    .home-left-blog .blog-content {
       padding-top: 11px;
       padding-bottom: 11px;
     }
 
-    .home-sidebar .blog-title,
-    .home-sidebar .blog-card-title {
+    .home-left-blog .blog-title,
+    .home-left-blog .blog-card-title {
       font-family: Inter, Arial, sans-serif;
       font-size: 13.5px;
       line-height: 1.32;
       font-weight: 700;
     }
 
-    .home-sidebar .blog-date,
-    .home-sidebar .blog-meta {
+    .home-left-blog .blog-date,
+    .home-left-blog .blog-meta {
       font-family: Inter, Arial, sans-serif;
       font-size: 12px;
       line-height: 1.35;
     }
 
-    .home-sidebar .blog-excerpt,
-    .home-sidebar .blog-description {
+    .home-left-blog .blog-excerpt,
+    .home-left-blog .blog-description {
       font-family: Inter, Arial, sans-serif;
       font-size: 12.5px;
       line-height: 1.4;
@@ -874,48 +845,6 @@
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
-    }
-
-    /* Keep all recent publications, but match their visual scale to Activities. */
-    #recentPublications .pub-card,
-    #recentPublications .publication-card {
-      padding-top: 11px;
-      padding-bottom: 11px;
-    }
-
-    #recentPublications .pub-card-title,
-    #recentPublications .publication-title,
-    #recentPublications .publication-title-link {
-      font-family: Inter, Arial, sans-serif;
-      font-size: 13.5px;
-      line-height: 1.34;
-      font-weight: 700;
-    }
-
-    #recentPublications .pub-meta,
-    #recentPublications .publication-meta,
-    #recentPublications .pub-venue {
-      font-family: Inter, Arial, sans-serif;
-      font-size: 12px;
-      line-height: 1.38;
-    }
-
-    #recentPublications .pub-tag,
-    #recentPublications .publication-tag {
-      font-family: Inter, Arial, sans-serif;
-      font-size: 10.5px;
-      line-height: 1.2;
-    }
-
-    @media (max-width: 760px) {
-      .home-academic-carousel {
-        height: 220px;
-      }
-
-      .activity-compact-card {
-        min-height: 0;
-        padding: 10px 13px;
-      }
     }
 
 </style>
@@ -1334,12 +1263,23 @@
         <h2 class="section-title">Worth Sharing</h2><div id="worthSharing"></div>
         <div class="sharing-controls" aria-label="Worth Sharing carousel controls"><button type="button" onclick="previousSharing()" aria-label="Previous shared item">&#8592;</button><span id="sharingCounter">1 / 1</span><button type="button" onclick="nextSharing()" aria-label="Next shared item">&#8594;</button></div>
       </section>
+
+      <section class="home-panel home-left-blog">
+        <h2 class="section-title">Latest Blog Posts</h2>
+        <div class="blog-carousel-shell">
+          <div class="blog-carousel" id="latestBlogs" aria-label="Latest blog posts"></div>
+          <div class="carousel-controls" aria-label="Blog carousel controls">
+            <button class="carousel-arrow" type="button" onclick="previousBlog()">&#8592;</button>
+            <div class="carousel-dots" id="blogDots"></div>
+            <button class="carousel-arrow" type="button" onclick="nextBlog()">&#8594;</button>
+          </div>
+        </div>
+        <a class="sidebar-action" href="blogs/index.html">View All Blog Posts &#8594;</a>
+      </section>
     </section>
     <aside class="home-sidebar">
       <section class="home-panel academic-moments-panel" aria-label="Academic moments"><div class="home-academic-carousel" id="homeAcademicCarousel">
-          <img src="images/events/comsnets-2021-graduate-forum.png" class="home-academic-slide is-active" data-caption="COMSNETS · Graduate Forum" alt="COMSNETS · Graduate Forum">
-          <img src="images/events/comsnets-2024-poster-chair.png" class="home-academic-slide" data-caption="COMSNETS · Poster Chair" alt="COMSNETS · Poster Chair" loading="lazy">
-          <img src="images/events/en-iot-2024.png" class="home-academic-slide" data-caption="EN-IoT · Workshop" alt="EN-IoT · Workshop" loading="lazy">
+          <img src="images/events/en-iot-2024.png" class="home-academic-slide is-active" data-caption="EN-IoT · Workshop" alt="EN-IoT · Workshop" loading="lazy">
           <img src="images/events/en-iot-2026.png" class="home-academic-slide" data-caption="EN-IoT · Workshop" alt="EN-IoT · Workshop" loading="lazy">
           <img src="images/events/futurenetworks.png" class="home-academic-slide" data-caption="IEEE Future Networks World Forum" alt="IEEE Future Networks World Forum" loading="lazy">
           <img src="images/events/iiit-surat-2026.png" class="home-academic-slide" data-caption="IIIT Surat · Academic Visit" alt="IIIT Surat · Academic Visit" loading="lazy">
@@ -1348,8 +1288,8 @@
           <img src="images/events/iit-kharagpur-2026.png" class="home-academic-slide" data-caption="IIT Kharagpur · Academic Visit" alt="IIT Kharagpur · Academic Visit" loading="lazy">
           <img src="images/events/iit-ropar-2026.jpeg" class="home-academic-slide" data-caption="IIT Ropar · Academic Visit" alt="IIT Ropar · Academic Visit" loading="lazy">
           <img src="images/events/phd-jury-2026.png" class="home-academic-slide" data-caption="PhD Jury · Academic Service" alt="PhD Jury · Academic Service" loading="lazy">
-        <div class="home-academic-caption" id="homeAcademicCaption">COMSNETS · Graduate Forum</div><button class="home-academic-next" id="homeAcademicNext" type="button" aria-label="Next academic photo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="home-academic-dots" id="homeAcademicDots"></div></div></section>
-      <section class="home-panel"><h2 class="section-title">Latest Blog Posts</h2><div class="blog-carousel-shell"><div class="blog-carousel" id="latestBlogs" aria-label="Latest blog posts"></div><div class="carousel-controls" aria-label="Blog carousel controls"><button class="carousel-arrow" type="button" onclick="previousBlog()">&#8592;</button><div class="carousel-dots" id="blogDots"></div><button class="carousel-arrow" type="button" onclick="nextBlog()">&#8594;</button></div></div><a class="sidebar-action" href="blogs/index.html">View All Blog Posts &#8594;</a></section>
+        <div class="home-academic-caption" id="homeAcademicCaption">EN-IoT · Workshop</div><button class="home-academic-next" id="homeAcademicNext" type="button" aria-label="Next academic photo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="home-academic-dots" id="homeAcademicDots"></div></div></section>
+      
       <section class="home-panel"><h2 class="section-title">Recent Publications</h2><div id="recentPublications"></div><a class="sidebar-action" href="publications.html">View All Publications &#8594;</a></section>
     </aside>
   </main>
