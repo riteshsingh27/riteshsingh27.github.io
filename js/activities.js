@@ -6,7 +6,7 @@
 
    index.html:
    renderHomeActivities('homeActivities', 10);
-   → shows the latest 10 activities as text only.
+   → shows latest 10 activities only.
 
    updates.html:
    renderAllActivities('allActivities');
@@ -41,6 +41,7 @@ const activities = [
 
   {
     date: '2026-10-25',
+    homeText: 'Co-organizing the third edition of EN-IoT at IEEE SENSORS 2026, Rotterdam.',
     displayDate: '25 October 2026',
     category: 'Workshop',
 
@@ -89,6 +90,7 @@ const activities = [
 
   {
     date: '2026-08-08',
+    homeText: 'Research seminars and collaboration visits across leading IITs and IIITs in India.',
     displayDate: '2–8 August 2026',
     category: 'Academic Visit',
 
@@ -140,6 +142,7 @@ const activities = [
 
   {
     date: '2026-08-01',
+    homeText: 'Contributing to the SNS JU Sustainability Working Group on sustainable future networks.',
     displayDate: 'August 2026',
     category: 'Community',
 
@@ -163,6 +166,7 @@ const activities = [
 
   {
     date: '2026-07-20',
+    homeText: 'Advancing energy-neutral Ambient IoT research through AMBIENT-6G.',
     displayDate: 'July 2026',
     category: 'Project',
 
@@ -186,6 +190,7 @@ const activities = [
 
   {
     date: '2026-06-30',
+    homeText: 'Co-organized the Sustainable by Design, Sustainable in Operation workshop on 6G.',
     displayDate: 'June 2026',
     category: 'Workshop',
 
@@ -235,6 +240,7 @@ const activities = [
 
   {
     date: '2026-05-20',
+    homeText: 'Published research on Zero-Energy Devices for sustainable and scalable future 6G systems.',
     displayDate: '2026',
     category: 'Publication',
 
@@ -257,6 +263,7 @@ const activities = [
 
   {
     date: '2026-04-15',
+    homeText: 'Advancing energy-neutral and Ambient IoT research across European 6G projects.',
     displayDate: '2026',
     category: 'Research',
 
@@ -279,6 +286,7 @@ const activities = [
 
   {
     date: '2026-03-15',
+    homeText: 'Developing scalable intelligent systems that adapt operation to available harvested energy.',
     displayDate: '2026',
     category: 'Research',
 
@@ -301,6 +309,7 @@ const activities = [
 
   {
     date: '2026-02-20',
+    homeText: 'Leading low-power IoT and energy-neutral device research within BEL6GICA.',
     displayDate: '2026',
     category: 'Project',
 
@@ -323,6 +332,7 @@ const activities = [
 
   {
     date: '2026-01-20',
+    homeText: 'Exploring TinyML, TinyOL and distributed intelligence for highly energy-constrained devices.',
     displayDate: '2026',
     category: 'Research',
 
@@ -344,14 +354,15 @@ const activities = [
 
      This demonstrates the automatic behaviour.
 
-     Home shows the latest 10 activities as a compact text timeline.
+     Since Home shows only 10 activities, this activity will
+     NOT appear on Home while there are 10 newer activities.
 
-     This and every older activity remain permanently available
-     on updates.html.
+     It WILL automatically remain on updates.html.
      ======================================================= */
 
   {
     date: '2025-11-01',
+    homeText: 'Researching closed-loop energy-aware Industrial IoT through CORRELATE.',
     displayDate: '2025',
     category: 'Project',
 
@@ -624,61 +635,18 @@ function activityMedia(activity, context = 'home') {
    ========================================================= */
 
 function homeActivityTemplate(activity) {
-
+  const homeText = activity.homeText || activity.title || activity.description || '';
+  const textHtml = activity.url ? `<a href="${escapeActivityHtml(activity.url)}">${escapeActivityHtml(homeText)}</a>` : escapeActivityHtml(homeText);
   return `
     <article class="timeline-entry">
-
-      <span
-        class="timeline-dot"
-        aria-hidden="true"
-      ></span>
-
-
-      <div class="activity-topline">
-
-        <span class="activity-date">
-          ${escapeActivityHtml(
-            activity.displayDate
-          )}
-        </span>
-
-        <span class="activity-tag">
-          ${escapeActivityHtml(
-            activity.category
-          )}
-        </span>
-
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <div class="activity-compact-card">
+        <div class="activity-compact-date">${escapeActivityHtml(activity.displayDate)}</div>
+        <div class="activity-compact-text">${textHtml}</div>
       </div>
-
-
-      <h3 class="activity-title">
-        ${escapeActivityHtml(
-          activity.title
-        )}
-      </h3>
-
-
-      <p class="activity-summary">
-        ${escapeActivityHtml(
-          activity.description
-        )}
-      </p>
-
-
-      <!-- Home timeline is intentionally text-only.
-           Activity media, when present, is reserved for updates.html. -->
-
-
-      ${activityLink(
-        activity,
-        'activity-inline-link'
-      )}
-
     </article>
   `;
-
 }
-
 
 
 /* =========================================================
