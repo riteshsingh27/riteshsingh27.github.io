@@ -650,6 +650,106 @@
       text-align: center;
     }
 
+
+    /* =========================================================
+       ACADEMIC MOMENTS — HOME PHOTO CAROUSEL
+       ========================================================= */
+
+    .academic-moments-panel {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .academic-moments-heading {
+      padding: 18px 20px 0;
+      margin-bottom: 13px !important;
+      font-size: 22px !important;
+    }
+
+    .home-academic-carousel {
+      position: relative;
+      width: 100%;
+      height: 218px;
+      overflow: hidden;
+      background: #eef2f6;
+      border-top: 1px solid #e1e6ed;
+      border-bottom: 1px solid #e1e6ed;
+    }
+
+    .home-academic-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: opacity .45s ease, transform .45s ease;
+    }
+
+    .home-academic-slide.is-active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .home-academic-next {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: 50%;
+      background: rgba(17,24,39,.48);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: background 150ms ease, transform 150ms ease;
+      z-index: 2;
+    }
+
+    .home-academic-next:hover {
+      background: rgba(17,24,39,.68);
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .home-academic-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      min-height: 32px;
+      padding: 9px 14px 10px;
+    }
+
+    .home-academic-dot {
+      width: 6px;
+      height: 6px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #c4ccd6;
+      cursor: pointer;
+      transition: width 150ms ease, background 150ms ease;
+    }
+
+    .home-academic-dot.is-active {
+      width: 16px;
+      border-radius: 999px;
+      background: #1aa3a3;
+    }
+
+    .left-worth-sharing {
+      margin-top: 30px;
+      width: min(100%, 620px);
+    }
+
     /* =========================================================
        DARK MODE
        ========================================================= */
@@ -695,6 +795,20 @@
     html.dark-mode .sharing-type,
     html.dark-mode .sharing-quote-mark {
       color: #82b7f4;
+    }
+
+
+    html.dark-mode .home-academic-carousel {
+      background: #11151a;
+      border-color: #303741;
+    }
+
+    html.dark-mode .home-academic-dot {
+      background: #4d5663;
+    }
+
+    html.dark-mode .home-academic-dot.is-active {
+      background: #82b7f4;
     }
 
     /* =========================================================
@@ -1183,53 +1297,39 @@
 
   <main class="home-content-grid">
 
-
-
     <!-- =======================================================
-         LEFT — LATEST ACTIVITIES
+         LEFT — LATEST ACTIVITIES + WORTH SHARING
     ======================================================== -->
 
     <section class="home-activities">
 
-
       <h2 class="section-title">
-
         Latest Activities
-
       </h2>
-
-
 
       <div
         class="timeline"
         id="homeActivities"
       >
-
         <!--
-          Latest 10 activities inserted
-          automatically from
-          js/activities.js
+          Latest 10 activities inserted automatically
+          from js/activities.js.
+
+          Home intentionally renders activities as text only.
+          The complete chronological archive remains available
+          on updates.html.
         -->
-
       </div>
-
-
 
       <div
         class="button-row"
-        style="
-          margin-top:22px;
-        "
+        style="margin-top:22px;"
       >
-
-
         <a
           class="btn-primary"
           href="updates.html"
         >
-
           View All Activities
-
 
           <svg
             width="18"
@@ -1238,14 +1338,12 @@
             fill="none"
             aria-hidden="true"
           >
-
             <path
               d="M5 12H19"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
             />
-
             <path
               d="M13 6L19 12L13 18"
               stroke="currentColor"
@@ -1253,162 +1351,9 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             />
-
           </svg>
-
-
         </a>
-
-
       </div>
-
-
-    </section>
-
-
-
-    <!-- =======================================================
-         RIGHT SIDEBAR
-    ======================================================== -->
-
-    <aside class="home-sidebar">
-
-
-
-      <!-- =====================================================
-           BLOGS
-      ====================================================== -->
-
-      <section class="home-panel">
-
-
-        <h2 class="section-title">
-
-          Latest Blog Posts
-
-        </h2>
-
-
-
-        <div class="blog-carousel-shell">
-
-
-          <div
-            class="blog-carousel"
-            id="latestBlogs"
-            aria-label="Latest blog posts"
-          >
-
-            <!--
-              Blog cards inserted automatically
-              from js/blogs.js
-            -->
-
-          </div>
-
-
-
-          <div
-            class="carousel-controls"
-            aria-label="Blog carousel controls"
-          >
-
-
-            <button
-              class="carousel-arrow"
-              type="button"
-              onclick="previousBlog()"
-              aria-label="Previous blog"
-              title="Previous blog"
-            >
-
-              &#8592;
-
-            </button>
-
-
-
-            <div
-              class="carousel-dots"
-              id="blogDots"
-            ></div>
-
-
-
-            <button
-              class="carousel-arrow"
-              type="button"
-              onclick="nextBlog()"
-              aria-label="Next blog"
-              title="Next blog"
-            >
-
-              &#8594;
-
-            </button>
-
-
-          </div>
-
-
-        </div>
-
-
-
-        <a
-          class="sidebar-action"
-          href="blogs/index.html"
-        >
-
-          View All Blog Posts &#8594;
-
-        </a>
-
-
-      </section>
-
-
-
-      <!-- =====================================================
-           RECENT PUBLICATIONS
-      ====================================================== -->
-
-      <section class="home-panel">
-
-
-        <h2 class="section-title">
-
-          Recent Publications
-
-        </h2>
-
-
-
-        <div id="recentPublications">
-
-          <!--
-            Latest 5 publications inserted
-            automatically from
-            js/publications.js
-          -->
-
-        </div>
-
-
-
-        <a
-          class="sidebar-action"
-          href="publications.html"
-        >
-
-          View All Publications &#8594;
-
-        </a>
-
-
-      </section>
-
-
 
       <!-- =====================================================
            WORTH SHARING
@@ -1418,55 +1363,36 @@
         class="
           home-panel
           worth-sharing-section
+          left-worth-sharing
         "
       >
-
-
         <h2 class="section-title">
-
           Worth Sharing
-
         </h2>
 
-
-
         <div id="worthSharing">
-
           <!--
             One item shown at a time
             from js/sharing.js
           -->
-
         </div>
-
-
 
         <div
           class="sharing-controls"
           aria-label="Worth Sharing carousel controls"
         >
-
-
           <button
             type="button"
             onclick="previousSharing()"
             aria-label="Previous shared item"
             title="Previous"
           >
-
             &#8592;
-
           </button>
 
-
-
           <span id="sharingCounter">
-
             1 / 1
-
           </span>
-
-
 
           <button
             type="button"
@@ -1474,20 +1400,222 @@
             aria-label="Next shared item"
             title="Next"
           >
-
             &#8594;
-
           </button>
+        </div>
+      </section>
 
+    </section>
 
+    <!-- =======================================================
+         RIGHT — PHOTOS, BLOGS, PUBLICATIONS
+    ======================================================== -->
+
+    <aside class="home-sidebar">
+
+      <!-- =====================================================
+           ACADEMIC MOMENTS
+      ====================================================== -->
+
+      <section class="home-panel academic-moments-panel">
+
+        <h2 class="section-title academic-moments-heading">
+          Academic Moments
+        </h2>
+
+        <div
+          class="home-academic-carousel"
+          id="homeAcademicCarousel"
+          aria-label="Academic moments photo carousel"
+        >
+          <img
+            src="images/activities/comsnets-2021-graduate-forum.png"
+            class="home-academic-slide is-active"
+            alt="COMSNETS 2021 Graduate Forum"
+          >
+
+          <img
+            src="images/activities/comsnets-2024-poster-chair.png"
+            class="home-academic-slide"
+            alt="COMSNETS 2024 poster chair activity"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/en-iot-2024.png"
+            class="home-academic-slide"
+            alt="EN-IoT 2024 workshop"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/en-iot-2026.png"
+            class="home-academic-slide"
+            alt="EN-IoT 2026 workshop"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/futurenetworks.png"
+            class="home-academic-slide"
+            alt="IEEE Future Networks activity"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/iiit-surat-2026.png"
+            class="home-academic-slide"
+            alt="Academic visit to IIIT Surat in 2026"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/iit_indore_visit.png"
+            class="home-academic-slide"
+            alt="Academic visit to IIT Indore"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/iit-hyderabad-seminar-2026.png"
+            class="home-academic-slide"
+            alt="Research seminar at IIT Hyderabad in 2026"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/iit-kharagpur-2026.png"
+            class="home-academic-slide"
+            alt="Academic visit to IIT Kharagpur in 2026"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/iit-ropar-2026.jpeg"
+            class="home-academic-slide"
+            alt="Academic visit to IIT Ropar in 2026"
+            loading="lazy"
+          >
+
+          <img
+            src="images/activities/phd-jury-2026.png"
+            class="home-academic-slide"
+            alt="PhD jury activity in 2026"
+            loading="lazy"
+          >
+
+          <button
+            class="home-academic-next"
+            id="homeAcademicNext"
+            type="button"
+            aria-label="Next academic photo"
+            title="Next photo"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
 
+        <div
+          class="home-academic-dots"
+          id="homeAcademicDots"
+          aria-label="Academic photo carousel navigation"
+        ></div>
 
       </section>
 
+      <!-- =====================================================
+           BLOGS
+      ====================================================== -->
+
+      <section class="home-panel">
+
+        <h2 class="section-title">
+          Latest Blog Posts
+        </h2>
+
+        <div class="blog-carousel-shell">
+
+          <div
+            class="blog-carousel"
+            id="latestBlogs"
+            aria-label="Latest blog posts"
+          >
+            <!--
+              Blog cards inserted automatically
+              from js/blogs.js
+            -->
+          </div>
+
+          <div
+            class="carousel-controls"
+            aria-label="Blog carousel controls"
+          >
+            <button
+              class="carousel-arrow"
+              type="button"
+              onclick="previousBlog()"
+              aria-label="Previous blog"
+              title="Previous blog"
+            >
+              &#8592;
+            </button>
+
+            <div
+              class="carousel-dots"
+              id="blogDots"
+            ></div>
+
+            <button
+              class="carousel-arrow"
+              type="button"
+              onclick="nextBlog()"
+              aria-label="Next blog"
+              title="Next blog"
+            >
+              &#8594;
+            </button>
+          </div>
+
+        </div>
+
+        <a
+          class="sidebar-action"
+          href="blogs/index.html"
+        >
+          View All Blog Posts &#8594;
+        </a>
+
+      </section>
+
+      <!-- =====================================================
+           RECENT PUBLICATIONS
+      ====================================================== -->
+
+      <section class="home-panel">
+
+        <h2 class="section-title">
+          Recent Publications
+        </h2>
+
+        <div id="recentPublications">
+          <!--
+            Latest 5 publications inserted
+            automatically from js/publications.js
+          -->
+        </div>
+
+        <a
+          class="sidebar-action"
+          href="publications.html"
+        >
+          View All Publications &#8594;
+        </a>
+
+      </section>
 
     </aside>
-
 
   </main>
 
@@ -1971,6 +2099,97 @@
 </script>
 
 
+
+
+
+<!-- =========================================================
+     HOME ACADEMIC MOMENTS CAROUSEL
+========================================================== -->
+<script>
+  const homeAcademicCarousel =
+    document.getElementById('homeAcademicCarousel');
+
+  if (homeAcademicCarousel) {
+    const homeAcademicSlides =
+      Array.from(
+        homeAcademicCarousel.querySelectorAll('.home-academic-slide')
+      );
+
+    const homeAcademicDots =
+      document.getElementById('homeAcademicDots');
+
+    const homeAcademicNext =
+      document.getElementById('homeAcademicNext');
+
+    let homeAcademicIndex = 0;
+    let homeAcademicTimer;
+
+    if (homeAcademicDots) {
+      homeAcademicSlides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+
+        dot.type = 'button';
+        dot.className =
+          'home-academic-dot' +
+          (index === 0 ? ' is-active' : '');
+
+        dot.setAttribute(
+          'aria-label',
+          `Show academic photo ${index + 1}`
+        );
+
+        dot.addEventListener('click', () => {
+          showHomeAcademicSlide(index);
+          startHomeAcademicCarousel();
+        });
+
+        homeAcademicDots.appendChild(dot);
+      });
+    }
+
+    function showHomeAcademicSlide(index) {
+      if (!homeAcademicSlides.length) return;
+
+      homeAcademicIndex =
+        (index + homeAcademicSlides.length) %
+        homeAcademicSlides.length;
+
+      homeAcademicSlides.forEach((slide, i) => {
+        slide.classList.toggle(
+          'is-active',
+          i === homeAcademicIndex
+        );
+      });
+
+      if (homeAcademicDots) {
+        Array.from(homeAcademicDots.children)
+          .forEach((dot, i) => {
+            dot.classList.toggle(
+              'is-active',
+              i === homeAcademicIndex
+            );
+          });
+      }
+    }
+
+    function startHomeAcademicCarousel() {
+      clearInterval(homeAcademicTimer);
+
+      if (homeAcademicSlides.length > 1) {
+        homeAcademicTimer = setInterval(() => {
+          showHomeAcademicSlide(homeAcademicIndex + 1);
+        }, 5000);
+      }
+    }
+
+    homeAcademicNext?.addEventListener('click', () => {
+      showHomeAcademicSlide(homeAcademicIndex + 1);
+      startHomeAcademicCarousel();
+    });
+
+    startHomeAcademicCarousel();
+  }
+</script>
 
 
 <!-- =========================================================
