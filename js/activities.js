@@ -6,7 +6,7 @@
 
    index.html:
    renderHomeActivities('homeActivities', 10);
-   → shows latest 10 activities only.
+   → shows the latest 10 activities as text only.
 
    updates.html:
    renderAllActivities('allActivities');
@@ -344,10 +344,10 @@ const activities = [
 
      This demonstrates the automatic behaviour.
 
-     Since Home shows only 10 activities, this activity will
-     NOT appear on Home while there are 10 newer activities.
+     Home shows the latest 10 activities as a compact text timeline.
 
-     It WILL automatically remain on updates.html.
+     This and every older activity remain permanently available
+     on updates.html.
      ======================================================= */
 
   {
@@ -665,10 +665,8 @@ function homeActivityTemplate(activity) {
       </p>
 
 
-      ${activityMedia(
-        activity,
-        'home'
-      )}
+      <!-- Home timeline is intentionally text-only.
+           Activity media, when present, is reserved for updates.html. -->
 
 
       ${activityLink(
