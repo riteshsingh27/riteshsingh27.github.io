@@ -799,7 +799,126 @@
         grid-template-rows: 150px auto;
       }
     }
-  </style>
+  
+    /* =========================================================
+       HOME FINAL COMPACT TUNING
+       ========================================================= */
+
+    /* Keep the connected activity design, only make the cards slimmer. */
+    .activity-compact-card {
+      min-height: 54px;
+      padding: 9px 15px;
+    }
+
+    .activity-compact-date {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 12.5px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .activity-compact-text {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.38;
+      font-weight: 600;
+    }
+
+    .timeline-entry {
+      margin-bottom: 9px;
+    }
+
+    /* Smaller photo block; retain the existing cover crop and carousel. */
+    .home-academic-carousel {
+      height: 248px;
+    }
+
+    /* Make the Home blog preview noticeably shorter. */
+    .home-sidebar .blog-card {
+      min-height: 0;
+    }
+
+    .home-sidebar .blog-card-image,
+    .home-sidebar .blog-image {
+      min-height: 112px;
+      height: 112px;
+    }
+
+    .home-sidebar .blog-card-content,
+    .home-sidebar .blog-content {
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+
+    .home-sidebar .blog-title,
+    .home-sidebar .blog-card-title {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.32;
+      font-weight: 700;
+    }
+
+    .home-sidebar .blog-date,
+    .home-sidebar .blog-meta {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .home-sidebar .blog-excerpt,
+    .home-sidebar .blog-description {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 12.5px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Keep all recent publications, but match their visual scale to Activities. */
+    #recentPublications .pub-card,
+    #recentPublications .publication-card {
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+
+    #recentPublications .pub-card-title,
+    #recentPublications .publication-title,
+    #recentPublications .publication-title-link {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.34;
+      font-weight: 700;
+    }
+
+    #recentPublications .pub-meta,
+    #recentPublications .publication-meta,
+    #recentPublications .pub-venue {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.38;
+    }
+
+    #recentPublications .pub-tag,
+    #recentPublications .publication-tag {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 10.5px;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 760px) {
+      .home-academic-carousel {
+        height: 220px;
+      }
+
+      .activity-compact-card {
+        min-height: 0;
+        padding: 10px 13px;
+      }
+    }
+
+</style>
 
 </head>
 
