@@ -847,6 +847,107 @@
       overflow: hidden;
     }
 
+
+    /* =========================================================
+       FINAL HOME SPACING TUNING
+       Compact Worth Sharing + Latest Blog Posts only
+       ========================================================= */
+
+    /* Worth Sharing: remove unnecessary vertical whitespace */
+    .worth-sharing-section {
+      padding-top: 20px !important;
+      padding-bottom: 16px !important;
+    }
+
+    .worth-sharing-section .section-title {
+      margin-bottom: 14px !important;
+    }
+
+    .worth-sharing-section #worthSharing {
+      margin-bottom: 10px !important;
+    }
+
+    .worth-sharing-section .sharing-card,
+    .worth-sharing-section .share-card {
+      padding-top: 14px !important;
+      padding-bottom: 14px !important;
+      min-height: 0 !important;
+    }
+
+    .worth-sharing-section .sharing-controls {
+      margin-top: 10px !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    /* Keep a clean but modest gap before Blog */
+    .home-left-blog {
+      margin-top: 22px !important;
+      padding-top: 20px !important;
+      padding-bottom: 15px !important;
+    }
+
+    .home-left-blog .section-title {
+      margin-bottom: 14px !important;
+    }
+
+    /* Blog card should follow its content instead of holding empty height */
+    .home-left-blog .blog-carousel-shell,
+    .home-left-blog .blog-carousel {
+      min-height: 0 !important;
+      height: auto !important;
+    }
+
+    .home-left-blog .blog-card {
+      min-height: 0 !important;
+      height: auto !important;
+    }
+
+    .home-left-blog .blog-card-image,
+    .home-left-blog .blog-image {
+      height: 104px !important;
+      min-height: 104px !important;
+    }
+
+    .home-left-blog .blog-card-content,
+    .home-left-blog .blog-content {
+      min-height: 0 !important;
+      height: auto !important;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+
+    .home-left-blog .blog-excerpt,
+    .home-left-blog .blog-description {
+      margin-top: 6px !important;
+      margin-bottom: 6px !important;
+      -webkit-line-clamp: 2 !important;
+    }
+
+    .home-left-blog .carousel-controls {
+      margin-top: 10px !important;
+      margin-bottom: 8px !important;
+    }
+
+    .home-left-blog .sidebar-action {
+      margin-top: 4px !important;
+      margin-bottom: 0 !important;
+    }
+
+    @media (max-width: 760px) {
+      .worth-sharing-section,
+      .home-left-blog {
+        padding-top: 17px !important;
+        padding-bottom: 14px !important;
+      }
+
+      .home-left-blog .blog-card-image,
+      .home-left-blog .blog-image {
+        height: 96px !important;
+        min-height: 96px !important;
+      }
+    }
+
 </style>
 
 </head>
