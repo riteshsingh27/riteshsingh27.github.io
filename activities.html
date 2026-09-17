@@ -63,6 +63,127 @@
     html.dark-mode .back-to-top-icon{background:#11151b;box-shadow:0 5px 18px rgba(0,0,0,.28)}
     @media(max-width:900px){.activities-page{padding:48px 28px 76px}.academic-row{grid-template-columns:125px minmax(0,1fr) 90px}.recognition-grid{grid-template-columns:1fr}}
     @media(max-width:650px){.activities-page{padding:38px 20px 70px}.activities-title{font-size:34px}.activity-nav{gap:8px 14px}.academic-row{grid-template-columns:1fr;gap:5px;padding:16px 2px}.academic-period{text-align:left;white-space:normal}.activity-heading h2{font-size:21px}.back-to-top{right:18px;bottom:18px;width:44px;height:44px}.back-to-top-progress{width:44px;height:44px}}
+
+    /* Academic Activities — compact photo carousel */
+    .activities-hero{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 380px;
+      gap:52px;
+      align-items:center;
+      margin:20px 0 48px;
+      padding-bottom:22px;
+      border-bottom:1px solid var(--line);
+    }
+    .activities-hero-copy{min-width:0}
+    .activities-hero .activities-intro{
+      max-width:760px;
+      margin:0 0 24px;
+    }
+    .activities-hero .activity-nav{
+      margin:0;
+      padding:0;
+      border-bottom:0;
+    }
+    .academic-carousel{
+      position:relative;
+      width:100%;
+      height:220px;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid rgba(216,222,231,.92);
+      background:#f3f5f7;
+      box-shadow:0 8px 24px rgba(15,23,42,.07);
+    }
+    .academic-carousel-slide{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transform:translateX(10px);
+      transition:opacity .45s ease,transform .45s ease;
+    }
+    .academic-carousel-slide.is-active{
+      opacity:1;
+      transform:translateX(0);
+    }
+    .academic-carousel-next{
+      position:absolute;
+      right:12px;
+      top:50%;
+      transform:translateY(-50%);
+      width:34px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.72);
+      border-radius:50%;
+      background:rgba(255,255,255,.82);
+      color:#172033;
+      box-shadow:0 3px 12px rgba(15,23,42,.12);
+      cursor:pointer;
+      backdrop-filter:blur(7px);
+      -webkit-backdrop-filter:blur(7px);
+      transition:background .15s ease,transform .15s ease;
+    }
+    .academic-carousel-next:hover{
+      background:#fff;
+      transform:translateY(-50%) translateX(2px);
+    }
+    .academic-carousel-dots{
+      position:absolute;
+      left:50%;
+      bottom:10px;
+      transform:translateX(-50%);
+      display:flex;
+      gap:6px;
+    }
+    .academic-carousel-dot{
+      width:6px;
+      height:6px;
+      padding:0;
+      border:0;
+      border-radius:50%;
+      background:rgba(255,255,255,.58);
+      box-shadow:0 0 0 1px rgba(15,23,42,.10);
+      cursor:pointer;
+      transition:width .18s ease,background .18s ease,border-radius .18s ease;
+    }
+    .academic-carousel-dot.is-active{
+      width:17px;
+      border-radius:999px;
+      background:#fff;
+    }
+    html.dark-mode .activities-hero{border-color:rgba(255,255,255,.09)}
+    html.dark-mode .academic-carousel{
+      border-color:rgba(255,255,255,.10);
+      background:#11151b;
+      box-shadow:0 8px 24px rgba(0,0,0,.22);
+    }
+    @media(max-width:900px){
+      .activities-hero{
+        grid-template-columns:minmax(0,1fr) 320px;
+        gap:30px;
+      }
+      .academic-carousel{height:200px}
+    }
+    @media(max-width:760px){
+      .activities-hero{
+        grid-template-columns:1fr;
+        gap:26px;
+        margin-bottom:42px;
+      }
+      .academic-carousel{
+        width:min(100%,520px);
+        height:250px;
+      }
+    }
+    @media(max-width:650px){
+      .academic-carousel{height:210px}
+    }
+
   </style>
 </head>
 
@@ -207,19 +328,80 @@
 
   <main class="activities-page">
     <h1 class="activities-title">Academic Activities</h1>
-    <p class="activities-intro">
-      Alongside research, I am actively involved in teaching, student supervision,
-      academic governance, professional service, and the organisation of scientific
-      workshops and conferences.
-    </p>
+    <div class="activities-hero">
 
-    <nav class="activity-nav" aria-label="Academic activities sections">
-      <a href="#teaching">Teaching</a>
-      <a href="#supervision">Supervision &amp; Mentoring</a>
-      <a href="#service">Academic Service</a>
-      <a href="#conferences">Conferences &amp; Workshops</a>
-      <a href="#recognition">Recognition</a>
-    </nav>
+      <div class="activities-hero-copy">
+
+        <p class="activities-intro">
+          Alongside research, I am actively involved in teaching, student supervision,
+          academic governance, professional service, and the organisation of scientific
+          workshops and conferences.
+        </p>
+
+        <nav class="activity-nav" aria-label="Academic activities sections">
+          <a href="#teaching">Teaching</a>
+          <a href="#supervision">Supervision &amp; Mentoring</a>
+          <a href="#service">Academic Service</a>
+          <a href="#conferences">Conferences &amp; Workshops</a>
+          <a href="#recognition">Recognition</a>
+        </nav>
+
+      </div>
+
+
+      <div
+        class="academic-carousel"
+        id="academicCarousel"
+        aria-label="Academic activities photos"
+      >
+
+        <img
+          src="images/academic1.png"
+          class="academic-carousel-slide is-active"
+          alt="Teaching and engaging with an audience"
+        >
+
+        <img
+          src="images/academic2.png"
+          class="academic-carousel-slide"
+          alt="Presenting at the University of Antwerp"
+        >
+
+
+        <button
+          class="academic-carousel-next"
+          id="academicCarouselNext"
+          type="button"
+          aria-label="Show next academic activity photo"
+          title="Next photo"
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+
+        <div class="academic-carousel-dots" aria-label="Choose academic activity photo">
+
+          <button
+            class="academic-carousel-dot is-active"
+            type="button"
+            aria-label="Show photo 1"
+            data-slide="0"
+          ></button>
+
+          <button
+            class="academic-carousel-dot"
+            type="button"
+            aria-label="Show photo 2"
+            data-slide="1"
+          ></button>
+
+        </div>
+
+      </div>
+
+    </div>
 
     <section class="activity-section" id="teaching">
       <div class="activity-heading">
@@ -415,6 +597,72 @@
 
   updateThemeIcon();
 
+
+
+  // Academic Activities photo carousel
+  const academicCarousel = document.getElementById('academicCarousel');
+
+  if (academicCarousel) {
+
+    const academicSlides =
+      Array.from(academicCarousel.querySelectorAll('.academic-carousel-slide'));
+
+    const academicDots =
+      Array.from(academicCarousel.querySelectorAll('.academic-carousel-dot'));
+
+    const academicNext =
+      document.getElementById('academicCarouselNext');
+
+    let academicSlideIndex = 0;
+    let academicCarouselTimer;
+
+    function showAcademicSlide(index) {
+
+      academicSlideIndex =
+        (index + academicSlides.length) % academicSlides.length;
+
+      academicSlides.forEach((slide, i) => {
+        slide.classList.toggle('is-active', i === academicSlideIndex);
+      });
+
+      academicDots.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === academicSlideIndex);
+      });
+
+    }
+
+    function startAcademicCarousel() {
+
+      clearInterval(academicCarouselTimer);
+
+      academicCarouselTimer = setInterval(() => {
+        showAcademicSlide(academicSlideIndex + 1);
+      }, 5000);
+
+    }
+
+    academicNext?.addEventListener('click', () => {
+      showAcademicSlide(academicSlideIndex + 1);
+      startAcademicCarousel();
+    });
+
+    academicDots.forEach((dot) => {
+
+      dot.addEventListener('click', () => {
+
+        showAcademicSlide(
+          Number(dot.dataset.slide)
+        );
+
+        startAcademicCarousel();
+
+      });
+
+    });
+
+    startAcademicCarousel();
+
+  }
 
   // Floating Back to Top with scroll-progress ring
   const backToTop = document.getElementById('backToTop');
