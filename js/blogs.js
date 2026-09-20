@@ -1,19 +1,21 @@
 /* =========================================================
-   RITESH SINGH — BLOG DATA + HOME CAROUSEL
+   RITESH SINGH — BLOG DATA + RENDERING
+   =========================================================
+
+   index.html
+   → Latest from the Blog carousel
+
+   blogs/index.html
+   → All published blog posts
+
+   IMPORTANT:
+   Home page image paths are relative to index.html.
+   Blog listing image paths are adjusted automatically.
    ========================================================= */
 
 
 /* =========================================================
    BLOG DATA
-
-   Add future blog posts here.
-
-   image:
-   path is relative to index.html because this carousel
-   appears on the Home page.
-
-   url:
-   path to the complete blog article.
    ========================================================= */
 
 const blogPosts = [
@@ -32,14 +34,30 @@ const blogPosts = [
       'images/trees-communicate-thumbnail.png',
 
     url:
-      'blogs/blog1.html'
+      'blogs/blog1.html',
+
+    published:
+      true
   }
 
 ];
 
 
 /* =========================================================
-   CURRENT BLOG
+   PUBLISHED BLOGS
+   ========================================================= */
+
+function getPublishedBlogs() {
+
+  return blogPosts.filter(
+    blog => blog.published !== false
+  );
+
+}
+
+
+/* =========================================================
+   CURRENT HOME BLOG
    ========================================================= */
 
 let currentBlogIndex = 0;
@@ -63,7 +81,7 @@ function escapeBlogHtml(value) {
 
 
 /* =========================================================
-   BLOG CARD
+   HOME PAGE BLOG CARD
    ========================================================= */
 
 function blogCardTemplate(blog) {
@@ -95,12 +113,16 @@ function blogCardTemplate(blog) {
 
 
         <div class="home-blog-date">
+
           ${escapeBlogHtml(blog.date)}
+
         </div>
 
 
         <p class="home-blog-excerpt">
+
           ${escapeBlogHtml(blog.excerpt)}
+
         </p>
 
 
@@ -108,7 +130,9 @@ function blogCardTemplate(blog) {
           class="read-link"
           href="${escapeBlogHtml(blog.url)}"
         >
+
           Read More
+
         </a>
 
       </div>
@@ -121,7 +145,7 @@ function blogCardTemplate(blog) {
 
 
 /* =========================================================
-   RENDER BLOG
+   RENDER HOME BLOG CAROUSEL
    ========================================================= */
 
 function renderBlogCarousel(
@@ -131,14 +155,20 @@ function renderBlogCarousel(
   const container =
     document.getElementById(containerId);
 
+
   if (!container) {
     return;
   }
 
 
-  if (!blogPosts.length) {
+  const publishedBlogs =
+    getPublishedBlogs();
+
+
+  if (!publishedBlogs.length) {
 
     container.innerHTML = '';
+
     return;
 
   }
@@ -147,14 +177,14 @@ function renderBlogCarousel(
   if (currentBlogIndex < 0) {
 
     currentBlogIndex =
-      blogPosts.length - 1;
+      publishedBlogs.length - 1;
 
   }
 
 
   if (
     currentBlogIndex >=
-    blogPosts.length
+    publishedBlogs.length
   ) {
 
     currentBlogIndex = 0;
@@ -163,7 +193,7 @@ function renderBlogCarousel(
 
 
   const blog =
-    blogPosts[currentBlogIndex];
+    publishedBlogs[currentBlogIndex];
 
 
   container.innerHTML =
@@ -176,12 +206,16 @@ function renderBlogCarousel(
 
 
 /* =========================================================
-   PREVIOUS BLOG
+   PREVIOUS HOME BLOG
    ========================================================= */
 
 function previousBlog() {
 
-  if (!blogPosts.length) {
+  const publishedBlogs =
+    getPublishedBlogs();
+
+
+  if (!publishedBlogs.length) {
     return;
   }
 
@@ -190,9 +224,9 @@ function previousBlog() {
     (
       currentBlogIndex -
       1 +
-      blogPosts.length
+      publishedBlogs.length
     ) %
-    blogPosts.length;
+    publishedBlogs.length;
 
 
   renderBlogCarousel();
@@ -201,12 +235,16 @@ function previousBlog() {
 
 
 /* =========================================================
-   NEXT BLOG
+   NEXT HOME BLOG
    ========================================================= */
 
 function nextBlog() {
 
-  if (!blogPosts.length) {
+  const publishedBlogs =
+    getPublishedBlogs();
+
+
+  if (!publishedBlogs.length) {
     return;
   }
 
@@ -216,7 +254,7 @@ function nextBlog() {
       currentBlogIndex +
       1
     ) %
-    blogPosts.length;
+    publishedBlogs.length;
 
 
   renderBlogCarousel();
@@ -225,10 +263,7 @@ function nextBlog() {
 
 
 /* =========================================================
-   ALIASES
-
-   These allow different button names to continue working
-   if the Home page already calls prevBlog() / nextBlog().
+   ALIASES FOR EXISTING HOME CONTROLS
    ========================================================= */
 
 function prevBlog() {
@@ -253,10 +288,14 @@ function showNextBlog() {
 
 
 /* =========================================================
-   INDICATORS / DOTS
+   HOME CAROUSEL INDICATORS
    ========================================================= */
 
 function updateBlogIndicators() {
+
+  const publishedBlogs =
+    getPublishedBlogs();
+
 
   const counter =
     document.getElementById(
@@ -267,7 +306,7 @@ function updateBlogIndicators() {
   if (counter) {
 
     counter.textContent =
-      `${currentBlogIndex + 1} / ${blogPosts.length}`;
+      `${currentBlogIndex + 1} / ${publishedBlogs.length}`;
 
   }
 
@@ -284,7 +323,7 @@ function updateBlogIndicators() {
 
 
   dotsContainer.innerHTML =
-    blogPosts
+    publishedBlogs
       .map(
         (_, index) => `
 
@@ -307,20 +346,27 @@ function updateBlogIndicators() {
 
 
 /* =========================================================
-   SHOW SPECIFIC BLOG
+   SHOW SPECIFIC HOME BLOG
    ========================================================= */
 
 function showBlog(index) {
 
+  const publishedBlogs =
+    getPublishedBlogs();
+
+
   if (
     index < 0 ||
-    index >= blogPosts.length
+    index >= publishedBlogs.length
   ) {
+
     return;
+
   }
 
 
   currentBlogIndex = index;
+
 
   renderBlogCarousel();
 
@@ -328,17 +374,169 @@ function showBlog(index) {
 
 
 /* =========================================================
-   SUPPORT EXISTING HOME BUTTON IDS
+   BLOG LIST PAGE CARD
+   ========================================================= */
+
+function allBlogsCardTemplate(blog) {
+
+  /*
+     blogs/index.html is one folder deeper than index.html.
+
+     Therefore:
+
+     images/example.png
+     becomes
+     ../images/example.png
+
+     and:
+
+     blogs/blog1.html
+     becomes
+     blog1.html
+  */
+
+
+  const imagePath =
+    blog.image.startsWith('images/')
+      ? '../' + blog.image
+      : blog.image;
+
+
+  const blogUrl =
+    blog.url.startsWith('blogs/')
+      ? blog.url.replace(
+          'blogs/',
+          ''
+        )
+      : blog.url;
+
+
+  return `
+
+    <article class="blog-list-card">
+
+      <img
+        class="blog-thumb"
+        src="${escapeBlogHtml(imagePath)}"
+        alt="${escapeBlogHtml(blog.title)}"
+        loading="lazy"
+      >
+
+
+      <div>
+
+        <h2 class="blog-title">
+
+          ${escapeBlogHtml(blog.title)}
+
+        </h2>
+
+
+        <div class="blog-meta">
+
+          ${escapeBlogHtml(blog.date)}
+
+        </div>
+
+
+        <p class="blog-desc">
+
+          ${escapeBlogHtml(blog.excerpt)}
+
+        </p>
+
+
+        <a
+          class="read-link"
+          href="${escapeBlogHtml(blogUrl)}"
+        >
+
+          Read More
+
+        </a>
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================================
+   RENDER ALL BLOG POSTS
+   ========================================================= */
+
+function renderAllBlogs(
+  containerId = 'allBlogs'
+) {
+
+  const container =
+    document.getElementById(
+      containerId
+    );
+
+
+  if (!container) {
+    return;
+  }
+
+
+  const publishedBlogs =
+    getPublishedBlogs();
+
+
+  if (!publishedBlogs.length) {
+
+    container.innerHTML =
+      '<p>No blog posts published yet.</p>';
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    publishedBlogs
+      .map(
+        allBlogsCardTemplate
+      )
+      .join('');
+
+}
+
+
+/* =========================================================
+   INITIALISE HOME CAROUSEL
    ========================================================= */
 
 document.addEventListener(
   'DOMContentLoaded',
   function () {
 
-    renderBlogCarousel(
-      'latestBlogs'
-    );
+    /*
+       HOME PAGE
+    */
 
+    const homeContainer =
+      document.getElementById(
+        'latestBlogs'
+      );
+
+
+    if (homeContainer) {
+
+      renderBlogCarousel(
+        'latestBlogs'
+      );
+
+    }
+
+
+    /*
+       EXISTING HOME BUTTONS
+    */
 
     const previousButton =
       document.getElementById(
@@ -387,6 +585,7 @@ document.addEventListener(
 
 /* =========================================================
    KEYBOARD NAVIGATION
+   HOME PAGE ONLY
    ========================================================= */
 
 document.addEventListener(
