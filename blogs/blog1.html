@@ -1,33 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog 1 | Dr. Ritesh Kumar Singh</title>
+
+  <title>Trees Communicate. Could Growing Them Help Grow Our Networks? | Ritesh Singh</title>
+
+  <link rel="icon" type="image/png" href="../images/ritesh_pic.png">
+
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .blog-article {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 52px 32px 72px;
+    }
+
+    .blog-article h1 {
+      max-width: 800px;
+      margin: 0 0 12px;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    .blog-meta {
+      margin-bottom: 38px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .blog-body {
+      font-size: 16px;
+      line-height: 1.82;
+      color: var(--text);
+    }
+
+    .blog-body p {
+      margin: 0 0 24px;
+    }
+
+    .blog-body a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .blog-body a:hover {
+      text-decoration: underline;
+    }
+
+    .blog-thought {
+      margin: 36px 0;
+      padding: 22px 24px;
+      border-left: 4px solid var(--primary);
+      background: rgba(26, 163, 163, 0.06);
+      border-radius: 0 12px 12px 0;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .references {
+      margin-top: 52px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+    }
+
+    .references h2 {
+      margin: 0 0 22px;
+      font-size: 24px;
+    }
+
+    .references p {
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .back-to-blogs {
+      display: inline-flex;
+      margin-top: 32px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-to-blogs:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .blog-article {
+        padding: 38px 20px 54px;
+      }
+
+      .blog-thought {
+        padding: 18px 18px;
+      }
+    }
+  </style>
 </head>
+
+
 <body>
+
   <div class="page">
+
     <header class="topbar">
-      <div class="brand">Dr. Ritesh Kumar Singh</div>
+
+      <a
+        class="brand brand-link"
+        href="../index.html"
+        title="Back to Home"
+      >
+        Ritesh <span>Singh</span>
+      </a>
+
       <nav class="nav">
+
         <a href="../index.html">Home</a>
-        <a href="../publications.html">Publications</a>
-        <a href="../projects.html">Projects</a>
+
+        <a href="../about.html">
+          About Me
+        </a>
+
+        <a href="../publications.html">
+          Publications
+        </a>
+
+        <a href="../projects.html">
+          Projects
+        </a>
+
+        <a href="../activities.html">
+          Academic Activities
+        </a>
+
+        <a href="index.html" class="active">
+          Blog
+        </a>
+
+        <button
+          type="button"
+          aria-label="Search"
+          title="Search"
+          onclick="toggleSiteSearch()"
+          style="border:0;background:transparent;color:inherit;padding:0;display:inline-flex;align-items:center;cursor:pointer;"
+        >
+          <svg
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+
+            <path
+              d="M16.5 16.5L21 21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <button
+          class="theme-toggle"
+          type="button"
+          onclick="toggleTheme()"
+          aria-label="Toggle light and dark mode"
+          title="Light / Dark mode"
+        >
+          <span
+            id="themeIcon"
+            style="display:inline-flex;align-items:center;justify-content:center;"
+            aria-hidden="true"
+          ></span>
+        </button>
+
       </nav>
+
     </header>
 
-    <main class="content-page">
-      <h1>Blog Title 1</h1>
-      <div class="blog-meta">Add date here</div>
-      <img src="../images/profile.png" alt="Blog image" style="max-width:700px;border-radius:18px;margin:20px 0;">
-      <p class="lead">Start writing your first blog here. Replace this with your actual content.</p>
-      <p>This can be multiple paragraphs. You can keep writing as much as you want.</p>
-      <p><a class="read-link" href="index.html">← Back to all blogs</a></p>
+
+    <div
+      id="siteSearch"
+      style="display:none;padding:14px 62px;border-bottom:1px solid rgba(216,222,231,0.9);background:rgba(255,255,255,0.72);"
+    >
+
+      <form
+        onsubmit="runSiteSearch(event)"
+        style="display:flex;gap:10px;align-items:center;"
+      >
+
+        <input
+          id="siteSearchInput"
+          type="search"
+          placeholder="Search this website..."
+          aria-label="Search this website"
+          style="flex:1;max-width:520px;padding:10px 12px;border:1px solid #d8dee7;border-radius:10px;font:inherit;color:inherit;background:#fff;"
+        >
+
+        <button
+          type="submit"
+          style="padding:10px 16px;border:0;border-radius:10px;background:#1f5ea9;color:#fff;font:inherit;font-weight:600;cursor:pointer;"
+        >
+          Search
+        </button>
+
+      </form>
+
+    </div>
+
+
+    <main class="blog-article">
+
+      <article>
+
+        <h1>
+          Trees Communicate. Could Growing Them Help Grow Our Networks?
+        </h1>
+
+        <div class="blog-meta">
+          September 2026 · Ritesh Singh
+        </div>
+
+
+        <div class="blog-body">
+
+          <p>
+            In my work on energy-neutral devices, I often come back to the
+            same practical problem: how do we monitor an environment for
+            years without creating another maintenance burden? A sensor may
+            consume very little power, but someone still has to manufacture
+            it, install it and eventually repair or replace it.
+          </p>
+
+          <p>
+            That question takes an interesting turn when the environment we
+            want to monitor already contains living organisms that respond
+            to changes around them. Plants detect and react to their
+            surroundings. Some of those responses also affect neighbouring
+            organisms. Could we make use of that capability when designing
+            sensing and communication systems?
+          </p>
+
+          <p>
+            One example is the release of volatile organic compounds, or
+            VOCs. When plants are damaged by herbivores, they can release
+            airborne chemicals that other plants perceive. Under certain
+            conditions, this exposure can trigger or prepare defence
+            responses. Experiments in Arabidopsis have directly visualised
+            calcium responses in plants exposed to particular airborne
+            compounds associated with leaf damage.
+            <a
+              href="https://www.nature.com/articles/s41467-023-41589-9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >[1]</a>
+            There is a measurable biological response behind the familiar
+            phrase “plants communicate.”
+          </p>
+
+          <p>
+            As a wireless researcher, I find it useful to look at this in
+            terms of a source, a channel and a receiver. A plant releases a
+            compound; it moves through the air; another plant responds. But
+            the analogy has limits. We cannot assume that the sender
+            deliberately encodes a message, or that the receiver interprets
+            it in the way a digital device would.
+          </p>
+
+          <p>
+            Still, it gives us something concrete to investigate. What
+            information can we infer from the response? Over what distance?
+            How do wind, dilution and other chemical sources affect
+            detection? These are questions about the channel and the
+            reliability of the information we can recover from it.
+          </p>
+
+          <p>
+            Below ground, the picture is more complicated. Mycorrhizal fungi
+            can connect the roots of different plants. A study involving
+            Douglas-fir and ponderosa pine seedlings reported carbon
+            transfer and defence responses associated with these connections
+            after damage to the Douglas-fir seedlings.
+            <a
+              href="https://www.nature.com/articles/srep08495"
+              target="_blank"
+              rel="noopener noreferrer"
+            >[2]</a>
+            That is an interesting result, but it does not establish that
+            forests operate as networks of biological relays.
+          </p>
+
+          <p>
+            The “wood-wide web” is an appealing description, and an easy
+            one to take too far. Researchers have challenged claims that
+            mature trees use fungal connections to direct resources or
+            warnings towards their offspring. The extent of these
+            connections, their function and their importance under natural
+            conditions remain subjects of debate.
+            <a
+              href="https://www.nature.com/articles/s41559-023-01986-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >[3]</a>
+            I would therefore be careful about treating them as an
+            underground equivalent of a wireless mesh network.
+          </p>
+
+          <p>
+            For engineering, a more concrete starting point is the interface
+            between plants and electronics. Researchers have already
+            demonstrated electronic components integrated into plant
+            tissue. In one early example, conducting polymers formed
+            structures within rose stems that were used to build electronic
+            devices.
+            <a
+              href="https://www.science.org/doi/10.1126/sciadv.1501136"
+              target="_blank"
+              rel="noopener noreferrer"
+            >[4]</a>
+            Such work shows that biological structures and electronic
+            functions can be brought together, although it is a considerable
+            step from a laboratory demonstration to a system that works
+            outdoors for years.
+          </p>
+
+          <p>
+            This is where I see a connection with my work on energy-neutral
+            devices and sustainable IoT. We usually treat plants as
+            something to monitor. I wonder whether they could contribute to
+            the sensing and communication system itself.
+          </p>
+
+
+          <div class="blog-thought">
+
+            <strong>
+              My thought is that, in the future, we may not only have an
+              Internet <em>of Things</em>, but an Internet
+              <em>through Plants</em>. Growing a plant could also mean
+              growing part of the infrastructure for communication.
+            </strong>
+
+          </div>
+
+
+          <p>
+            Could we detect drought or disease by reading a plant’s own
+            response? And, more ambitiously, could a local stress response
+            travel through biological pathways before an electronic
+            interface passes that information to a digital network?
+          </p>
+
+          <p>
+            That second possibility is still an open research question. We
+            would need to understand what information is carried, how far it
+            travels and whether it can be detected reliably. The interfaces
+            would also need power, maintenance and a careful assessment of
+            their effects on the plants.
+          </p>
+
+          <p>
+            But I find the possibility worth exploring. In sustainable
+            wireless research, we put considerable effort into making each
+            device consume less energy. Perhaps we should also ask how much
+            of the sensing and eventually the signalling could be done by
+            the living environment around it.
+          </p>
+
+
+          <section class="references">
+
+            <h2>References</h2>
+
+            <p>
+              <strong>[1]</strong>
+              Toyota, M. et al.,
+              “Glutamate triggers long-distance, calcium-based plant
+              defense signaling,” and subsequent experimental work on
+              airborne plant-to-plant signalling and calcium responses.
+              <a
+                href="https://www.nature.com/articles/s41467-023-41589-9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Nature Communications ↗
+              </a>
+            </p>
+
+            <p>
+              <strong>[2]</strong>
+              Song, Y. Y. et al.,
+              “Defoliation of interior Douglas-fir elicits carbon transfer
+              and stress signalling to ponderosa pine neighbors through
+              ectomycorrhizal networks,”
+              <em>Scientific Reports</em>, 2015.
+              <a
+                href="https://www.nature.com/articles/srep08495"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Scientific Reports ↗
+              </a>
+            </p>
+
+            <p>
+              <strong>[3]</strong>
+              Karst, J., Jones, M. D. &amp; Hoeksema, J. D.,
+              “Positive citation bias and overinterpreted results lead to
+              misinformation on common mycorrhizal networks in forests,”
+              <em>Nature Ecology &amp; Evolution</em>, 2023.
+              <a
+                href="https://www.nature.com/articles/s41559-023-01986-1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Nature Ecology &amp; Evolution ↗
+              </a>
+            </p>
+
+            <p>
+              <strong>[4]</strong>
+              Stavrinidou, E. et al.,
+              “Electronic plants,”
+              <em>Science Advances</em>, 2015.
+              <a
+                href="https://www.science.org/doi/10.1126/sciadv.1501136"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Science Advances ↗
+              </a>
+            </p>
+
+          </section>
+
+
+          <a class="back-to-blogs" href="index.html">
+            ← Back to all blogs
+          </a>
+
+        </div>
+
+      </article>
+
     </main>
+
+
+    <footer class="site-footer">
+      © 2026, Ritesh Kumar <strong>Singh</strong>
+    </footer>
+
   </div>
+
+
+  <script>
+
+    function toggleSiteSearch() {
+
+      const search =
+        document.getElementById('siteSearch');
+
+      const input =
+        document.getElementById('siteSearchInput');
+
+      if (
+        search.style.display === 'none' ||
+        search.style.display === ''
+      ) {
+
+        search.style.display = 'block';
+        input.focus();
+
+      } else {
+
+        search.style.display = 'none';
+
+      }
+
+    }
+
+
+    function runSiteSearch(event) {
+
+      event.preventDefault();
+
+      const query =
+        document
+          .getElementById('siteSearchInput')
+          .value
+          .trim();
+
+      if (!query) return;
+
+      window.open(
+        'https://www.google.com/search?q=' +
+        encodeURIComponent(
+          'site:riteshsingh.org ' + query
+        ),
+        '_blank',
+        'noopener'
+      );
+
+    }
+
+  </script>
+
+
+  <script>
+
+    function updateThemeIcon() {
+
+      const icon =
+        document.getElementById('themeIcon');
+
+      if (!icon) return;
+
+      const isDark =
+        document.documentElement
+          .classList
+          .contains('dark-mode');
+
+
+      if (isDark) {
+
+        icon.innerHTML = `
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5A8.5 8.5 0 1 0 20.5 14.2Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+          </svg>
+        `;
+
+      } else {
+
+        icon.innerHTML = `
+          <svg
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M12 2V4 M12 20V22 M4.93 4.93L6.34 6.34 M17.66 17.66L19.07 19.07 M2 12H4 M20 12H22 M4.93 19.07L6.34 17.66 M17.66 6.34L19.07 4.93"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        `;
+
+      }
+
+    }
+
+
+    function toggleTheme() {
+
+      const root =
+        document.documentElement;
+
+      const isDark =
+        root.classList.toggle('dark-mode');
+
+      localStorage.setItem(
+        'theme',
+        isDark ? 'dark' : 'light'
+      );
+
+      updateThemeIcon();
+
+    }
+
+
+    updateThemeIcon();
+
+  </script>
+
 </body>
 </html>
