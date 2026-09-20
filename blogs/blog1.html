@@ -26,24 +26,36 @@
   <link rel="stylesheet" href="../css/style.css" />
 
   <style>
+
     .blog-article {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto;
       padding: 52px 32px 72px;
     }
 
     .blog-article h1 {
-      max-width: 800px;
+      max-width: 840px;
       margin: 0 0 12px;
       font-size: clamp(32px, 5vw, 48px);
       line-height: 1.12;
       letter-spacing: -0.035em;
+      color: var(--text);
     }
 
     .blog-meta {
-      margin-bottom: 38px;
+      margin-bottom: 30px;
       color: var(--muted);
       font-size: 14px;
+    }
+
+    .blog-hero-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 0 38px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
     }
 
     .blog-body {
@@ -65,40 +77,48 @@
       text-decoration: underline;
     }
 
+    .citation {
+      font-size: 0.82em;
+      font-weight: 700;
+      vertical-align: super;
+      margin-left: 2px;
+    }
+
     .blog-thought {
-      margin: 36px 0;
-      padding: 22px 24px;
+      margin: 38px 0;
+      padding: 24px 26px;
       border-left: 4px solid var(--primary);
       background: rgba(26, 163, 163, 0.06);
-      border-radius: 0 12px 12px 0;
+      border-radius: 0 14px 14px 0;
       font-size: 18px;
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
     .references {
-      margin-top: 52px;
+      margin-top: 54px;
       padding-top: 30px;
       border-top: 1px solid var(--border);
     }
 
     .references h2 {
-      margin: 0 0 22px;
+      margin: 0 0 24px;
       font-size: 24px;
+      color: var(--text);
     }
 
     .references p {
-      margin-bottom: 16px;
-      font-size: 14px;
-      line-height: 1.65;
+      margin: 0 0 18px;
       color: var(--muted);
+      font-size: 14px;
+      line-height: 1.68;
     }
 
     .back-to-blogs {
       display: inline-flex;
-      margin-top: 32px;
+      margin-top: 34px;
       color: var(--primary);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 650;
       text-decoration: none;
     }
 
@@ -106,15 +126,22 @@
       text-decoration: underline;
     }
 
+    html.dark-mode .blog-thought {
+      background: rgba(130, 183, 244, 0.08);
+    }
+
     @media (max-width: 700px) {
+
       .blog-article {
         padding: 38px 20px 54px;
       }
 
       .blog-thought {
-        padding: 18px 18px;
+        padding: 19px;
       }
+
     }
+
   </style>
 </head>
 
@@ -157,6 +184,7 @@
           Blog
         </a>
 
+
         <button
           type="button"
           aria-label="Search"
@@ -187,6 +215,7 @@
             />
           </svg>
         </button>
+
 
         <button
           class="theme-toggle"
@@ -250,6 +279,13 @@
         </div>
 
 
+        <img
+          class="blog-hero-image"
+          src="../images/trees-communicate-main.png"
+          alt="Concept illustration showing communication between trees through airborne signals, roots and biological networks connected to digital communication technology"
+        >
+
+
         <div class="blog-body">
 
           <p>
@@ -277,11 +313,14 @@
             responses. Experiments in Arabidopsis have directly visualised
             calcium responses in plants exposed to particular airborne
             compounds associated with leaf damage.
+
             <a
+              class="citation"
               href="https://www.nature.com/articles/s41467-023-41589-9"
               target="_blank"
               rel="noopener noreferrer"
             >[1]</a>
+
             There is a measurable biological response behind the familiar
             phrase “plants communicate.”
           </p>
@@ -309,11 +348,14 @@
             Douglas-fir and ponderosa pine seedlings reported carbon
             transfer and defence responses associated with these connections
             after damage to the Douglas-fir seedlings.
+
             <a
+              class="citation"
               href="https://www.nature.com/articles/srep08495"
               target="_blank"
               rel="noopener noreferrer"
             >[2]</a>
+
             That is an interesting result, but it does not establish that
             forests operate as networks of biological relays.
           </p>
@@ -325,11 +367,14 @@
             warnings towards their offspring. The extent of these
             connections, their function and their importance under natural
             conditions remain subjects of debate.
+
             <a
+              class="citation"
               href="https://www.nature.com/articles/s41559-023-01986-1"
               target="_blank"
               rel="noopener noreferrer"
             >[3]</a>
+
             I would therefore be careful about treating them as an
             underground equivalent of a wireless mesh network.
           </p>
@@ -341,11 +386,14 @@
             tissue. In one early example, conducting polymers formed
             structures within rose stems that were used to build electronic
             devices.
+
             <a
+              class="citation"
               href="https://www.science.org/doi/10.1126/sciadv.1501136"
               target="_blank"
               rel="noopener noreferrer"
             >[4]</a>
+
             Such work shows that biological structures and electronic
             functions can be brought together, although it is a considerable
             step from a laboratory demonstration to a system that works
@@ -400,20 +448,22 @@
 
             <h2>References</h2>
 
+
             <p>
               <strong>[1]</strong>
-              Toyota, M. et al.,
-              “Glutamate triggers long-distance, calcium-based plant
-              defense signaling,” and subsequent experimental work on
-              airborne plant-to-plant signalling and calcium responses.
+              Airborne plant-to-plant communication through volatile
+              compounds and visualisation of calcium responses,
+              <em>Nature Communications</em>, 2023.
+
               <a
                 href="https://www.nature.com/articles/s41467-023-41589-9"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Nature Communications ↗
+                View paper ↗
               </a>
             </p>
+
 
             <p>
               <strong>[2]</strong>
@@ -422,14 +472,16 @@
               and stress signalling to ponderosa pine neighbors through
               ectomycorrhizal networks,”
               <em>Scientific Reports</em>, 2015.
+
               <a
                 href="https://www.nature.com/articles/srep08495"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Scientific Reports ↗
+                View paper ↗
               </a>
             </p>
+
 
             <p>
               <strong>[3]</strong>
@@ -437,33 +489,39 @@
               “Positive citation bias and overinterpreted results lead to
               misinformation on common mycorrhizal networks in forests,”
               <em>Nature Ecology &amp; Evolution</em>, 2023.
+
               <a
                 href="https://www.nature.com/articles/s41559-023-01986-1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Nature Ecology &amp; Evolution ↗
+                View paper ↗
               </a>
             </p>
+
 
             <p>
               <strong>[4]</strong>
               Stavrinidou, E. et al.,
               “Electronic plants,”
               <em>Science Advances</em>, 2015.
+
               <a
                 href="https://www.science.org/doi/10.1126/sciadv.1501136"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Science Advances ↗
+                View paper ↗
               </a>
             </p>
 
           </section>
 
 
-          <a class="back-to-blogs" href="index.html">
+          <a
+            class="back-to-blogs"
+            href="index.html"
+          >
             ← Back to all blogs
           </a>
 
@@ -623,4 +681,5 @@
   </script>
 
 </body>
+
 </html>
