@@ -1174,23 +1174,263 @@
 
 <body>
 
-<p>
+<div class="page">
 
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+  <header class="topbar">
+
+ <a
+  class="brand brand-link"
+  href="index.html"
+  title="Back to Home"
+>
+  Ritesh <span>Singh</span>
+</a>
+
+
+
+    <nav class="nav">
+
+
+      <a
+        href="index.html"
+        class="active"
+      >
+        Home
+      </a>
+
+
+      <a href="about.html">
+
+        About Me
+
+      </a>
+
+
+      <a href="publications.html">
+
+        Publications
+
+      </a>
+
+
+      <a href="projects.html">
+
+        Projects
+
+      </a>
+
+
+      <a href="activities.html">
+
+        Academic Activities
+
+      </a>
+
+
+      <a href="blogs/index.html">
+
+        Blog
+
+      </a>
+
+
+
+      <!-- Search -->
+
+      <button
+        type="button"
+        aria-label="Search"
+        title="Search"
+        onclick="toggleSiteSearch()"
+        style="
+          border: 0;
+          background: transparent;
+          color: inherit;
+          padding: 0;
+          display: inline-flex;
+          align-items: center;
+          cursor: pointer;
+        "
+      >
+
+        <svg
+          width="21"
+          height="21"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+
+          <path
+            d="M16.5 16.5L21 21"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+      </button>
+
+
+
+      <!-- Theme -->
+
+      <button
+        class="theme-toggle"
+        type="button"
+        onclick="toggleTheme()"
+        aria-label="Toggle light and dark mode"
+        title="Light / Dark mode"
+      >
+
+        <span
+          id="themeIcon"
+          style="
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+          "
+          aria-hidden="true"
+        ></span>
+
+      </button>
+
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================================================
+       SEARCH
+  ========================================================== -->
+
+  <div
+    id="siteSearch"
+    style="
+      display:none;
+      padding:14px 62px;
+      border-bottom:1px solid rgba(216,222,231,0.9);
+      background:rgba(255,255,255,0.72);
+    "
+  >
+
+
+    <form
+      onsubmit="runSiteSearch(event)"
+      style="
+        display:flex;
+        gap:10px;
+        align-items:center;
+      "
+    >
+
+
+      <input
+        id="siteSearchInput"
+        type="search"
+        placeholder="Search this website..."
+        aria-label="Search this website"
+        style="
+          flex:1;
+          max-width:520px;
+          padding:10px 12px;
+          border:1px solid #d8dee7;
+          border-radius:10px;
+          font:inherit;
+          color:inherit;
+          background:#fff;
+        "
+      >
+
+
+      <button
+        type="submit"
+        style="
+          padding:10px 16px;
+          border:0;
+          border-radius:10px;
+          background:#1f5ea9;
+          color:#fff;
+          font:inherit;
+          font-weight:600;
+          cursor:pointer;
+        "
+      >
+
+        Search
+
+      </button>
+
+
+    </form>
+
+  </div>
+
+
+
+  <!-- =========================================================
+       HERO / ABOUT
+  ========================================================== -->
+
+  <section class="hero">
+
+
+
+    <!-- LEFT -->
+
+    <div class="hero-copy">
+
+
+      <h1 class="page-title">
+
+        About Me
+
+      </h1>
+
+
+
+      <div class="subtitle">
+
+        Principal Research Fellow &amp; Principal Investigator at
+        <a class="home-org-link" href="https://www.uantwerpen.be/en/research-groups/idlab/" target="_blank" rel="noopener noreferrer">IDLab</a>,
+        <a class="home-org-link" href="https://www.imec-int.com/en" target="_blank" rel="noopener noreferrer">imec</a>
+        –
+        <a class="home-org-link" href="https://www.uantwerpen.be/en/" target="_blank" rel="noopener noreferrer">University of Antwerp</a>
+
+      </div>
+
+
+
+      <p>
         I am a <strong>Principal Investigator at <a href="https://www.imec-int.com/en" target="_blank" rel="noopener noreferrer">imec</a></strong>
         and <strong>Principal Research Fellow at <a href="https://www.uantwerpen.be/en/research-groups/idlab/" target="_blank" rel="noopener noreferrer">IDLab</a>,
         <a href="https://www.uantwerpen.be/en/" target="_blank" rel="noopener noreferrer">University of Antwerp</a>, Belgium</strong>,
         where I lead the Low-Power Research Portfolio in the Perceptive Radio Systems program.
-
       </p>
 
 
       <p>
-
         Currently, my <strong>research interests</strong> are in Ambient IoT, energy-neutral and zero-energy devices,
         embedded intelligence, TinyML/TinyOL, energy harvesting, and ultra-low-power wireless communication.
         I am particularly interested in how highly energy-constrained devices can adapt their sensing, computing,
         learning, and communication to available energy, and how such devices can become an integral part of future 6G networks.
-
       </p>
 
 
