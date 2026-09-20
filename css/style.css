@@ -1583,8 +1583,8 @@ html.dark-mode .social-icon:focus-visible {
 
 .about-profile-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.9fr) minmax(310px, 0.8fr);
-  gap: 46px;
+  grid-template-columns: minmax(0, 1fr) 500px;
+  gap: 28px;
   align-items: start;
   margin-top: 24px;
 }
