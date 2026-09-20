@@ -28,42 +28,34 @@
 
 const sharingData = [
 
-  /* =======================================================
-     EXAMPLE 1 — ARTICLE
-     ======================================================= */
-
   {
-    type: 'article',
+    type: 'resource',
 
     title:
-      'An interesting article or idea worth sharing',
+      '“AI is not a singular thing.”',
 
     source:
-      'Source / Author',
+      'AI 2030 Scenarios · UK Government Office for Science',
 
     note:
-      'A short personal note explaining why I found this interesting and why it may also be relevant to people working in connected systems, computing, sustainability, future IoT or 6G.',
+      'What will AI systems be capable of by 2030?',
 
     image:
       '',
 
     url:
-      ''
+      'https://www.gov.uk/government/publications/frontier-ai-capabilities-and-risks-discussion-paper/ai-2030-scenarios-report-html-annex-c'
   },
 
-
-  /* =======================================================
-     EXAMPLE 2 — QUOTE
-     ======================================================= */
 
   {
     type: 'quote',
 
     quote:
-      'Add a quote here that you find interesting, thoughtful or relevant.',
+      'What is important is not always urgent, and what is urgent is not always important.',
 
     author:
-      'Author',
+      'Eisenhower Matrix',
 
     source:
       '',
@@ -73,23 +65,16 @@ const sharingData = [
   },
 
 
-  /* =======================================================
-     EXAMPLE 3 — RECOMMENDED PAPER / READING
-     ======================================================= */
-
   {
-    type: 'paper',
+    type: 'quote',
 
-    title:
-      'A paper, book or research article worth reading',
+    quote:
+      'Instead of only asking “How can I succeed?”, ask “What would make this fail?” and work backwards.',
+
+    author:
+      'Inversion · Charlie Munger',
 
     source:
-      'Author / Journal / Publisher',
-
-    note:
-      'Add two or three sentences explaining what caught your attention and why you think visitors to your site might find it useful.',
-
-    image:
       '',
 
     url:
@@ -97,20 +82,16 @@ const sharingData = [
   },
 
 
-  /* =======================================================
-     EXAMPLE 4 — IMAGE / PHOTO
-     ======================================================= */
-
   {
-    type: 'image',
+    type: 'quote',
 
-    title:
-      'A photograph, figure or visual worth sharing',
+    quote:
+      'If you cannot explain something simply, identify what you don’t yet understand, learn it again, and simplify your explanation.',
 
-    note:
-      'A short thought, observation or context related to the image.',
+    author:
+      'Feynman Technique',
 
-    image:
+    source:
       '',
 
     url:
@@ -118,23 +99,16 @@ const sharingData = [
   },
 
 
-  /* =======================================================
-     EXAMPLE 5 — RESOURCE
-     ======================================================= */
-
   {
-    type: 'resource',
+    type: 'quote',
 
-    title:
-      'A useful resource worth a look',
+    quote:
+      'Life is like riding a bicycle. To keep your balance, you must keep moving.',
+
+    author:
+      'Albert Einstein',
 
     source:
-      'Website / Organization / Author',
-
-    note:
-      'Use this format for a useful website, dataset, tool, talk, report, standardization resource or other reference that you think is worth sharing.',
-
-    image:
       '',
 
     url:
