@@ -130,9 +130,7 @@ function blogCardTemplate(blog) {
           class="read-link"
           href="${escapeBlogHtml(blog.url)}"
         >
-
           Read More
-
         </a>
 
       </div>
@@ -382,16 +380,12 @@ function allBlogsCardTemplate(blog) {
   /*
      blogs/index.html is one folder deeper than index.html.
 
-     Therefore:
-
      images/example.png
-     becomes
+     becomes:
      ../images/example.png
 
-     and:
-
      blogs/blog1.html
-     becomes
+     becomes:
      blog1.html
   */
 
@@ -450,9 +444,7 @@ function allBlogsCardTemplate(blog) {
           class="read-link"
           href="${escapeBlogHtml(blogUrl)}"
         >
-
           Read More
-
         </a>
 
       </div>
@@ -508,79 +500,121 @@ function renderAllBlogs(
 
 
 /* =========================================================
-   INITIALISE HOME CAROUSEL
+   INITIALISE BLOGS
    ========================================================= */
 
-document.addEventListener(
-  'DOMContentLoaded',
-  function () {
+function initialiseBlogs() {
 
-    /*
-       HOME PAGE
-    */
+  /*
+     HOME PAGE
+  */
 
-    const homeContainer =
-      document.getElementById(
-        'latestBlogs'
-      );
+  const homeContainer =
+    document.getElementById(
+      'latestBlogs'
+    );
 
 
-    if (homeContainer) {
+  if (homeContainer) {
 
-      renderBlogCarousel(
-        'latestBlogs'
-      );
-
-    }
-
-
-    /*
-       EXISTING HOME BUTTONS
-    */
-
-    const previousButton =
-      document.getElementById(
-        'blogPrev'
-      );
-
-
-    const nextButton =
-      document.getElementById(
-        'blogNext'
-      );
-
-
-    if (
-      previousButton &&
-      !previousButton.hasAttribute(
-        'onclick'
-      )
-    ) {
-
-      previousButton.addEventListener(
-        'click',
-        previousBlog
-      );
-
-    }
-
-
-    if (
-      nextButton &&
-      !nextButton.hasAttribute(
-        'onclick'
-      )
-    ) {
-
-      nextButton.addEventListener(
-        'click',
-        nextBlog
-      );
-
-    }
+    renderBlogCarousel(
+      'latestBlogs'
+    );
 
   }
-);
+
+
+  /*
+     BLOG LIST PAGE
+  */
+
+  const allBlogsContainer =
+    document.getElementById(
+      'allBlogs'
+    );
+
+
+  if (allBlogsContainer) {
+
+    renderAllBlogs(
+      'allBlogs'
+    );
+
+  }
+
+
+  /*
+     EXISTING HOME CAROUSEL BUTTONS
+  */
+
+  const previousButton =
+    document.getElementById(
+      'blogPrev'
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      'blogNext'
+    );
+
+
+  if (
+    previousButton &&
+    !previousButton.hasAttribute(
+      'onclick'
+    ) &&
+    !previousButton.dataset.blogListener
+  ) {
+
+    previousButton.addEventListener(
+      'click',
+      previousBlog
+    );
+
+    previousButton.dataset.blogListener =
+      'true';
+
+  }
+
+
+  if (
+    nextButton &&
+    !nextButton.hasAttribute(
+      'onclick'
+    ) &&
+    !nextButton.dataset.blogListener
+  ) {
+
+    nextButton.addEventListener(
+      'click',
+      nextBlog
+    );
+
+    nextButton.dataset.blogListener =
+      'true';
+
+  }
+
+}
+
+
+/* =========================================================
+   RUN INITIALISATION
+   ========================================================= */
+
+if (document.readyState === 'loading') {
+
+  document.addEventListener(
+    'DOMContentLoaded',
+    initialiseBlogs
+  );
+
+} else {
+
+  initialiseBlogs();
+
+}
 
 
 /* =========================================================
