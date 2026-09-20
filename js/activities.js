@@ -32,6 +32,10 @@
    ========================================================= */
 
 
+/* =========================================================
+   DATA
+   ========================================================= */
+
 const activities = [
 
   {
@@ -108,8 +112,8 @@ const activities = [
     description:
       'Serving as a Management Committee member representing Belgium in COST Action NERO, a European research network focused on extreme wildfire behaviour.',
     visual: 'standard',
-    url: '',
-    linkLabel: 'Read more'
+    url: 'https://nero-network.eu/management-committee',
+    linkLabel: 'Management Committee'
   },
 
   {
@@ -136,49 +140,6 @@ const activities = [
     visual: 'standard',
     url: '',
     linkLabel: 'Read more'
-  },
-
-  /* Older entries retained for the full Activities archive */
-  {
-    date: '2026-02-20',
-    homeText: 'Leading low-power IoT and energy-neutral device research within BEL6GICA.',
-    displayDate: '2026',
-    category: 'Project',
-    title: 'BEL6GICA research on low-power IoT for future 6G',
-    description:
-      'Leading IoT research activities around low-power radios, energy harvesting and power management, sustainable device operation and future energy-neutral device classes within Belgian 6G research.',
-    visual: 'standard',
-    url: 'projects.html',
-    linkLabel: 'View projects',
-    showOnHome: false
-  },
-
-  {
-    date: '2026-01-20',
-    homeText: 'Exploring TinyML, TinyOL and distributed intelligence for highly energy-constrained devices.',
-    displayDate: '2026',
-    category: 'Research',
-    title: 'Embedded intelligence for highly energy-constrained devices',
-    description:
-      'Exploring TinyML, TinyOL and distributed edge intelligence for devices that must dynamically balance sensing, computing, learning and communication under tight and varying energy budgets.',
-    visual: 'standard',
-    url: '',
-    linkLabel: 'Read more',
-    showOnHome: false
-  },
-
-  {
-    date: '2025-11-01',
-    homeText: 'Researching closed-loop energy-aware Industrial IoT through CORRELATE.',
-    displayDate: '2025',
-    category: 'Project',
-    title: 'CORRELATE: closed-loop energy-aware industrial IoT',
-    description:
-      'Researching closed-loop energy-aware Industrial IoT through CORRELATE.',
-    visual: 'standard',
-    url: '',
-    linkLabel: 'Read more',
-    showOnHome: false
   }
 
 ];
@@ -197,7 +158,6 @@ function sortedActivities() {
 }
 
 
-
 /* =========================================================
    BASIC HTML SAFETY
    ========================================================= */
@@ -213,7 +173,6 @@ function escapeActivityHtml(value) {
     .replaceAll("'", '&#039;');
 
 }
-
 
 
 /* =========================================================
@@ -236,7 +195,6 @@ function activityLink(activity, cssClass) {
   `;
 
 }
-
 
 
 /* =========================================================
@@ -283,7 +241,6 @@ function activityMedia(activity, context = 'home') {
     activity.visual || 'image';
 
 
-
   /* =======================================================
      FEATURED COVER
      ======================================================= */
@@ -309,7 +266,6 @@ function activityMedia(activity, context = 'home') {
     `;
 
   }
-
 
 
   /* =======================================================
@@ -395,7 +351,6 @@ function activityMedia(activity, context = 'home') {
   }
 
 
-
   /* =======================================================
      SINGLE EVENT IMAGE
      ======================================================= */
@@ -431,23 +386,46 @@ function activityMedia(activity, context = 'home') {
 }
 
 
-
 /* =========================================================
    HOME ACTIVITY TEMPLATE
    ========================================================= */
 
 function homeActivityTemplate(activity) {
-  const homeText = activity.homeText || activity.title || activity.description || '';
-  const textHtml = activity.url ? `<a href="${escapeActivityHtml(activity.url)}">${escapeActivityHtml(homeText)}</a>` : escapeActivityHtml(homeText);
+
+  const homeText =
+    activity.homeText ||
+    activity.title ||
+    activity.description ||
+    '';
+
+  const textHtml =
+    activity.url
+      ? `<a href="${escapeActivityHtml(activity.url)}">${escapeActivityHtml(homeText)}</a>`
+      : escapeActivityHtml(homeText);
+
   return `
     <article class="timeline-entry">
-      <span class="timeline-dot" aria-hidden="true"></span>
+
+      <span
+        class="timeline-dot"
+        aria-hidden="true"
+      ></span>
+
       <div class="activity-compact-card">
-        <div class="activity-compact-date">${escapeActivityHtml(activity.displayDate)}</div>
-        <div class="activity-compact-text">${textHtml}</div>
+
+        <div class="activity-compact-date">
+          ${escapeActivityHtml(activity.displayDate)}
+        </div>
+
+        <div class="activity-compact-text">
+          ${textHtml}
+        </div>
+
       </div>
+
     </article>
   `;
+
 }
 
 
@@ -514,7 +492,6 @@ function updateActivityTemplate(activity) {
 }
 
 
-
 /* =========================================================
    HOME PAGE
    SHOW ONLY THE LATEST ACTIVITIES
@@ -538,7 +515,10 @@ function renderHomeActivities(
 
   const latest =
     sortedActivities()
-      .filter(activity => activity.showOnHome !== false)
+      .filter(
+        activity =>
+          activity.showOnHome !== false
+      )
       .slice(0, limit);
 
 
@@ -548,7 +528,6 @@ function renderHomeActivities(
       .join('');
 
 }
-
 
 
 /* =========================================================
