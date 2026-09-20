@@ -1594,6 +1594,7 @@ html.dark-mode .social-icon:focus-visible {
 }
 
 .about-profile-main p {
+  max-width: none;
   margin: 0 0 18px;
   line-height: 1.72;
 }
