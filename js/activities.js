@@ -34,352 +34,154 @@
 
 const activities = [
 
-  /* =======================================================
-     1. EN-IoT 2026
-     Good candidate for a FEATURED cover photo later
-     ======================================================= */
-
   {
     date: '2026-10-25',
-    homeText: 'Co-organizing the third edition of EN-IoT at IEEE SENSORS 2026, Rotterdam.',
+    homeText: 'Co-chairing the 3rd EN-IoT Workshop at IEEE SENSORS 2026 in Rotterdam.',
     displayDate: '25 October 2026',
     category: 'Workshop',
-
-    title: 'EN-IoT 2026 at IEEE SENSORS 2026',
-
+    title: '3rd EN-IoT Workshop at IEEE SENSORS 2026',
     description:
-      'Co-organizing the third edition of the Workshop on Energy-Neutral & Sustainable IoT Devices and Infrastructure at IEEE SENSORS 2026 in Rotterdam, bringing together research on energy harvesting, battery-less systems, Ambient IoT, ultra-low-power communication and sustainable connected devices.',
-
+      'Co-chairing the third edition of the Workshop on Energy-Neutral & Sustainable IoT Devices and Infrastructure (EN-IoT 2026), held in conjunction with IEEE SENSORS 2026 in Rotterdam.',
     visual: 'standard',
-
-    /*
-    WHEN YOU HAVE A COVER PHOTO:
-
-    Change:
-
-    visual: 'standard'
-
-    to:
-
-    visual: 'featured'
-
-    Then uncomment this block:
-
-    media: {
-      images: [
-        'images/activities/en-iot-2026.jpg'
-      ],
-
-      caption:
-        'IEEE SENSORS 2026 · Rotterdam · 25 October 2026',
-
-      alt:
-        'EN-IoT 2026 workshop at IEEE SENSORS 2026'
-    },
-    */
-
-    url: '',
+    url: 'https://www.6gflagship.com/event/en-iot-2026/',
     linkLabel: 'Event details'
   },
 
-
-  /* =======================================================
-     2. INDIA ACADEMIC VISIT
-     Excellent candidate for GALLERY
-     ======================================================= */
-
   {
     date: '2026-08-08',
-    homeText: 'Research seminars and collaboration visits across leading IITs and IIITs in India.',
-    displayDate: '2–8 August 2026',
+    homeText: 'Academic collaboration visits to IIT Ropar, IIIT Allahabad and IIIT Surat.',
+    displayDate: 'August 2026',
     category: 'Academic Visit',
-
-    title:
-      'Research collaboration visits across leading institutes in India',
-
+    title: 'Academic collaboration visits in India',
     description:
-      'Visited IITs and IIITs for research seminars, faculty discussions and collaboration meetings around Ambient IoT, energy-neutral devices, embedded intelligence, 6G, student mobility and future joint research activities.',
-
+      'Visited IIT Ropar, IIIT Allahabad and IIIT Surat for academic collaboration discussions, including research cooperation, faculty interactions and opportunities for student mobility.',
     visual: 'standard',
-
-    /*
-    WHEN YOU HAVE 2–3 PHOTOS:
-
-    Change:
-
-    visual: 'standard'
-
-    to:
-
-    visual: 'gallery'
-
-    Then uncomment:
-
-    media: {
-      images: [
-        'images/activities/india-visit-1.jpg',
-        'images/activities/india-visit-2.jpg',
-        'images/activities/india-visit-3.jpg'
-      ],
-
-      caption:
-        'Academic collaboration visits · India · August 2026',
-
-      alt:
-        'Research collaboration visits across institutes in India'
-    },
-    */
-
     url: '',
     linkLabel: 'Read more'
   },
 
+  {
+    date: '2026-08-06',
+    homeText: 'Visited IIT Kharagpur and the Ubiquitous Networked Systems Lab (UbiNet) to explore research collaboration.',
+    displayDate: 'August 2026',
+    category: 'Academic Visit',
+    title: 'Academic visit to IIT Kharagpur and UbiNet',
+    description:
+      'Visited IIT Kharagpur and the Ubiquitous Networked Systems Lab (UbiNet) for research discussions and to explore opportunities for collaboration.',
+    visual: 'standard',
+    url: '',
+    linkLabel: 'Read more'
+  },
 
-  /* =======================================================
-     3. SNS JU SUSTAINABILITY WG
-     Text-only recommended
-     ======================================================= */
+  {
+    date: '2026-08-05',
+    homeText: 'Research talk at IIT Hyderabad on energy-neutral devices, Ambient IoT and embedded intelligence for 6G.',
+    displayDate: 'August 2026',
+    category: 'Research Talk',
+    title: 'Research talk at IIT Hyderabad',
+    description:
+      'Delivered a research talk at IIT Hyderabad on energy-neutral devices, Ambient IoT, low-power systems and embedded intelligence for future 6G networks.',
+    visual: 'standard',
+    url: '',
+    linkLabel: 'Read more'
+  },
 
   {
     date: '2026-08-01',
-    homeText: 'Contributing to the SNS JU Sustainability Working Group on sustainable future networks.',
+    homeText: 'Joined the SNS JU Sustainability Working Group, contributing to discussions on sustainable future networks.',
     displayDate: 'August 2026',
     category: 'Community',
-
-    title:
-      'SNS JU Sustainability Working Group',
-
+    title: 'SNS JU Sustainability Working Group',
     description:
-      'Contributing to discussions on sustainability for next-generation communication systems, including sustainable-by-design and sustainable-in-operation approaches for future 6G networks and connected devices.',
-
+      'Contributing to the SNS JU Sustainability Working Group and discussions on sustainable-by-design and sustainable-in-operation approaches for future communication networks.',
     visual: 'standard',
-
     url: '',
     linkLabel: 'Read more'
   },
 
-
-  /* =======================================================
-     4. AMBIENT-6G
-     Text-only recommended
-     ======================================================= */
+  {
+    date: '2026-07-01',
+    homeText: 'Serving as Belgium Management Committee member for COST Action NERO on extreme wildfire behaviour.',
+    displayDate: '2026',
+    category: 'Research Network',
+    title: 'Management Committee member for COST Action NERO',
+    description:
+      'Serving as a Management Committee member representing Belgium in COST Action NERO, a European research network focused on extreme wildfire behaviour.',
+    visual: 'standard',
+    url: '',
+    linkLabel: 'Read more'
+  },
 
   {
-    date: '2026-07-20',
-    homeText: 'Advancing energy-neutral Ambient IoT research through AMBIENT-6G.',
-    displayDate: 'July 2026',
+    date: '2026-06-01',
+    homeText: 'Task Lead for IoT research in BEL6GICA, Belgium’s 6G flagship project.',
+    displayDate: '2026',
     category: 'Project',
-
-    title:
-      'AMBIENT-6G research on energy-neutral Ambient IoT',
-
+    title: 'Task Lead for IoT research in BEL6GICA',
     description:
-      'Contributing to research on standardized 6G connectivity for ambiently powered energy-neutral IoT devices, spanning low-power communication, energy-aware operation, embedded intelligence and scalable future deployments.',
-
+      'Leading IoT research activities within BEL6GICA around low-power radios, energy harvesting and power management, sustainable device operation and future energy-neutral device classes.',
     visual: 'standard',
-
-    url: '',
+    url: 'https://6g.be/',
     linkLabel: 'Project details'
   },
 
-
-  /* =======================================================
-     5. EuCNC / SUSTAINABILITY WORKSHOP
-     Good candidate for ONE event photo
-     ======================================================= */
-
   {
-    date: '2026-06-30',
-    homeText: 'Co-organized the Sustainable by Design, Sustainable in Operation workshop on 6G.',
-    displayDate: 'June 2026',
-    category: 'Workshop',
-
-    title:
-      'Sustainable by Design, Sustainable in Operation: The 6G Perspective',
-
+    date: '2025-10-01',
+    homeText: 'Demo and T&V Chair at IEEE Future Networks World Forum 2025.',
+    displayDate: '2025',
+    category: 'Conference Service',
+    title: 'Demo and T&V Chair at IEEE Future Networks World Forum 2025',
     description:
-      'Co-organized a workshop bringing together device, network and application perspectives on how future communication systems can be made more sustainable by design and during operation.',
-
+      'Served as Demo and Test & Validation (T&V) Chair at the IEEE Future Networks World Forum 2025.',
     visual: 'standard',
-
-    /*
-    WHEN YOU HAVE A WORKSHOP PHOTO:
-
-    Change:
-
-    visual: 'standard'
-
-    to:
-
-    visual: 'image'
-
-    Then uncomment:
-
-    media: {
-      images: [
-        'images/activities/eucnc-sustainability-workshop.jpg'
-      ],
-
-      caption:
-        'Workshop on sustainable 6G systems',
-
-      alt:
-        'Workshop on sustainable-by-design and sustainable-in-operation 6G'
-    },
-    */
-
-    url: '',
-    linkLabel: 'Workshop details'
-  },
-
-
-  /* =======================================================
-     6. PUBLICATION
-     Keep text-only
-     ======================================================= */
-
-  {
-    date: '2026-05-20',
-    homeText: 'Published research on Zero-Energy Devices for sustainable and scalable future 6G systems.',
-    displayDate: '2026',
-    category: 'Publication',
-
-    title:
-      'Zero-Energy Devices for 6G',
-
-    description:
-      'Research on Zero-Energy Devices exploring how energy harvesting, ultra-low-power communication, energy-aware computing and embedded intelligence can enable sustainable and scalable future IoT systems.',
-
-    visual: 'standard',
-
-    url: 'publications.html',
-    linkLabel: 'View publication'
-  },
-
-
-  /* =======================================================
-     7. EUROPEAN 6G RESEARCH
-     ======================================================= */
-
-  {
-    date: '2026-04-15',
-    homeText: 'Advancing energy-neutral and Ambient IoT research across European 6G projects.',
-    displayDate: '2026',
-    category: 'Research',
-
-    title:
-      'Energy-neutral and Ambient IoT research across European 6G projects',
-
-    description:
-      'Advancing low-power communication, intermittent and energy-aware computing, and scalable intelligent devices through AMBIENT-6G, BEL6GICA, Hexa-X-II and related research activities.',
-
-    visual: 'standard',
-
-    url: 'projects.html',
-    linkLabel: 'View projects'
-  },
-
-
-  /* =======================================================
-     8. RESEARCH DIRECTION
-     ======================================================= */
-
-  {
-    date: '2026-03-15',
-    homeText: 'Developing scalable intelligent systems that adapt operation to available harvested energy.',
-    displayDate: '2026',
-    category: 'Research',
-
-    title:
-      'Towards scalable intelligent Energy-Neutral systems',
-
-    description:
-      'Developing a research direction that connects energy availability, sensing, communication, computing and learning so constrained devices can adapt their behaviour to harvested and available energy.',
-
-    visual: 'standard',
-
     url: '',
     linkLabel: 'Read more'
   },
 
-
-  /* =======================================================
-     9. BEL6GICA
-     ======================================================= */
-
+  /* Older entries retained for the full Activities archive */
   {
     date: '2026-02-20',
     homeText: 'Leading low-power IoT and energy-neutral device research within BEL6GICA.',
     displayDate: '2026',
     category: 'Project',
-
-    title:
-      'BEL6GICA research on low-power IoT for future 6G',
-
+    title: 'BEL6GICA research on low-power IoT for future 6G',
     description:
       'Leading IoT research activities around low-power radios, energy harvesting and power management, sustainable device operation and future energy-neutral device classes within Belgian 6G research.',
-
     visual: 'standard',
-
     url: 'projects.html',
-    linkLabel: 'View projects'
+    linkLabel: 'View projects',
+    showOnHome: false
   },
-
-
-  /* =======================================================
-     10. EMBEDDED INTELLIGENCE
-     ======================================================= */
 
   {
     date: '2026-01-20',
     homeText: 'Exploring TinyML, TinyOL and distributed intelligence for highly energy-constrained devices.',
     displayDate: '2026',
     category: 'Research',
-
-    title:
-      'Embedded intelligence for highly energy-constrained devices',
-
+    title: 'Embedded intelligence for highly energy-constrained devices',
     description:
       'Exploring TinyML, TinyOL and distributed edge intelligence for devices that must dynamically balance sensing, computing, learning and communication under tight and varying energy budgets.',
-
     visual: 'standard',
-
     url: '',
-    linkLabel: 'Read more'
+    linkLabel: 'Read more',
+    showOnHome: false
   },
-
-
-  /* =======================================================
-     11. CORRELATE
-
-     This demonstrates the automatic behaviour.
-
-     Since Home shows only 10 activities, this activity will
-     NOT appear on Home while there are 10 newer activities.
-
-     It WILL automatically remain on updates.html.
-     ======================================================= */
 
   {
     date: '2025-11-01',
     homeText: 'Researching closed-loop energy-aware Industrial IoT through CORRELATE.',
     displayDate: '2025',
     category: 'Project',
-
-    title:
-      'CORRELATE: closed-loop energy-aware industrial IoT',
-
+    title: 'CORRELATE: closed-loop energy-aware industrial IoT',
     description:
-      'Research on a closed-loop platform for energy-aware Industrial IoT, connecting low-power sensing, communication and system-level adaptation for more sustainable deployments.',
-
+      'Researching closed-loop energy-aware Industrial IoT through CORRELATE.',
     visual: 'standard',
-
-    url: 'projects.html',
-    linkLabel: 'View project'
+    url: '',
+    linkLabel: 'Read more',
+    showOnHome: false
   }
 
 ];
-
 
 
 /* =========================================================
@@ -736,6 +538,7 @@ function renderHomeActivities(
 
   const latest =
     sortedActivities()
+      .filter(activity => activity.showOnHome !== false)
       .slice(0, limit);
 
 
