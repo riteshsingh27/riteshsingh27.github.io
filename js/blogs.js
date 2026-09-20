@@ -88,17 +88,14 @@ function blogCardTemplate(blog) {
 
   return `
 
-    <article class="home-blog-card">
+    <article class="home-blog-card is-active-blog">
 
-      <div class="home-blog-image">
-
-        <img
-          src="${escapeBlogHtml(blog.image)}"
-          alt="${escapeBlogHtml(blog.title)}"
-          loading="lazy"
-        >
-
-      </div>
+      <img
+        class="home-blog-image"
+        src="${escapeBlogHtml(blog.image)}"
+        alt="${escapeBlogHtml(blog.title)}"
+        loading="lazy"
+      >
 
 
       <div class="home-blog-content">
@@ -130,7 +127,9 @@ function blogCardTemplate(blog) {
           class="read-link"
           href="${escapeBlogHtml(blog.url)}"
         >
+
           Read More
+
         </a>
 
       </div>
@@ -166,6 +165,8 @@ function renderBlogCarousel(
   if (!publishedBlogs.length) {
 
     container.innerHTML = '';
+
+    updateBlogIndicators();
 
     return;
 
@@ -303,8 +304,17 @@ function updateBlogIndicators() {
 
   if (counter) {
 
-    counter.textContent =
-      `${currentBlogIndex + 1} / ${publishedBlogs.length}`;
+    if (publishedBlogs.length) {
+
+      counter.textContent =
+        `${currentBlogIndex + 1} / ${publishedBlogs.length}`;
+
+    } else {
+
+      counter.textContent =
+        '0 / 0';
+
+    }
 
   }
 
@@ -327,7 +337,7 @@ function updateBlogIndicators() {
 
           <button
             type="button"
-            class="blog-dot ${
+            class="carousel-dot ${
               index === currentBlogIndex
                 ? 'active'
                 : ''
@@ -380,9 +390,13 @@ function allBlogsCardTemplate(blog) {
   /*
      blogs/index.html is one folder deeper than index.html.
 
+     Therefore:
+
      images/example.png
      becomes:
      ../images/example.png
+
+     and:
 
      blogs/blog1.html
      becomes:
@@ -444,7 +458,9 @@ function allBlogsCardTemplate(blog) {
           class="read-link"
           href="${escapeBlogHtml(blogUrl)}"
         >
+
           Read More
+
         </a>
 
       </div>
@@ -517,6 +533,8 @@ function initialiseBlogs() {
 
   if (homeContainer) {
 
+    currentBlogIndex = 0;
+
     renderBlogCarousel(
       'latestBlogs'
     );
@@ -545,56 +563,11 @@ function initialiseBlogs() {
 
   /*
      EXISTING HOME CAROUSEL BUTTONS
+
+     Your Home page already uses onclick="previousBlog()"
+     and onclick="nextBlog()", so no additional listener
+     is required for those buttons.
   */
-
-  const previousButton =
-    document.getElementById(
-      'blogPrev'
-    );
-
-
-  const nextButton =
-    document.getElementById(
-      'blogNext'
-    );
-
-
-  if (
-    previousButton &&
-    !previousButton.hasAttribute(
-      'onclick'
-    ) &&
-    !previousButton.dataset.blogListener
-  ) {
-
-    previousButton.addEventListener(
-      'click',
-      previousBlog
-    );
-
-    previousButton.dataset.blogListener =
-      'true';
-
-  }
-
-
-  if (
-    nextButton &&
-    !nextButton.hasAttribute(
-      'onclick'
-    ) &&
-    !nextButton.dataset.blogListener
-  ) {
-
-    nextButton.addEventListener(
-      'click',
-      nextBlog
-    );
-
-    nextButton.dataset.blogListener =
-      'true';
-
-  }
 
 }
 
