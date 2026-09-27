@@ -94,7 +94,8 @@ const publicationsData = [
     venue: 'IEEE Internet of Things Magazine',
     keywords: ['Zero-Energy Devices', '6G'],
     url: 'https://doi.org/10.1109/IOTM.001.2400138',
-    type: 'Journal / Article'
+    type: 'Journal / Article',
+    homeFeatured: true
   },
 
   {
@@ -530,9 +531,37 @@ function renderRecentPublications(
   }
 
 
+  const sorted =
+    sortedPublications();
+
+
+  const featured =
+    sorted.find(
+      pub => pub.homeFeatured === true
+    );
+
+
+  const recent =
+    sorted
+      .filter(
+        pub => pub.homeFeatured !== true
+      )
+      .slice(
+        0,
+        featured
+          ? Math.max(0, limit - 1)
+          : limit
+      );
+
+
+  const homePublications =
+    featured
+      ? [...recent, featured]
+      : recent;
+
+
   container.innerHTML =
-    sortedPublications()
-      .slice(0, limit)
+    homePublications
       .map(pub => `
 
         <article class="pub-card">
