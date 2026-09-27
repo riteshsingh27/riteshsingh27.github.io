@@ -5,8 +5,8 @@
    HOW IT WORKS
 
    index.html:
-   renderHomeActivities('homeActivities', 10);
-   → shows latest 10 activities only.
+   renderHomeActivities('homeActivities', 9);
+   → shows 9 activities on the home page.
 
    updates.html:
    renderAllActivities('allActivities');
@@ -50,6 +50,20 @@ const activities = [
     url: '',
     linkLabel: 'Read more',
     pinned: true
+  },
+
+  {
+    date: '2026-06-30',
+    homeText: 'Our work on LPWAN energy consumption is cited as the first reference in Wikipedia’s LPWAN article.',
+    displayDate: 'June 2026',
+    category: 'Research Impact',
+    title: 'Research impact beyond academia',
+    description:
+      'Our paper on LPWAN energy consumption is cited as the first reference in Wikipedia’s LPWAN article, highlighting its reach beyond research publications.',
+    visual: 'standard',
+    url: 'https://en.wikipedia.org/wiki/Low-power_wide-area_network',
+    linkLabel: 'View Wikipedia article',
+    homePosition: 6
   },
 
   {
@@ -537,17 +551,43 @@ function renderHomeActivities(
   }
 
 
-  const latest =
+  const visible =
     sortedActivities()
       .filter(
         activity =>
           activity.showOnHome !== false
-      )
-      .slice(0, limit);
+      );
+
+
+  const positioned =
+    visible.filter(
+      activity =>
+        Number.isInteger(activity.homePosition)
+    );
+
+
+  const latest =
+    visible.filter(
+      activity =>
+        !Number.isInteger(activity.homePosition)
+    );
+
+
+  positioned.forEach(activity => {
+
+    const index = Math.max(
+      0,
+      activity.homePosition - 1
+    );
+
+    latest.splice(index, 0, activity);
+
+  });
 
 
   container.innerHTML =
     latest
+      .slice(0, limit)
       .map(homeActivityTemplate)
       .join('');
 
