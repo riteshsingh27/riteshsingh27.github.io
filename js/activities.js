@@ -39,9 +39,23 @@
 const activities = [
 
   {
+    date: '2026-09-27',
+    homeText: 'Elevated to Senior Member of IEEE.',
+    displayDate: 'September 2026',
+    category: 'Professional Recognition',
+    title: 'Elevated to Senior Member of IEEE',
+    description:
+      'Elevated to Senior Member of IEEE, marking an important professional milestone in my research and engineering career.',
+    visual: 'standard',
+    url: '',
+    linkLabel: 'Read more',
+    pinned: true
+  },
+
+  {
     date: '2026-10-25',
     homeText: 'Co-chairing the 3rd EN-IoT Workshop at IEEE SENSORS 2026 in Rotterdam.',
-    displayDate: '25 October 2026',
+    displayDate: 'October 2026',
     category: 'Workshop',
     title: '3rd EN-IoT Workshop at IEEE SENSORS 2026',
     description:
@@ -151,9 +165,19 @@ const activities = [
 
 function sortedActivities() {
 
-  return [...activities].sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  return [...activities].sort((a, b) => {
+
+    const pinnedDifference =
+      Number(Boolean(b.pinned)) -
+      Number(Boolean(a.pinned));
+
+    if (pinnedDifference !== 0) {
+      return pinnedDifference;
+    }
+
+    return new Date(b.date) - new Date(a.date);
+
+  });
 
 }
 
